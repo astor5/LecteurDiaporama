@@ -266,10 +266,9 @@ void triCroissantRang (Diaporama &pDiaporama)
         }
     }
 }
-<<<<<<< HEAD
 //test git
-=======
 
 
 //test pour iban
->>>>>>> 99e99f66edb0ad3ed869eb9608cb3d3dcaf38b13
+
+//Test git de latxague
