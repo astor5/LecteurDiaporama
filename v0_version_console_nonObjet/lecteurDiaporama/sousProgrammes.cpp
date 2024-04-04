@@ -268,7 +268,7 @@ void triCroissantRang (Diaporama &pDiaporama)
 }
 //test git
 
-
+// test 2 iban
 //test pour iban
 //Second test de chipy
 //Test git de latxague
