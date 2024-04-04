@@ -266,4 +266,4 @@ void triCroissantRang (Diaporama &pDiaporama)
         }
     }
 }
-
+//test git
