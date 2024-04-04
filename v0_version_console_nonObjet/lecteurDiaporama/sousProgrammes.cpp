@@ -267,3 +267,5 @@ void triCroissantRang (Diaporama &pDiaporama)
     }
 }
 
+
+//test pour iban
