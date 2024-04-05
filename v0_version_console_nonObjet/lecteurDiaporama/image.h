@@ -5,18 +5,37 @@ using namespace std;
 
 // Module de manipulation d'éléments de type Image
 
-struct Image {
+struct Images {
     string titre;              // intitulé de l'image
     string categorie;          // catégorie de l'image (personne, animal, objet)
     string chemin;
 };
 
-Image creerImage (string pTitre="", string pCategorie="", string pChemin = "");
+Images creerImage (string pTitre="", string pCategorie="", string pChemin = "");
 //
-string getCategorie(const Image& pImag);
-string getTitre(const Image& pImag);
-string getChemin(const Image& pImag);
-void afficher(const Image& pImag);           // affiche tous les champs de l'image
+string getCategorie(const Images& pImag);
+string getTitre(const Images& pImag);
+string getChemin(const Images& pImag);
+void afficher(const Images& pImag);           // affiche tous les champs de l'image
+
+
+
+class Image {
+private :
+    string m_titre;
+    string m_categorie;
+    string m_rang;
+
+public:
+    Image(string = "", string = "", string="");
+    Image(const Image&);
+    ~Image();
+
+    string getCategorie(const Image&) const;
+    string getTitre(const Image&) const;
+    string getRang(const Image&) const;
+    void afficher(const Image&) const;
+};
 
 
 #endif // IMAGE_H
