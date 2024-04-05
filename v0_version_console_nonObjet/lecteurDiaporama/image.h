@@ -25,15 +25,17 @@ private :
     string m_titre;
     string m_categorie;
     string m_rang;
+    string m_chemin;
 
 public:
-    Image(string = "", string = "", string="");
+    Image(string = "", string = "", string="", string="");
     Image(const Image&);
     ~Image();
 
     string getCategorie(const Image&) const;
     string getTitre(const Image&) const;
     string getRang(const Image&) const;
+    string getChemin(const Image&) const;
     void afficher(const Image&) const;
 };
 
