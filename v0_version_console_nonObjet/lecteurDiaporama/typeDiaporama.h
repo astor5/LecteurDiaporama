@@ -29,6 +29,7 @@ private:
     Image m_image;
     bool m_estManuel;
     unsigned short int m_vitesseDefilement; //Vitesse de défilement en secondes
+    string filtre;
 
 public:
     Diaporama(string = "", Image = Image());
@@ -41,6 +42,9 @@ public:
     void allerPremiereImage(const Diaporama&) const;
     void changerModeDefilement(const Diaporama&);
     unsigned short int vitesseDefilement(const Diaporama&) const;
+    Diaporama getDiaporama(const Diaporama&) const;
+    string getFiltre(const Diaporama&) const;
+    void modifierFiltre(const Diaporama&);
 
 
 };

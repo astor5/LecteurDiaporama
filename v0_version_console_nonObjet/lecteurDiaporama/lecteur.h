@@ -18,6 +18,7 @@ public:
     void lireDiaporama(const Diaporama&) const;
     void arreterLecture(const Diaporama&) const;
     void charger(const Diaporama&);
+    void enleverDiaporama(const Lecteur&);
 
 
 
