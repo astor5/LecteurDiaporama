@@ -12,12 +12,44 @@ struct ImageDansDiaporama {
                         // = ordre d'affichage choisi par l'utilisateur lors de la création du diaporama
 };
 
-struct Diaporama {
+struct Diaporamas {
     string titre ;  // titre du diaporama
     unsigned int vitesseDefilement; // vitesse de défilement des images du diaporama
     vector <ImageDansDiaporama> localisationImages; // images du diaporama
 };
 
-typedef vector<Image> Images;
-typedef vector<Diaporama> Diaporamas;
+typedef vector<Images> ImagesT;
+typedef vector<Diaporamas> DiaporamasT;
+
+
+class Diaporama {
+
+private:
+    string m_titre;
+    Image m_image;
+    bool m_estManuel;
+    unsigned short int m_vitesseDefilement; //Vitesse de défilement en secondes
+    string filtre;
+
+public:
+    Diaporama(string = "", Image = Image());
+    Diaporama(const Diaporama&);
+    ~Diaporama();
+
+    string getTitre(const Diaporama&) const;
+    void passerAuSuivant(const Diaporama&) const;
+    void passerAuPrecedent(const Diaporama&) const;
+    void allerPremiereImage(const Diaporama&) const;
+    void changerModeDefilement(const Diaporama&);
+    unsigned short int vitesseDefilement(const Diaporama&) const;
+    Diaporama getDiaporama(const Diaporama&) const;
+    string getFiltre(const Diaporama&) const;
+    void modifierFiltre(const Diaporama&);
+
+
+};
+
+
+
 #endif // TYPE_DIAPORAMA_H
+
