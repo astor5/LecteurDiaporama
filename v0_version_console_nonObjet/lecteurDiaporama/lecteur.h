@@ -1,6 +1,8 @@
 #ifndef LECTEUR_H
 #define LECTEUR_H
 
+#include "typeDiaporama.h"
+
 class Lecteur {
 private:
     bool m_estManuel;
@@ -13,7 +15,9 @@ public:
 
     bool getEstManuel(const Lecteur&) const;
     unsigned short int vitesseDefilement(const Lecteur&) const;
-    void changerModeDefilement(const Lecteur&);
+    void lireDiaporama(const Diaporama&) const;
+    void arreterLecture(const Diaporama&) const;
+
 
 
 
