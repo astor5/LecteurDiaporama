@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<!--GENERATED FILE, PLEASE DO NOT EDIT!!!--><EXT object="s2.01" version="4">
+  <OBJECT>
+    <ID name="s2.01" mc="Standard.Package" uid="dea9a9f8-19a3-4f26-9615-4b407e099f6a"/>
+    <PID name="S2.01" mc="Standard.Project" uid="f44a7226-6d0a-458f-af53-2281e7b8a99e"/>
+    <ATTRIBUTES>
+      <ATT name="IsInstantiable">false</ATT>
+      <ATT name="IsAbstract">false</ATT>
+      <ATT name="IsLeaf">false</ATT>
+      <ATT name="IsRoot">false</ATT>
+      <ATT name="Visibility">Public</ATT>
+      <ATT name="Name"><![CDATA[s2.01]]></ATT>
+      <ATT name="status">1970354901745664</ATT>
+    </ATTRIBUTES>
+    <DEPENDENCIES>
+      <COMP relation="Product">
+        <COMPID name="Diagramme de classe s2.01" mc="Standard.ClassDiagram" uid="5250e2fe-637b-491c-88f3-76387bde3149"/>
+      </COMP>
+    </DEPENDENCIES>
+  </OBJECT>
+</EXT>

@@ -1,6 +1,5 @@
 #ifndef IMAGE_H
 #define IMAGE_H
-#include <iostream>
 using namespace std;
 
 // Module de manipulation d'éléments de type Image
