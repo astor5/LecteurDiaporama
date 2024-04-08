@@ -6,7 +6,7 @@
 using namespace std;
 
 
-void afficherImageCouranteDansDiaporamaCourant (const Diaporama& pDiaporama, unsigned int pImageCourante, const Image& pImage)
+void afficherImageCouranteDansDiaporamaCourant (const Diaporamas& pDiaporama, unsigned int pImageCourante, const ImagesT& pImage)
 {
     cout << endl << endl;
     cout << "DIAPORAMA : " << pDiaporama.titre << endl << endl;
@@ -32,7 +32,7 @@ void saisieVerifChoixActionSurImageCourante(char& pChoixAction)
         }
     }
 }
-unsigned int saisieVerifChoixDiaporama(const Diaporamas& pDiaporamas)
+unsigned int saisieVerifChoixDiaporama(const DiaporamasT& pDiaporamas)
 {
     unsigned int choixSaisi;
     int choixDiaporama; // valeur retournée
@@ -57,8 +57,8 @@ unsigned int saisieVerifChoixDiaporama(const Diaporamas& pDiaporamas)
     return choixDiaporama;
 }
 
-void declencherAction(char pChoixAction, const Diaporamas& pDiaporamas, unsigned int& pDiaporamaCourant,
-                      unsigned int& pImageCourante, const Images& pImages)
+void declencherAction(char pChoixAction, const Diaporama& pDiaporamas, unsigned int& pDiaporamaCourant,
+                      unsigned int& pImageCourante, const ImagesT& pImages)
 /* Selon le pChoix fait l'utilisateur, réalise une des actions A)vancer, R)eculer, C)hoisir un autre diaporama, Q)quitter */
 {
     unsigned int position;
@@ -88,11 +88,11 @@ void declencherAction(char pChoixAction, const Diaporamas& pDiaporamas, unsigned
 }
 
 
-void charger(Diaporamas& pDiaporamas)
+void charger(DiaporamasT& pDiaporamas)
 {
-    Image imageACharger;
+    ImagesT imageACharger;
     ImageDansDiaporama imageDansDiapo;
-    Diaporama diaporama;
+    Diaporamas diaporama;
 
     // Diaporama par défaut
     diaporama.titre = "Diaporama par defaut";
@@ -196,7 +196,7 @@ void charger(Diaporamas& pDiaporamas)
     diaporama.localisationImages.clear();
 
 }
-void charger (Images& pImages) {
+void charger (ImagesT& pImages) {
     Image imageACharger;
     imageACharger = creerImage ("objet", "", "C:\\cartesDisney\\Disney_tapis.gif");
     pImages.push_back(imageACharger);
@@ -218,7 +218,7 @@ void charger (Images& pImages) {
 
 /* Corps des sous-programmes utilisés par la fonction main()
  * ------------------------------------------------------- */
-void avancer(const Diaporama& pDiaporama, unsigned int& pPosImageCourante)
+void avancer(const DiaporamasT& pDiaporama, unsigned int& pPosImageCourante)
 // avance à l'image suivante de l'image courante. Revient à l'image de rang 1 si terminé
 {
     if (pPosImageCourante == pDiaporama.localisationImages.size() - 1)
@@ -229,7 +229,7 @@ void avancer(const Diaporama& pDiaporama, unsigned int& pPosImageCourante)
         pPosImageCourante = pPosImageCourante + 1;
     }
 }
-void reculer(const Diaporama& pDiaporama, unsigned int& pPosImageCourante)
+void reculer(const DiaporamasT& pDiaporama, unsigned int& pPosImageCourante)
 {
     if (pPosImageCourante == 0)
     {
@@ -240,13 +240,13 @@ void reculer(const Diaporama& pDiaporama, unsigned int& pPosImageCourante)
     }
 }
 
-unsigned int nbImages(const Diaporama& pDiaporama)
+unsigned int nbImages(const DiaporamasT& pDiaporama)
 {
     return pDiaporama.localisationImages.size();
 }
 
 
-void triCroissantRang (Diaporama &pDiaporama)
+void triCroissantRang (DiaporamasT &pDiaporama)
 {   // par la méthode du triBulle
     unsigned int taille = pDiaporama.localisationImages.size();
     ImageDansDiaporama imageDansDiapo;

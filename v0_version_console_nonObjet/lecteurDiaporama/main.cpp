@@ -13,8 +13,8 @@ int main()
      * - Charger les images et diaporamas
      * Dans un second temps, ces contenus proviendront d'une base de données
      --------------------------------------------------------------------------------------*/
-    Images images;          // les images
-    Diaporamas diaporamas;  // les diaporamas
+    ImagesT images;          // les images
+    DiaporamasT diaporamas;  // les diaporamas
 
     // Chargement des urls des images, chargement des diaporamas
     charger(images);

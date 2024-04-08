@@ -9,7 +9,7 @@ using namespace std;
 
 /* Sous-programmes provisoires pour versions Non encore graphiques
  * -------------------------------------------------------------- */
-void afficherImageCouranteDansDiaporamaCourant (const Diaporama& pDiaporama, unsigned int pImageCourante, const Image& pImage);
+void afficherImageCouranteDansDiaporamaCourant (const Diaporamas& pDiaporama, unsigned int pImageCourante, const ImagesT& pImage);
 /* Affichage à l'acran des infos de l'image courante dans son diaporama
  *    - titre du diaporama
       - image courante : titre, famille, contenu
@@ -21,14 +21,14 @@ void saisieVerifChoixActionSurImageCourante(char& pChoixAction);
 unsigned int saisieVerifChoixDiaporama(const Diaporamas& pDiaporamas);
 // Retourne un numéro de diaporama choisi par l'utilisateur (dans la liste des diaporamas existants)
 
-void declencherAction(char pChoixAction, const Diaporamas& pDiaporamas, unsigned int& pDiaporamaCourant,
-                      unsigned int& pImageCourante, const Images& pImages);
+void declencherAction(char pChoixAction, const Diaporama& pDiaporamas, unsigned int& pDiaporamaCourant,
+                      unsigned int& pImageCourante, const ImagesT& pImages);
 /* Selon le pChoix fait l'utilisateur, réalise une des actions A)vancer, R)eculer, C)hoisir un autre diaporama, Q)quitter */
 
 
 /* Sous-programmes provisoires pour versions antérieures à l'implantation de la BD
 ----------------------------------------------------------------------------------*/
-void charger (Images& pImages);
+void charger (ImagesT& pImages);
 /* Chargement du tableau des images avec seules les informations textuelles de quelques images.
    Dans une version ultérieure, ces informations seront stockées dans une Base de Données.
 */
