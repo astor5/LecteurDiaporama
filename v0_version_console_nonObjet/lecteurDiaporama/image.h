@@ -1,5 +1,7 @@
 #ifndef IMAGE_H
 #define IMAGE_H
+
+#include <iostream>
 using namespace std;
 
 // Module de manipulation d'éléments de type Image
@@ -27,9 +29,9 @@ private :
     string m_chemin;
 
 public:
-    Image(string = "", string = "", string="", string="");
+    Image(string = "", string = "", string="", string="");//les paramètres dans l'ordre : titre, categorie, rang, chemin
     Image(const Image&);
-    ~Image();
+    //~Image(); //pas besoin de destructeur car on ne fait pas d'allocation dynamique (je crois)
 
     string getCategorie(const Image&) const;
     string getTitre(const Image&) const;
