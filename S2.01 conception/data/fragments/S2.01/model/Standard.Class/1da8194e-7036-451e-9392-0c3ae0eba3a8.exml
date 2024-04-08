@@ -17,7 +17,7 @@
     <DEPENDENCIES>
       <COMP relation="OwnedOperation">
         <OBJECT>
-          <ID name="ArreterLecture" mc="Standard.Operation" uid="a9ffb0f1-6e4c-4271-8176-c5ce5ef0eb41"/>
+          <ID name="arreterLecture" mc="Standard.Operation" uid="a9ffb0f1-6e4c-4271-8176-c5ce5ef0eb41"/>
           <ATTRIBUTES>
             <ATT name="Concurrency">false</ATT>
             <ATT name="Final">false</ATT>
@@ -25,13 +25,13 @@
             <ATT name="Visibility">Public</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[ArreterLecture]]></ATT>
+            <ATT name="Name"><![CDATA[arreterLecture]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="LireDiaporama" mc="Standard.Operation" uid="59cc76aa-3ed2-4d93-a3a7-5f46eb5917c2"/>
+          <ID name="lireDiaporama" mc="Standard.Operation" uid="59cc76aa-3ed2-4d93-a3a7-5f46eb5917c2"/>
           <ATTRIBUTES>
             <ATT name="Concurrency">false</ATT>
             <ATT name="Final">false</ATT>
@@ -39,7 +39,7 @@
             <ATT name="Visibility">Public</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[LireDiaporama]]></ATT>
+            <ATT name="Name"><![CDATA[lireDiaporama]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES></DEPENDENCIES>
@@ -59,7 +59,7 @@
           <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="chargerDiaporama" mc="Standard.Operation" uid="2f0b5833-58cc-40f5-9950-82ded70dc7fb"/>
+          <ID name="charger" mc="Standard.Operation" uid="2f0b5833-58cc-40f5-9950-82ded70dc7fb"/>
           <ATTRIBUTES>
             <ATT name="Concurrency">false</ATT>
             <ATT name="Final">false</ATT>
@@ -67,7 +67,7 @@
             <ATT name="Visibility">Public</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[chargerDiaporama]]></ATT>
+            <ATT name="Name"><![CDATA[charger]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES></DEPENDENCIES>
@@ -100,10 +100,24 @@
           </ATTRIBUTES>
           <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
+        <OBJECT>
+          <ID name="Lecteur" mc="Standard.Operation" uid="29fac155-5ed2-4121-b89e-adf5677a4eaa"/>
+          <ATTRIBUTES>
+            <ATT name="Concurrency">false</ATT>
+            <ATT name="Final">false</ATT>
+            <ATT name="Passing">MethodOut</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name"><![CDATA[Lecteur]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
       </COMP>
       <COMP relation="OwnedAttribute">
         <OBJECT>
-          <ID name="estVide" mc="Standard.Attribute" uid="e89677ce-b032-4c3d-b83d-a8c3c7eca4f0"/>
+          <ID name="m_estVide" mc="Standard.Attribute" uid="e89677ce-b032-4c3d-b83d-a8c3c7eca4f0"/>
           <ATTRIBUTES>
             <ATT name="TypeConstraint"></ATT>
             <ATT name="Value"></ATT>
@@ -117,7 +131,7 @@
             <ATT name="Visibility">Private</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[estVide]]></ATT>
+            <ATT name="Name"><![CDATA[m_estVide]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>
@@ -127,7 +141,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="Diaporama" mc="Standard.Attribute" uid="61b948e0-f3f9-4fcd-98f7-8d6d5112522c"/>
+          <ID name="m_diaporama" mc="Standard.Attribute" uid="61b948e0-f3f9-4fcd-98f7-8d6d5112522c"/>
           <ATTRIBUTES>
             <ATT name="TypeConstraint"></ATT>
             <ATT name="Value"></ATT>
@@ -138,10 +152,10 @@
             <ATT name="IsUnique">false</ATT>
             <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
             <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
-            <ATT name="Visibility">Public</ATT>
+            <ATT name="Visibility">Private</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[Diaporama]]></ATT>
+            <ATT name="Name"><![CDATA[m_diaporama]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>

@@ -86,10 +86,24 @@
           </ATTRIBUTES>
           <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
+        <OBJECT>
+          <ID name="Image" mc="Standard.Operation" uid="1b1aa2cb-d821-4cf9-8e3d-b3d7726ab2dc"/>
+          <ATTRIBUTES>
+            <ATT name="Concurrency">false</ATT>
+            <ATT name="Final">false</ATT>
+            <ATT name="Passing">MethodOut</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name"><![CDATA[Image]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
       </COMP>
       <COMP relation="OwnedAttribute">
         <OBJECT>
-          <ID name="Titre" mc="Standard.Attribute" uid="f06a746f-4e98-430b-aacc-48643f98cd99"/>
+          <ID name="m_titre" mc="Standard.Attribute" uid="f06a746f-4e98-430b-aacc-48643f98cd99"/>
           <ATTRIBUTES>
             <ATT name="TypeConstraint"></ATT>
             <ATT name="Value"></ATT>
@@ -103,7 +117,7 @@
             <ATT name="Visibility">Private</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[Titre]]></ATT>
+            <ATT name="Name"><![CDATA[m_titre]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>
@@ -113,7 +127,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="Catégorie" mc="Standard.Attribute" uid="ad201c9b-96eb-4d58-976f-6f4b94c367c4"/>
+          <ID name="m_categorie" mc="Standard.Attribute" uid="ad201c9b-96eb-4d58-976f-6f4b94c367c4"/>
           <ATTRIBUTES>
             <ATT name="TypeConstraint"></ATT>
             <ATT name="Value"></ATT>
@@ -127,7 +141,7 @@
             <ATT name="Visibility">Private</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[Catégorie]]></ATT>
+            <ATT name="Name"><![CDATA[m_categorie]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>
@@ -137,7 +151,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="Rang" mc="Standard.Attribute" uid="70f78d50-f675-4d09-8d64-3f19563933b3"/>
+          <ID name="m_rang" mc="Standard.Attribute" uid="70f78d50-f675-4d09-8d64-3f19563933b3"/>
           <ATTRIBUTES>
             <ATT name="TypeConstraint"></ATT>
             <ATT name="Value"></ATT>
@@ -151,7 +165,7 @@
             <ATT name="Visibility">Private</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[Rang]]></ATT>
+            <ATT name="Name"><![CDATA[m_rang]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>
@@ -161,7 +175,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="cheminAccesFic" mc="Standard.Attribute" uid="9d3f0936-f6fc-493e-8a58-fccd8a85e630"/>
+          <ID name="m_chemin" mc="Standard.Attribute" uid="9d3f0936-f6fc-493e-8a58-fccd8a85e630"/>
           <ATTRIBUTES>
             <ATT name="TypeConstraint"></ATT>
             <ATT name="Value"></ATT>
@@ -175,7 +189,7 @@
             <ATT name="Visibility">Private</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[cheminAccesFic]]></ATT>
+            <ATT name="Name"><![CDATA[m_chemin]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>

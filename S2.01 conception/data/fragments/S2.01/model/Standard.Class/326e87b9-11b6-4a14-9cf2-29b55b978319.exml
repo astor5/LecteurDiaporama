@@ -128,10 +128,38 @@
           </ATTRIBUTES>
           <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
+        <OBJECT>
+          <ID name="getTitre" mc="Standard.Operation" uid="dfc5de4b-9600-4d82-93c5-5ee9d71363a7"/>
+          <ATTRIBUTES>
+            <ATT name="Concurrency">false</ATT>
+            <ATT name="Final">false</ATT>
+            <ATT name="Passing">MethodOut</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name"><![CDATA[getTitre]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="getDiaporama" mc="Standard.Operation" uid="1972305d-7e35-4813-b5e0-5a912f4e4d1a"/>
+          <ATTRIBUTES>
+            <ATT name="Concurrency">false</ATT>
+            <ATT name="Final">false</ATT>
+            <ATT name="Passing">MethodOut</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name"><![CDATA[getDiaporama]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
       </COMP>
       <COMP relation="OwnedAttribute">
         <OBJECT>
-          <ID name="Images" mc="Standard.Attribute" uid="0efbdfcb-a97c-4631-905e-ded8d2bad159"/>
+          <ID name="m_images" mc="Standard.Attribute" uid="0efbdfcb-a97c-4631-905e-ded8d2bad159"/>
           <ATTRIBUTES>
             <ATT name="TypeConstraint"></ATT>
             <ATT name="Value"></ATT>
@@ -145,7 +173,7 @@
             <ATT name="Visibility">Private</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[Images]]></ATT>
+            <ATT name="Name"><![CDATA[m_images]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>
@@ -155,7 +183,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="Titre" mc="Standard.Attribute" uid="c9ec7a68-85bc-46bf-b500-1958e56ac0e8"/>
+          <ID name="m_titre" mc="Standard.Attribute" uid="c9ec7a68-85bc-46bf-b500-1958e56ac0e8"/>
           <ATTRIBUTES>
             <ATT name="TypeConstraint"></ATT>
             <ATT name="Value"></ATT>
@@ -169,7 +197,7 @@
             <ATT name="Visibility">Private</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[Titre]]></ATT>
+            <ATT name="Name"><![CDATA[m_titre]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>
@@ -179,7 +207,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="vitesseDefilement" mc="Standard.Attribute" uid="270f0c79-f5e7-49ed-9d6f-fa328becf57d"/>
+          <ID name="m_vitesseDefilement" mc="Standard.Attribute" uid="270f0c79-f5e7-49ed-9d6f-fa328becf57d"/>
           <ATTRIBUTES>
             <ATT name="TypeConstraint"></ATT>
             <ATT name="Value"></ATT>
@@ -193,7 +221,7 @@
             <ATT name="Visibility">Private</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[vitesseDefilement]]></ATT>
+            <ATT name="Name"><![CDATA[m_vitesseDefilement]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>
@@ -227,7 +255,7 @@
           </DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="filtre" mc="Standard.Attribute" uid="13d65fcd-ccba-458c-b80e-72b20174e52f"/>
+          <ID name="m_filtre" mc="Standard.Attribute" uid="13d65fcd-ccba-458c-b80e-72b20174e52f"/>
           <ATTRIBUTES>
             <ATT name="TypeConstraint"></ATT>
             <ATT name="Value"></ATT>
@@ -238,10 +266,10 @@
             <ATT name="IsUnique">false</ATT>
             <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
             <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
-            <ATT name="Visibility">Public</ATT>
+            <ATT name="Visibility">Private</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[filtre]]></ATT>
+            <ATT name="Name"><![CDATA[m_filtre]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>
