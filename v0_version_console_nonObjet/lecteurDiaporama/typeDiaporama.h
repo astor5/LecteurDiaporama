@@ -18,7 +18,7 @@ struct Diaporamas {
     vector <ImageDansDiaporama> localisationImages; // images du diaporama
 };
 
-typedef vector<Images> ImagesT;
+typedef vector<Image> ImagesT;
 typedef vector<Diaporamas> DiaporamasT;
 
 
