@@ -8,11 +8,11 @@ Image::Image(string titre, string categorie, string rang, string chemin):
     m_chemin(chemin){
 }
 
-Image::Image(const Image & origin):
-    m_titre(origin.m_titre),
-    m_categorie(origin.m_categorie),
-    m_rang(origin.m_rang),
-    m_chemin(origin.m_chemin){
+Image::Image(const Image & original):
+    m_titre(original.m_titre),
+    m_categorie(original.m_categorie),
+    m_rang(original.m_rang),
+    m_chemin(original.m_chemin){
 }
 
 string Image::getCategorie() const
