@@ -1,32 +1,32 @@
 #ifndef LECTEUR_H
 #define LECTEUR_H
+#include "image.h"
+#include <vector>
 
-#include "typeDiaporama.h"
+typedef vector<Image*> Diaporama;   // Structure de données contenant les infos sur les images
 
-class Lecteur {
-private:
-    bool m_estVide;
-    bool m_estManuel;
-    Diaporama m_diaporama;
-
-
+class Lecteur
+{
 public:
-    Lecteur(bool=true, bool=true); //Le mode est manuel par défaut et la vitesse est de 2 secondes par défaut
-    Lecteur(const Lecteur&);
-    ~Lecteur();
+    Lecteur();
+    void avancer();             // incrémente _posImageCourante, modulo nbImages()
+    void reculer();             // décrémente _posImageCourante, modulo nbImages()
+    void changerDiaporama(unsigned int pNumDiaporama);    // permet de choisir un diaporama, 0 si aucun diaporama souhaité
+    void afficher();            // affiche les informations sur lecteur-diaporama et image courante
+    unsigned int nbImages();    // affiche la taille de _diaporama
+    Image* imageCourante();     // retourne le pointeur vers l'image courante
+    unsigned int numDiaporamaCourant();
 
-    bool getEstManuel() const;
-    bool getEstVide() const;
-    void lireDiaporama(const Diaporama&) const;
-    void arreterLecture(const Diaporama&) const;
-    void charger(const Diaporama&);
-    void enleverDiaporama();
-    void changerModeDefilement(const Diaporama&);
-
-
-
-
-
+private:
+    unsigned m_numDiaporamaCourant;   // numéro du diaporama courant, par défaut 0
+    Diaporama m_diaporama;            // pointeurs vers les images du diaporama
+    unsigned int m_posImageCourante;  /* position, dans le diaporama,
+                                        de l'image courante.
+                                        Indéfini quand diaporama vide.
+                                        Démarre à 0 quand diaporama non vide */
+private:
+    void chargerDiaporama();    // charge dans _diaporama les images du _numDiaporamaCourant
+    void viderDiaporama();      // vide _diaporama de tous ses objets image et les delete
 };
 
 #endif // LECTEUR_H
