@@ -9,8 +9,9 @@ private:
     bool m_estManuel;
     Diaporama m_diaporama;
 
+
 public:
-    Lecteur(bool=true, unsigned short int=2); //Le mode est manuel par défaut et la vitesse est de 2 secondes par défaut
+    Lecteur(bool=true, bool=true); //Le mode est manuel par défaut et la vitesse est de 2 secondes par défaut
     Lecteur(const Lecteur&);
     ~Lecteur();
 

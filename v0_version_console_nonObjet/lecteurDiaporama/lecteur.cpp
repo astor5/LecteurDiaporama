@@ -1,15 +1,15 @@
 #include "lecteur.h"
 
-Lecteur::Lecteur(bool pEstVide, unsigned short int s)
+Lecteur::Lecteur(bool pEstVide, bool pEstManuel)
 {
-
-
+ m_estVide=pEstVide;
+ m_estManuel=pEstManuel;
 
 }
 
-Lecteur::Lecteur(const Lecteur & monLecteur)
-{
-
+Lecteur::Lecteur(const Lecteur & original):
+   m_estVide(original.m_estVide),
+   m_estManuel(original.m_estManuel){
 }
 
 bool Lecteur::getEstManuel() const
