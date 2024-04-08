@@ -31,7 +31,7 @@ private:
     string m_filtre;
 
 public:
-    Diaporama(string = "", Image = Image());
+    Diaporama(string = "", Image = Image(), unsigned short int =2, string ="");
     Diaporama(const Diaporama&);
     ~Diaporama();
 
@@ -43,10 +43,10 @@ public:
     Diaporama getDiaporama() const;
     string getFiltre() const;
     void modifierFiltre();
+    unsigned short int nombreImages() const;
 
 
 };
-
 
 
 #endif // TYPE_DIAPORAMA_H
