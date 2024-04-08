@@ -33,11 +33,11 @@ public:
     Image(const Image&);
     //~Image(); //pas besoin de destructeur car on ne fait pas d'allocation dynamique (je crois)
 
-    string getCategorie(const Image&) const;
-    string getTitre(const Image&) const;
-    string getRang(const Image&) const;
-    string getChemin(const Image&) const;
-    void afficher(const Image&) const;
+    string getCategorie() const;
+    string getTitre() const;
+    string getRang() const;
+    string getChemin() const;
+    void afficher() const;
 };
 
 

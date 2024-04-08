@@ -44,7 +44,24 @@ Image::Image(const Image & origin):
     m_chemin(origin.m_chemin){
 }
 
-Image::~Image()
+string Image::getCategorie() const
 {
-
+    return (*this).m_categorie;
 }
+
+string Image::getTitre() const
+{
+    return (*this).m_titre;
+}
+
+string Image::getRang() const
+{
+    return (*this).m_rang;
+}
+
+string Image::getChemin() const
+{
+    return (*this).m_chemin;
+}
+
+
