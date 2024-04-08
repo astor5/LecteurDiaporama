@@ -31,22 +31,22 @@ private:
     string m_filtre;
 
 public:
-    Diaporama(string = "", Image = Image());
+    Diaporama(string = "", Image = Image(), unsigned short int =2, string ="");
     Diaporama(const Diaporama&);
     ~Diaporama();
 
-    string getTitre(const Diaporama&) const;
-    void passerAuSuivant(const Diaporama&) const;
-    void passerAuPrecedent(const Diaporama&) const;
-    void allerPremiereImage(const Diaporama&) const;
-    unsigned short int getVitesseDefilement(const Diaporama&) const;
-    Diaporama getDiaporama(const Diaporama&) const;
-    string getFiltre(const Diaporama&) const;
-    void modifierFiltre(const Diaporama&);
+    string getTitre() const;
+    void passerAuSuivant() const;
+    void passerAuPrecedent() const;
+    void allerPremiereImage() const;
+    unsigned short int getVitesseDefilement() const;
+    Diaporama getDiaporama() const;
+    string getFiltre() const;
+    void modifierFiltre();
+    unsigned short int nombreImages() const;
 
 
 };
-
 
 
 #endif // TYPE_DIAPORAMA_H

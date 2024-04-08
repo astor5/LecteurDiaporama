@@ -4,6 +4,7 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+        diaporama.cpp \
         image.cpp \
         lecteur.cpp \
         main.cpp \
