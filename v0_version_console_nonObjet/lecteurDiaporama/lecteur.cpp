@@ -1,42 +1,43 @@
+#include "lecteur.h"
 
-Lecteur::Lecteur(bool pEstVide= true, unsigned short= 2)
+Lecteur::Lecteur(bool pEstVide, unsigned short int s)
 {
 
 
 
 }
 
-Lecteur::Lecteur(const Lecteur &)
+Lecteur::Lecteur(const Lecteur & monLecteur)
 {
 
 }
 
-bool Lecteur::getEstManuel(const Lecteur &) const
+bool Lecteur::getEstManuel() const
+{
+    return this->m_estManuel;
+}
+
+bool Lecteur::getEstVide() const
+{
+    return this->m_estVide;
+}
+
+void Lecteur::lireDiaporama(const Diaporama & monDiaporama) const
 {
 
 }
 
-bool Lecteur::getEstVide(const Lecteur &) const
+void Lecteur::arreterLecture(const Diaporama & monDiaporama) const
 {
 
 }
 
-void Lecteur::lireDiaporama(const Diaporama &) const
+void Lecteur::charger(const Diaporama & monDiaporama)
 {
-
+    m_diaporama = monDiaporama;
 }
 
-void Lecteur::arreterLecture(const Diaporama &) const
-{
-
-}
-
-void Lecteur::charger(const Diaporama &)
-{
-
-}
-
-void Lecteur::enleverDiaporama(const Lecteur &)
+void Lecteur::enleverDiaporama()
 {
 
 }

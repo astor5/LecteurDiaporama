@@ -6,6 +6,7 @@
 class Lecteur {
 private:
     bool m_estVide;
+    bool m_estManuel;
     Diaporama m_diaporama;
 
 public:
@@ -13,12 +14,14 @@ public:
     Lecteur(const Lecteur&);
     ~Lecteur();
 
-    bool getEstManuel(const Lecteur&) const;
-    bool getEstVide(const Lecteur&) const;
+    bool getEstManuel() const;
+    bool getEstVide() const;
     void lireDiaporama(const Diaporama&) const;
     void arreterLecture(const Diaporama&) const;
     void charger(const Diaporama&);
-    void enleverDiaporama(const Lecteur&);
+    void enleverDiaporama();
+    void changerModeDefilement(const Diaporama&);
+
 
 
 

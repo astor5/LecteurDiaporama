@@ -27,7 +27,6 @@ class Diaporama {
 private:
     string m_titre;
     Image m_image;
-    bool m_estManuel;
     unsigned short int m_vitesseDefilement; //Vitesse de défilement en secondes
     string m_filtre;
 
@@ -40,7 +39,6 @@ public:
     void passerAuSuivant(const Diaporama&) const;
     void passerAuPrecedent(const Diaporama&) const;
     void allerPremiereImage(const Diaporama&) const;
-    void changerModeDefilement(const Diaporama&);
     unsigned short int getVitesseDefilement(const Diaporama&) const;
     Diaporama getDiaporama(const Diaporama&) const;
     string getFiltre(const Diaporama&) const;
