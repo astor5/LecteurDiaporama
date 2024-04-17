@@ -16,7 +16,8 @@
       <COMP relation="OwnedElement">
         <COMPID name="Diaporama" mc="Standard.Class" uid="326e87b9-11b6-4a14-9cf2-29b55b978319"/>
         <COMPID name="Image" mc="Standard.Class" uid="c975ccae-8bed-4663-99ea-0d4521ad63c3"/>
-        <COMPID name="LecteurDiaporama" mc="Standard.Class" uid="1da8194e-7036-451e-9392-0c3ae0eba3a8"/>
+        <COMPID name="Lecteur" mc="Standard.Class" uid="1da8194e-7036-451e-9392-0c3ae0eba3a8"/>
+        <COMPID name="ImageDansDiaporama" mc="Standard.Class" uid="c623802b-dac1-4a65-85e0-b47c551b45fc"/>
       </COMP>
       <COMP relation="Product">
         <COMPID name="Diagramme de classe s2.01" mc="Standard.ClassDiagram" uid="5250e2fe-637b-491c-88f3-76387bde3149"/>
