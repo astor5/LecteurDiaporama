@@ -13,14 +13,15 @@ struct ImageDansDiaporama {
     unsigned int rang;  // rang de l'image dans le diaporama
                         // = ordre d'affichage choisi par l'utilisateur lors de la création du diaporama
 };*/
-
+/*
 struct Diaporamas {
     string titre ;  // titre du diaporama
     unsigned int vitesseDefilement; // vitesse de défilement des images du diaporama
     vector <ImageDansDiaporama> localisationImages; // images du diaporama
-};
+};*/
 
-
+typedef vector<Image> ImageT;
+typedef vector<Diaporama> DiaporamaT;
 
 
 class Diaporama {
@@ -49,12 +50,11 @@ public:
     void charger();
     void declencherAction();
     void saisieVerifChoixDiaporama();
-    void afficherImageDansDiaporamaCourant();
+    void afficherImageDansDiaporamaCourant(const DiaporamaT&, unsigned int, const ImageT&);
 };
 
 
-typedef vector<Image> ImageT;
-typedef vector<Diaporama> DiaporamaT;
+
 
 #endif // TYPE_DIAPORAMA_H
 

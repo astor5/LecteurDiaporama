@@ -62,7 +62,10 @@ void Diaporama::saisieVerifChoixDiaporama()
 
 }
 
-void Diaporama::afficherImageDansDiaporamaCourant()
+void Diaporama::afficherImageCouranteDansDiaporamaCourant (const DiaporamaT& pDiaporama, unsigned int pImageCourante, const ImageT& pImage)
 {
-
+    cout << endl << endl;
+    cout << "DIAPORAMA : " << this->getTitre() << endl << endl;
+    cout << pDiaporama.localisationImages[pImageCourante].rang << " sur " <<  nbImages(pDiaporama) << " / ";
+    afficher(pImage);
 }
