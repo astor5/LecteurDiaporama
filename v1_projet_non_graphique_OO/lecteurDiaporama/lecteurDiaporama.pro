@@ -4,6 +4,7 @@ CONFIG -= app_bundle
 CONFIG -= qt
 
 SOURCES += \
+        ImageDansDiaporama.cpp \
         diaporama.cpp \
         image.cpp \
         lecteur.cpp \
@@ -11,6 +12,7 @@ SOURCES += \
         sousProgrammes.cpp
 
 HEADERS += \
+    ImageDansDiaporama.h \
     image.h \
     lecteur.h \
     sousProgrammes.h \
