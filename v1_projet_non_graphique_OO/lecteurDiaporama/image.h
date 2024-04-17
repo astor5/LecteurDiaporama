@@ -16,11 +16,15 @@ public:
     Image(const Image&);
     //~Image(); //pas besoin de destructeur car on ne fait pas d'allocation dynamique (je crois)
 
+    //Getters
     string getCategorie() const;                // catégorie de l'image (personne, animal, objet)
     string getTitre() const;                // intitulé de l'image
     string getRang() const;
     string getChemin() const;
-    void afficher() const;              // affiche tous les champs de l'image
+
+    //Sous-programmes de base
+    void charger();
+    void saisieVerifChoixActionSurImageCourante();
 };
 
 

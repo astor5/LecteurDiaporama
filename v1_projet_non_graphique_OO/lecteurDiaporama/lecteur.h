@@ -9,11 +9,17 @@ class Lecteur
 {
 public:
     Lecteur();
+    ~Lecteur();
+
+    //Méthode de la V0
     void avancer();             // incrémente _posImageCourante, modulo nbImages()
     void reculer();             // décrémente _posImageCourante, modulo nbImages()
     void changerDiaporama(unsigned int pNumDiaporama);    // permet de choisir un diaporama, 0 si aucun diaporama souhaité
-    void afficher();            // affiche les informations sur lecteur-diaporama et image courante
+    void triCroissantRang();    // Tri du diaporama pDiaporama par ordre croissant de *rang* des ses images
     unsigned int nbImages();    // affiche la taille de _diaporama
+
+    //Autres méthodes
+    //void afficher();            // affiche les informations sur lecteur-diaporama et image courante
     Image* imageCourante();     // retourne le pointeur vers l'image courante
     unsigned int numDiaporamaCourant();
 

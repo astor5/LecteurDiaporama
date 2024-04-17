@@ -4,13 +4,15 @@
 using namespace std;
 #include <vector>
 #include "image.h"
+#include "ImageDansDiaporama.h"
 
+/*
 struct ImageDansDiaporama {
     unsigned int pos;  // rang de l'image dans le tableau d'images (vector<Images>)
                        // = ordre de chargement initial des images dans la table des images
     unsigned int rang;  // rang de l'image dans le diaporama
                         // = ordre d'affichage choisi par l'utilisateur lors de la création du diaporama
-};
+};*/
 
 struct Diaporamas {
     string titre ;  // titre du diaporama
@@ -26,23 +28,30 @@ class Diaporama {
 
 private:
     string m_titre;
-    Image m_image;
     unsigned short int m_vitesseDefilement; //Vitesse de défilement en secondes
+    vector <ImageDansDiaporama> localisationImages; // images du diaporama
     string m_filtre;
 
 public:
-    Diaporama(string = "", Image = Image(), unsigned short int =2, string ="");
+    Diaporama(string = "", unsigned short int =2, vector<ImageDansDiaporama> = ,  string ="");
     Diaporama(const Diaporama&);
     ~Diaporama();
 
+    //Getter
     string getTitre() const;
-    void passerAuSuivant() const;
-    void passerAuPrecedent() const;
-    void allerPremiereImage() const;
-    unsigned short int getVitesseDefilement() const;
-    Diaporama getDiaporama() const;
     string getFiltre() const;
+    Diaporama getDiaporama() const;
+    unsigned short int getVitesseDefilement() const;
+
+    //Setter
     void modifierFiltre();
+
+    //Sous-programmes de base
+    void charger();
+    void declencherAction();
+    void saisieVerifChoixDiaporama();
+    void afficherImageDansDiaporamaCourant();
+
     unsigned short int nombreImages() const;
 
 
