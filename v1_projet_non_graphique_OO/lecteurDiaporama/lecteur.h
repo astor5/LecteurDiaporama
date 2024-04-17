@@ -1,9 +1,10 @@
 #ifndef LECTEUR_H
 #define LECTEUR_H
 #include "image.h"
+#include "typeDiaporama.h"
 #include <vector>
 
-typedef vector<Image*> Diaporama;   // Structure de données contenant les infos sur les images
+typedef vector<Image*> DiaporamasT;   // Structure de données contenant les infos sur les images
 
 class Lecteur
 {
@@ -12,11 +13,11 @@ public:
     ~Lecteur();
 
     //Méthode de la V0
-    void avancer();             // incrémente _posImageCourante, modulo nbImages()
-    void reculer();             // décrémente _posImageCourante, modulo nbImages()
+    void avancer(const DiaporamasT&);             // incrémente _posImageCourante, modulo nbImages()
+    void reculer(const DiaporamasT&);             // décrémente _posImageCourante, modulo nbImages()
     void changerDiaporama(unsigned int = 0);    // permet de choisir un diaporama, 0 si aucun diaporama souhaité
-    void triCroissantRang();    // Tri du diaporama pDiaporama par ordre croissant de *rang* des ses images
-    unsigned int nbImages();    // affiche la taille de _diaporama
+    void triCroissantRang(DiaporamaT&);    // Tri du diaporama pDiaporama par ordre croissant de *rang* des ses images
+    unsigned int nbImages(const DiaporamasT&);    // affiche la taille de _diaporama
 
 private:
     unsigned m_numDiaporamaCourant;   // numéro du diaporama courant, par défaut 0

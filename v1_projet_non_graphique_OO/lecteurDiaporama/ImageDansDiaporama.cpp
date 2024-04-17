@@ -2,22 +2,22 @@
 #include "ImageDansDiaporama.h"
 using namespace std;
 
-ImageDansDiaporama::ImageDansDiaporama(unsigned int, unsigned int)
-{
-
+ImageDansDiaporama::ImageDansDiaporama(unsigned int position, unsigned int rang):
+    m_pos(position),
+    m_rang(rang){
 }
 
-ImageDansDiaporama::ImageDansDiaporama(const ImageDansDiaporama &)
-{
-
+ImageDansDiaporama::ImageDansDiaporama(const ImageDansDiaporama & original):
+    m_pos(original.m_pos),
+    m_rang(original.m_rang){
 }
 
-string ImageDansDiaporama::getPosition() const
+unsigned int ImageDansDiaporama::getPosition() const
 {
-
+    return m_pos;
 }
 
-string ImageDansDiaporama::getRang() const
+unsigned int ImageDansDiaporama::getRang() const
 {
-
+    return m_rang;
 }

@@ -28,22 +28,19 @@ class Diaporama {
 private:
     string m_titre;
     unsigned short int m_vitesseDefilement; //Vitesse de défilement en secondes
-    vector <ImageDansDiaporama> localisationImages; // images du diaporama
-    string m_filtre;
+    vector <ImageDansDiaporama> m_localisationImages; // images du diaporama
 
 public:
-    Diaporama(string = "", unsigned short int =2,  string ="");
+    Diaporama(string = "", unsigned short int =2);
     Diaporama(const Diaporama&);
     ~Diaporama();
 
     //Getter
     string getTitre() const;
-    string getFiltre() const;
     vector<ImageDansDiaporama> getLocalisationImages();
     unsigned short int getVitesseDefilement() const;
 
     //Setter
-    void modifierFiltre();
     void setTitre(const string &);
     void setVitesseDefilement(unsigned int nouvelleVitesse);
     void setLocalisationImages(const std::vector<ImageDansDiaporama> &images);
@@ -54,81 +51,6 @@ public:
     void saisieVerifChoixDiaporama();
     void afficherImageDansDiaporamaCourant();
 };
-
-inline Diaporama::Diaporama(string, unsigned short, string)
-{
-
-}
-
-inline Diaporama::Diaporama(const Diaporama &)
-{
-
-}
-
-inline Diaporama::~Diaporama()
-{
-
-}
-
-inline string Diaporama::getTitre() const
-{
-
-}
-
-inline string Diaporama::getFiltre() const
-{
-
-}
-
-inline vector<ImageDansDiaporama> Diaporama::getLocalisationImages()
-{
-
-}
-
-inline unsigned short Diaporama::getVitesseDefilement() const
-{
-
-}
-
-inline void Diaporama::modifierFiltre()
-{
-
-}
-
-inline void Diaporama::setTitre(const string &)
-{
-
-}
-
-inline void Diaporama::setVitesseDefilement(unsigned int nouvelleVitesse)
-{
-
-}
-
-inline void Diaporama::setLocalisationImages(const std::vector<ImageDansDiaporama> &images)
-{
-
-}
-
-inline void Diaporama::charger()
-{
-
-}
-
-inline void Diaporama::declencherAction()
-{
-
-}
-
-inline void Diaporama::saisieVerifChoixDiaporama()
-{
-
-}
-
-inline void Diaporama::afficherImageDansDiaporamaCourant()
-{
-
-}
 
 
 typedef vector<Image> ImageT;

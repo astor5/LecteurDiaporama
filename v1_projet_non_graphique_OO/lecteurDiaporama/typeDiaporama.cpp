@@ -2,59 +2,49 @@
 #include "typeDiaporama.h"
 using namespace std;
 
-Diaporama::Diaporama(string, unsigned short, string)
-{
-
+Diaporama::Diaporama(string titre, unsigned short vitesseDefilement):
+    m_titre(titre),
+    m_vitesseDefilement(vitesseDefilement){
 }
 
-Diaporama::Diaporama(const Diaporama &)
-{
-
+Diaporama::Diaporama(const Diaporama & original):
+    m_titre(original.m_titre),
+    m_vitesseDefilement(original.m_vitesseDefilement),
+    m_localisationImages(original.m_localisationImages){
 }
 
 Diaporama::~Diaporama()
 {
-
 }
 
 string Diaporama::getTitre() const
 {
-
-}
-
-string Diaporama::getFiltre() const
-{
-
+    return m_titre;
 }
 
 vector<ImageDansDiaporama> Diaporama::getLocalisationImages()
 {
-
+    return m_localisationImages;
 }
 
 unsigned short Diaporama::getVitesseDefilement() const
 {
-
+    return m_vitesseDefilement;
 }
 
-void Diaporama::modifierFiltre()
+void Diaporama::setTitre(const string & titre)
 {
-
-}
-
-void Diaporama::setTitre(const string &)
-{
-
+    m_titre = titre;
 }
 
 void Diaporama::setVitesseDefilement(unsigned int nouvelleVitesse)
 {
-
+    m_vitesseDefilement = nouvelleVitesse;
 }
 
 void Diaporama::setLocalisationImages(const std::vector<ImageDansDiaporama> &images)
 {
-
+    m_localisationImages = images;
 }
 
 void Diaporama::charger()

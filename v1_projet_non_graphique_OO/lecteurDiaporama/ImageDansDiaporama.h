@@ -14,8 +14,8 @@ public:
     ImageDansDiaporama(const ImageDansDiaporama&);
     //~Image(); //pas besoin de destructeur car on ne fait pas d'allocation dynamique (je crois)
 
-    string getPosition() const;                // intitulé de l'image
-    string getRang() const;
+    unsigned int getPosition() const;
+    unsigned int getRang() const;
 };
 
 #endif // IMAGEDANSDIAPORAMA_H
