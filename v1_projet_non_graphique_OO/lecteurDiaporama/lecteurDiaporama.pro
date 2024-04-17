@@ -5,11 +5,11 @@ CONFIG -= qt
 
 SOURCES += \
         ImageDansDiaporama.cpp \
-        diaporama.cpp \
         image.cpp \
         lecteur.cpp \
         main.cpp \
-        sousProgrammes.cpp
+        sousProgrammes.cpp \
+        typeDiaporama.cpp
 
 HEADERS += \
     ImageDansDiaporama.h \

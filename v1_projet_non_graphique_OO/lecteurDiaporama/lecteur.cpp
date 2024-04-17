@@ -1,7 +1,13 @@
+#include <iostream>
 #include "lecteur.h"
-
+using namespace std;
 
 Lecteur::Lecteur()
+{
+
+}
+
+Lecteur::~Lecteur()
 {
 
 }
@@ -21,32 +27,12 @@ void Lecteur::changerDiaporama(unsigned int pNumDiaporama)
 
 }
 
-void Lecteur::afficher()
+void Lecteur::triCroissantRang()
 {
 
 }
 
 unsigned int Lecteur::nbImages()
-{
-
-}
-
-Image *Lecteur::imageCourante()
-{
-
-}
-
-unsigned int Lecteur::numDiaporamaCourant()
-{
-    return this->m_numDiaporamaCourant;
-}
-
-void Lecteur::chargerDiaporama()
-{
-
-}
-
-void Lecteur::viderDiaporama()
 {
 
 }

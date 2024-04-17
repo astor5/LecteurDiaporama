@@ -55,6 +55,81 @@ public:
     void afficherImageDansDiaporamaCourant();
 };
 
+inline Diaporama::Diaporama(string, unsigned short, string)
+{
+
+}
+
+inline Diaporama::Diaporama(const Diaporama &)
+{
+
+}
+
+inline Diaporama::~Diaporama()
+{
+
+}
+
+inline string Diaporama::getTitre() const
+{
+
+}
+
+inline string Diaporama::getFiltre() const
+{
+
+}
+
+inline vector<ImageDansDiaporama> Diaporama::getLocalisationImages()
+{
+
+}
+
+inline unsigned short Diaporama::getVitesseDefilement() const
+{
+
+}
+
+inline void Diaporama::modifierFiltre()
+{
+
+}
+
+inline void Diaporama::setTitre(const string &)
+{
+
+}
+
+inline void Diaporama::setVitesseDefilement(unsigned int nouvelleVitesse)
+{
+
+}
+
+inline void Diaporama::setLocalisationImages(const std::vector<ImageDansDiaporama> &images)
+{
+
+}
+
+inline void Diaporama::charger()
+{
+
+}
+
+inline void Diaporama::declencherAction()
+{
+
+}
+
+inline void Diaporama::saisieVerifChoixDiaporama()
+{
+
+}
+
+inline void Diaporama::afficherImageDansDiaporamaCourant()
+{
+
+}
+
 
 typedef vector<Image> ImageT;
 typedef vector<Diaporama> DiaporamaT;
