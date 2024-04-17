@@ -20,8 +20,7 @@ struct Diaporamas {
     vector <ImageDansDiaporama> localisationImages; // images du diaporama
 };
 
-typedef vector<Image> ImagesT;
-typedef vector<Diaporamas> DiaporamasT;
+
 
 
 class Diaporama {
@@ -33,30 +32,32 @@ private:
     string m_filtre;
 
 public:
-    Diaporama(string = "", unsigned short int =2, vector<ImageDansDiaporama> = ,  string ="");
+    Diaporama(string = "", unsigned short int =2,  string ="");
     Diaporama(const Diaporama&);
     ~Diaporama();
 
     //Getter
     string getTitre() const;
     string getFiltre() const;
-    Diaporama getDiaporama() const;
+    vector<ImageDansDiaporama> getLocalisationImages();
     unsigned short int getVitesseDefilement() const;
 
     //Setter
     void modifierFiltre();
+    void setTitre(const string &);
+    void setVitesseDefilement(unsigned int nouvelleVitesse);
+    void setLocalisationImages(const std::vector<ImageDansDiaporama> &images);
 
     //Sous-programmes de base
     void charger();
     void declencherAction();
     void saisieVerifChoixDiaporama();
     void afficherImageDansDiaporamaCourant();
-
-    unsigned short int nombreImages() const;
-
-
 };
 
+
+typedef vector<Image> ImageT;
+typedef vector<Diaporama> DiaporamaT;
 
 #endif // TYPE_DIAPORAMA_H
 

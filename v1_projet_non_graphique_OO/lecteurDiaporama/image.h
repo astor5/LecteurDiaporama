@@ -8,7 +8,6 @@ class Image {
 private :
     string m_titre;
     string m_categorie;
-    string m_rang;
     string m_chemin;
 
 public:
@@ -19,7 +18,6 @@ public:
     //Getters
     string getCategorie() const;                // catégorie de l'image (personne, animal, objet)
     string getTitre() const;                // intitulé de l'image
-    string getRang() const;
     string getChemin() const;
 
     //Sous-programmes de base
