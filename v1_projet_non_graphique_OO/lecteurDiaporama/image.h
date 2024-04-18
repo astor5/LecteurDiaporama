@@ -2,6 +2,7 @@
 #define IMAGE_H
 
 #include <iostream>
+#include <vector>
 using namespace std;
 
 class Image {
@@ -21,8 +22,9 @@ public:
     string getChemin() const;
 
     //Sous-programmes de base
-    void charger();
+    void charger(vector<Image>&);
     void saisieVerifChoixActionSurImageCourante();
+    void afficher() const;
 };
 
 

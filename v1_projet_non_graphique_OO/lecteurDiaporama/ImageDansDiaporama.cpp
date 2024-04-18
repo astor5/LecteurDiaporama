@@ -21,3 +21,8 @@ unsigned int ImageDansDiaporama::getRang() const
 {
     return m_rang;
 }
+
+Image ImageDansDiaporama::getImage() const
+{
+    return m_image;
+}

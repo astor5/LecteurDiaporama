@@ -47,25 +47,44 @@ void Diaporama::setLocalisationImages(const std::vector<ImageDansDiaporama> &ima
     m_localisationImages = images;
 }
 
-void Diaporama::charger()
+unsigned int Diaporama::nbImages() const
 {
-
+    return m_localisationImages.size();
 }
 
-void Diaporama::declencherAction()
-{
-
+void Diaporama::avancer(unsigned int& posImageCourante) const {
+    if (posImageCourante == m_localisationImages.size() - 1) {
+        posImageCourante = 0;
+    } else {
+        posImageCourante++;
+    }
 }
 
-void Diaporama::saisieVerifChoixDiaporama()
-{
-
+void Diaporama::reculer(unsigned int& posImageCourante) const {
+    if (posImageCourante == 0) {
+        posImageCourante = m_localisationImages.size() - 1;
+    } else {
+        posImageCourante--;
+    }
 }
 
-void Diaporama::afficherImageCouranteDansDiaporamaCourant (const DiaporamaT& pDiaporama, unsigned int pImageCourante, const ImageT& pImage)
-{
+void Diaporama::afficherImageCouranteDansDiaporamaCourant(unsigned int pImageCourante) const {
     cout << endl << endl;
-    cout << "DIAPORAMA : " << this->getTitre() << endl << endl;
-    cout << pDiaporama.localisationImages[pImageCourante].rang << " sur " <<  nbImages(pDiaporama) << " / ";
-    afficher(pImage);
+    cout << "DIAPORAMA : " << m_titre << endl << endl;
+    cout << m_localisationImages[pImageCourante].getRang() << " sur " << nbImages() << " / ";
+    m_localisationImages[pImageCourante].getImage().afficher();
+}
+
+void Diaporama::triCroissantRang() {
+    unsigned int taille = this->nbImages();
+    ImageDansDiaporama imageDansDiapo(0,0);
+    for (unsigned int ici = taille - 1; ici >= 1; ici--) {
+        for (unsigned int i = 0; i < ici; i++) {
+            if (m_localisationImages[i].getRang() > m_localisationImages[i + 1].getRang()) {
+                imageDansDiapo = m_localisationImages[i];
+                m_localisationImages[i] = m_localisationImages[i + 1];
+                m_localisationImages[i + 1] = imageDansDiapo;
+            }
+        }
+    }
 }

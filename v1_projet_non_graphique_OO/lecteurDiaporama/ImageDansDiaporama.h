@@ -2,10 +2,12 @@
 #define IMAGEDANSDIAPORAMA_H
 
 #include <iostream>
+#include "image.h"
 using namespace std;
 
 class ImageDansDiaporama {
 private :
+    Image m_image;
     unsigned int m_pos;
     unsigned int m_rang;
 
@@ -16,6 +18,7 @@ public:
 
     unsigned int getPosition() const;
     unsigned int getRang() const;
+    Image getImage() const;
 };
 
 #endif // IMAGEDANSDIAPORAMA_H
