@@ -4,6 +4,7 @@
 #include <vector>
 #include "image.h"
 #include "typeDiaporama.h"
+#include "lecteur.h"
 using namespace std;
 
 
@@ -33,7 +34,7 @@ void charger (ImageT& pImages);
    Dans une version ultérieure, ces informations seront stockées dans une Base de Données.
 */
 
-void charger (Diaporamas& pDiaporamas);
+void charger (DiaporamasT& pDiaporamas);
 /* Chargement du tableau des diaporamas avec des diaporamas préalablement construits 'en dur'.
    Dans une version ultérieure, le diaporama courant affiché par le Lecteur de diaporamas sera chargé à partir
    d'une base de données.

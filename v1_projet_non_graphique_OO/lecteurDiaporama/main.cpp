@@ -19,14 +19,20 @@ int main()
     i1.charger(images);
     l1.charger(diaporama);
 
+    /*
     tailleImage = images.size();
     tailleDiaporama = diaporama.size();
     cout << tailleImage << endl;
-    cout << tailleDiaporama << endl;
+    cout << tailleDiaporama << endl;*/
+
+    unsigned int diaporamaCourant = 0;
+    unsigned int imageCourante = 0;
 
     unsigned int pImageCourante;
     unsigned int pDiaporamaCourant = 0;
+    unsigned int position = diaporama[diaporamaCourant].getLocalisationImages()[imageCourante].getPosition();
 
+    cout << "La position est de : " << position << endl;
     cout << "Choisissez un Diaporama " << endl;
     unsigned int choixSaisi;
     int choixDiaporama; // valeur retournée
@@ -52,5 +58,6 @@ int main()
     pDiaporamaCourant = choixDiaporama;
     pImageCourante = 0;
 
+    d1.afficherImageCouranteDansDiaporamaCourant (imageCourante);
 }
 
