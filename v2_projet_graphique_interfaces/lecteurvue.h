@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QDebug>
+#include <QShortcut>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
