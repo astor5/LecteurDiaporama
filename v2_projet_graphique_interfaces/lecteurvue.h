@@ -24,6 +24,11 @@ public slots:
     void sl_pause();
     void sl_mode();
     void sl_boucle();
+    void sl_quitter();
+    void sl_chargerDiaporama();
+    void sl_enleverDiporama();
+    void sl_vitesseDefilement();
+    void sl_aPropos();
 
 private:
     Ui::lecteurVue *ui;
