@@ -1,11 +1,11 @@
-#include "sousProgrammes.h"
+//#include "sousProgrammes.h"
 #include <iostream>
 #include <vector>
 #include "image.h"
 #include "typeDiaporama.h"
 using namespace std;
 
-
+/*
 void afficherImageCouranteDansDiaporamaCourant (const Diaporamas& pDiaporama, unsigned int pImageCourante, const ImagesT& pImage)
 {
     cout << endl << endl;
@@ -58,8 +58,9 @@ unsigned int saisieVerifChoixDiaporama(const DiaporamasT& pDiaporamas)
 }
 
 void declencherAction(char pChoixAction, const Diaporama& pDiaporamas, unsigned int& pDiaporamaCourant,
-                      unsigned int& pImageCourante, const ImagesT& pImages)
+                      unsigned int& pImageCourante, const ImagesT& pImages)*/
 /* Selon le pChoix fait l'utilisateur, réalise une des actions A)vancer, R)eculer, C)hoisir un autre diaporama, Q)quitter */
+/*
 {
     unsigned int position;
     unsigned int choixDiaporama;
@@ -215,9 +216,9 @@ void charger (ImagesT& pImages) {
     imageACharger = creerImage ("animal", "Bambi", "C:\\cartesDisney\\Disney_3.gif");
     pImages.push_back(imageACharger);
 }
-
+*/
 /* Corps des sous-programmes utilisés par la fonction main()
- * ------------------------------------------------------- */
+ * ------------------------------------------------------- *//*
 void avancer(const DiaporamasT& pDiaporama, unsigned int& pPosImageCourante)
 // avance à l'image suivante de l'image courante. Revient à l'image de rang 1 si terminé
 {
@@ -266,6 +267,8 @@ void triCroissantRang (DiaporamasT &pDiaporama)
         }
     }
 }
+
+*/
 //test git
 
 // test 2 iban

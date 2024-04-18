@@ -5,6 +5,8 @@
 #include <vector>
 using namespace std;
 
+
+
 class Image {
 private :
     string m_titre;
@@ -18,7 +20,7 @@ public:
 
     //Getters
     string getCategorie() const;                // catégorie de l'image (personne, animal, objet)
-    string getTitre() const;                // intitulé de l'image
+    string getTitre() const;                    // intitulé de l'image
     string getChemin() const;
 
     //Sous-programmes de base
@@ -27,5 +29,7 @@ public:
     void afficher() const;
 };
 
+
+typedef vector<Image> ImageT;
 
 #endif // IMAGE_H

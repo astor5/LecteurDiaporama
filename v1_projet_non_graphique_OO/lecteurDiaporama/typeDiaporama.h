@@ -7,8 +7,6 @@ using namespace std;
 #include "ImageDansDiaporama.h"
 
 
-typedef vector<Image> ImageT;
-
 
 
 class Diaporama {
@@ -21,7 +19,7 @@ private:
 
 
 public:
-    Diaporama(string = "", unsigned short int =2);
+    Diaporama(string = "", unsigned short int =0);
     Diaporama(const Diaporama&);
     ~Diaporama();
 

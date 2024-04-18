@@ -19,6 +19,9 @@ public:
     unsigned int getPosition() const;
     unsigned int getRang() const;
     Image getImage() const;
+
+    void setPosition(unsigned int);
+    void setRang(unsigned int);
 };
 
 #endif // IMAGEDANSDIAPORAMA_H

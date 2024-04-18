@@ -9,7 +9,7 @@ using namespace std;
 
 /* Sous-programmes provisoires pour versions Non encore graphiques
  * -------------------------------------------------------------- */
-void afficherImageCouranteDansDiaporamaCourant (const Diaporamas& pDiaporama, unsigned int pImageCourante, const ImageT& pImage);
+void afficherImageCouranteDansDiaporamaCourant (const Diaporama& pDiaporama, unsigned int pImageCourante, const ImageT& pImage);
 /* Affichage à l'acran des infos de l'image courante dans son diaporama
  *    - titre du diaporama
       - image courante : titre, famille, contenu
@@ -18,7 +18,7 @@ void afficherImageCouranteDansDiaporamaCourant (const Diaporamas& pDiaporama, un
 void saisieVerifChoixActionSurImageCourante(char& pChoixAction);
 // Saisie du choix d'action de l'utilisateur vis-à-vis de l'image et diaporama courants
 
-unsigned int saisieVerifChoixDiaporama(const Diaporamas& pDiaporamas);
+unsigned int saisieVerifChoixDiaporama(const DiaporamasT& pDiaporamas);
 // Retourne un numéro de diaporama choisi par l'utilisateur (dans la liste des diaporamas existants)
 
 void declencherAction(char pChoixAction, const Diaporama& pDiaporamas, unsigned int& pDiaporamaCourant,

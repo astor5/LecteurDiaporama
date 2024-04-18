@@ -26,3 +26,13 @@ Image ImageDansDiaporama::getImage() const
 {
     return m_image;
 }
+
+void ImageDansDiaporama::setPosition(unsigned int position)
+{
+    m_pos = position;
+}
+
+void ImageDansDiaporama::setRang(unsigned int rang)
+{
+    m_rang = rang;
+}
