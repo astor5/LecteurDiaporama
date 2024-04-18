@@ -2,6 +2,7 @@
 #define LECTEURVUE_H
 
 #include <QMainWindow>
+#include <QDebug>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -16,6 +17,13 @@ class lecteurVue : public QMainWindow
 public:
     lecteurVue(QWidget *parent = nullptr);
     ~lecteurVue();
+
+public slots:
+    void sl_suivant();
+    void sl_precedent();
+    void sl_pause();
+    void sl_mode();
+    void sl_boucle();
 
 private:
     Ui::lecteurVue *ui;
