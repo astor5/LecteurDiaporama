@@ -5,9 +5,6 @@
 using namespace std;
 
 int test();
-void saisieVerifChoixActionSurImageCourante(char& pChoixAction);
-void declencherAction(char pChoixAction, const DiaporamaT& pDiaporamas, unsigned int& pDiaporamaCourant,
-                      unsigned int& pImageCourante, const ImageT& pImages);
 
 int main()
 {
@@ -16,25 +13,41 @@ int main()
      * - Charger les images et diaporamas
      * Dans un second temps, ces contenus proviendront d'une base de données
      --------------------------------------------------------------------------------------*/
-    ImageT images;          // les images
-    DiaporamaT diaporamas;  // les diaporamas
+    Images images;          // les images
+    int debug;
 
-    Image i1("titre", "chemin", "position ?");  //Une image
-    Diaporama d1("Diapo defaut", 0);            //Un diaporama
+    Image i1("Thibault et Caillou", "F/S1.01", "0");  //Une image
+    Diaporama d1("Diapo defaut", 2, 0);            //Un diaporama
     Lecteur l1;                                 //Un lecteur
 
     // Chargement des urls des images, chargement des diaporamas
-    i1.charger(images);
-    l1.charger(diaporamas);
+    l1.charger(images);
+    l1.chargerDiapos(images);
+    cout << "Images chargées " << endl;
+    cin >> debug;
 
-    unsigned int taille_images = images.size();
-    unsigned int taille_diaporamas = diaporamas.size();
+    // Afficher toutes les images de tous les diapos
+    for(int i = 0; i < l1.getNombreDiapos(); i++)
+    {
+        cout << l1.getToutesDiapos()[i].getTitre() << endl;
+        const auto& images = l1.getToutesDiapos()[i].getLocalisationImages();
+        for (const auto& image : images) {
+            // Affiche les détails de chaque image
+            image.afficher();
+        }
+    }
 
+    unsigned int taille_images = d1.nbImages();
+    unsigned int taille_diaporamas = images.size();
+
+    /*
     // Tri des images contenues dans les diaporamas pour les placer dans l'ordre d'apparition (rang) souhaité par l'utilisateur
     for (unsigned int posDiapo = 0; posDiapo < taille_diaporamas; posDiapo++)
     {
         d1.triCroissantRang();
     }
+    cout << "Diapo trié " << endl;
+    cin >> debug;*/
 
 
     /* ---------------------
@@ -66,23 +79,27 @@ int main()
     {
 
         /* Affichage à l'écran des infos de l'image courante dans son diaporama   */
-        system("cls");  // effacer l'écran
-        unsigned int position = diaporamas[diaporamaCourant].getLocalisationImages()[imageCourante].getPosition();
-        d1.afficherImageCouranteDansDiaporamaCourant (position);
+        //system("cls");  // effacer l'écran
+        //unsigned int position = diaporamas[diaporamaCourant].getLocalisationImages()[imageCourante].getPosition();
+        cout << "Début du programme : avant l'affichage de l'image en cours " << endl;
+        cin >> debug;
+        d1.afficherImageCouranteDansDiaporamaCourant();
+        cout << "Fin de l'affichage de l'image " << endl;
+        cin >> debug;
 
 
         /* Menu des actions possibles (saisie choix utilisateur) :
          * A-vancer, R-eculer, C-hanger de diaporama, Q-uitter */
 
-        saisieVerifChoixActionSurImageCourante(choixAction);
+        l1.saisieVerifChoixActionSurImageCourante(choixAction);
         if (choixAction == 'Q')
         {
             break;
         }
 
         /* Faire l'action demandée (Avancer - Reculer - Changer de Diaporama - Quitter) */
-        system("cls");  // effacer l'écran
-        declencherAction(choixAction, diaporamas, diaporamaCourant, imageCourante, images);
+        //system("cls");  // effacer l'écran
+        l1.declencherAction(choixAction);
     }
 
     /* Fin
@@ -92,55 +109,6 @@ int main()
 }
 
 
-void declencherAction(char pChoixAction, const DiaporamaT& pDiaporamas, unsigned int& pDiaporamaCourant,
-                      unsigned int& pImageCourante, const ImageT& pImages)
-/* Selon le pChoix fait l'utilisateur, réalise une des actions A)vancer, R)eculer, C)hoisir un autre diaporama, Q)quitter */
-{
-    unsigned int position;
-    unsigned int choixDiaporama;
-    switch (pChoixAction)
-    {
-        case 'A':
-            avancer(pDiaporamas[pDiaporamaCourant], pImageCourante);
-            position = pDiaporamas[pDiaporamaCourant].localisationImages[pImageCourante].pos;
-            afficherImageCouranteDansDiaporamaCourant (pDiaporamas[pDiaporamaCourant], pImageCourante, pImages[position]);
-            break;
-        case 'R':
-            reculer(pDiaporamas[pDiaporamaCourant], pImageCourante);
-            position = pDiaporamas[pDiaporamaCourant].localisationImages[pImageCourante].pos;
-            afficherImageCouranteDansDiaporamaCourant (pDiaporamas[pDiaporamaCourant], pImageCourante, pImages[position]);
-            break;
-        case 'C' :
-            cout << "Choisissez un Diaporama " << endl;
-            choixDiaporama = saisieVerifChoixDiaporama(pDiaporamas);
-            // Changer de diaporama
-            pDiaporamaCourant = choixDiaporama;
-            pImageCourante = 0;
-            break;
-
-        default : break;
-    }
-}
-
-
-
-
-void saisieVerifChoixActionSurImageCourante(char& pChoixAction)
-{
-    cout << endl << endl;
-    while (true)
-    {
-        cout  << endl ;
-        cout << "ACTIONS :" << "  A-vancer" << "  R-eculer" << "  C-hanger de diaporama " << "  Q-uitter .......  votre choix ? ";
-        cin >> pChoixAction;
-        pChoixAction = toupper(pChoixAction);
-
-        if ((pChoixAction == 'A') || (pChoixAction == 'R') || (pChoixAction == 'C') || (pChoixAction == 'Q'))
-        {
-            break;
-        }
-    }
-}
 
 
 
@@ -149,13 +117,7 @@ void saisieVerifChoixActionSurImageCourante(char& pChoixAction)
 
 
 
-
-
-
-
-
-
-
+/*
 int test(){
     Image i1("titre", "chemin", "position ?");
     ImageT images;
@@ -167,14 +129,14 @@ int test(){
 
 
     i1.charger(images);
-    l1.charger(diaporama);
+    l1.charger(diaporama);*/
 
     /*
     tailleImage = images.size();
     tailleDiaporama = diaporama.size();
     cout << tailleImage << endl;
     cout << tailleDiaporama << endl;*/
-
+    /*
     unsigned int diaporamaCourant = 0;
     unsigned int imageCourante = 0;
 
@@ -214,3 +176,4 @@ int test(){
 
     return 0;
 }
+*/

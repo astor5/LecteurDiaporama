@@ -24,8 +24,7 @@ public:
     string getChemin() const;
 
     //Sous-programmes de base
-    void charger(vector<Image>&);
-    void saisieVerifChoixActionSurImageCourante();
+    //void charger(vector<Image>&);
     void afficher() const;
 };
 

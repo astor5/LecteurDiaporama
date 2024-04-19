@@ -15,28 +15,34 @@ private:
     string m_titre;
     unsigned short int m_vitesseDefilement; //Vitesse de défilement en secondes
     vector <ImageDansDiaporama> m_localisationImages; // images du diaporama
+    unsigned int m_posImage;
 
 
 
 public:
-    Diaporama(string = "Defaut", unsigned short int =0);
+    Diaporama(string = "Defaut", unsigned short int =0, unsigned int =0);
     Diaporama(const Diaporama&);
     ~Diaporama();
 
     //Getter
     string getTitre() const;
-    vector<ImageDansDiaporama> getLocalisationImages();
+    vector<ImageDansDiaporama> getLocalisationImages() const;
+    unsigned int getPosImageCouranteInt() const;
     unsigned short int getVitesseDefilement() const;
+    ImageDansDiaporama getPositionImage() const;
+
+
 
     //Setter
     void setTitre(const string &);
     void setVitesseDefilement(unsigned int);
     void setLocalisationImages(const vector<ImageDansDiaporama> &);
+    void setPosImageCouranteInt(const unsigned int&);
 
     //Sous-programmes de base
-    void afficherImageCouranteDansDiaporamaCourant(unsigned int) const;
-    void avancer(unsigned int&) const;
-    void reculer(unsigned int&) const;
+    void afficherImageCouranteDansDiaporamaCourant() const;
+    void avancer();
+    void reculer();
     void triCroissantRang();
 
     unsigned int nbImages() const;

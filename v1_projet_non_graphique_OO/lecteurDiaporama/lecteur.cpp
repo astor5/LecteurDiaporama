@@ -25,7 +25,7 @@ vector<Diaporama> Lecteur::getToutesDiapos() const
 
 Diaporama Lecteur::getDiapoCourant() const
 {
-
+    return getToutesDiapos()[getNumDiapoCourant()];
 }
 
 unsigned int Lecteur::getNumDiapoCourant() const
@@ -60,21 +60,21 @@ void Lecteur::declencherAction(char pChoixAction)
     switch (pChoixAction)
     {
         case 'A':
-            avancer(pDiaporamas[pDiaporamaCourant], pImageCourante);
-            position = pDiaporamas[pDiaporamaCourant].localisationImages[pImageCourante].pos;
-            afficherImageCouranteDansDiaporamaCourant (pDiaporamas[pDiaporamaCourant], pImageCourante, pImages[position]);
+            this->getDiapoCourant().avancer();
+            //position = this->getDiapoCourant().getLocalisationImages()[pImageCourante].getPosition();
+            this->getDiapoCourant().afficherImageCouranteDansDiaporamaCourant ();
             break;
         case 'R':
-            reculer(pDiaporamas[pDiaporamaCourant], pImageCourante);
-            position = pDiaporamas[pDiaporamaCourant].localisationImages[pImageCourante].pos;
-            afficherImageCouranteDansDiaporamaCourant (pDiaporamas[pDiaporamaCourant], pImageCourante, pImages[position]);
+            this->getDiapoCourant().reculer();
+            //position = this->getDiapoCourant().getLocalisationImages()[pImageCourante].getPosition();
+            this->getDiapoCourant().afficherImageCouranteDansDiaporamaCourant ();
             break;
         case 'C' :
             cout << "Choisissez un Diaporama " << endl;
-            choixDiaporama = saisieVerifChoixDiaporama();
+            choixDiaporama = this->saisieVerifChoixDiaporama();
             // Changer de diaporama
-            pDiaporamaCourant = choixDiaporama;
-            pImageCourante = 0;
+            this->setNumDiapoCourant(choixDiaporama);
+            //pImageCourante = 0;
             break;
 
         default : break;
@@ -126,6 +126,7 @@ unsigned int Lecteur::saisieVerifChoixDiaporama()
 void Lecteur::charger(Images & pImages)
 {
     Image imageACharger;
+    int debug;
 
     imageACharger = Image("objet", "", "C:\\cartesDisney\\Disney_tapis.gif");
     pImages.push_back(imageACharger);
@@ -150,11 +151,101 @@ void Lecteur::charger(Images & pImages)
 
     imageACharger = Image("animal", "Bambi", "C:\\cartesDisney\\Disney_3.gif");
     pImages.push_back(imageACharger);
+
+    cout << "Images chargées (atteinte de fin de programme)" << endl;
+    cin >> debug;
 }
 
-void Lecteur::chargerDiapos(Images &)
+void Lecteur::chargerDiapos(Images & pImages)
 {
+    Image image;
+    ImageDansDiaporama imageDansDiapo;
+    int debug;
 
+    Diaporama diaporama("Diaporama par défaut", 2);
+
+    imageDansDiapo = ImageDansDiaporama(pImages,0,1);
+    diaporama.getLocalisationImages().push_back(imageDansDiapo);
+    getToutesDiapos().push_back(diaporama);
+
+    // Diaporama de Pantxika
+    Diaporama diapoPantxika("Diaporama Pantxika",2);
+
+    // Les images du diaporama de Pantxika
+    imageDansDiapo = ImageDansDiaporama(pImages,4,3);
+    diaporama.getLocalisationImages().push_back(imageDansDiapo);
+    imageDansDiapo = ImageDansDiaporama(pImages,1,2);
+    diaporama.getLocalisationImages().push_back(imageDansDiapo);
+    imageDansDiapo = ImageDansDiaporama(pImages,2,4);
+    diaporama.getLocalisationImages().push_back(imageDansDiapo);
+    imageDansDiapo = ImageDansDiaporama(pImages,3,1);
+    diaporama.getLocalisationImages().push_back(imageDansDiapo);
+
+    // ajout du diaporama dans le tableau de diaporamas
+    getToutesDiapos().push_back(diaporama);
+
+    // vider la variable temporaire avant de la remplir avec le diaporama suivant
+    diaporama.getLocalisationImages().clear();
+
+    // Diaporama de Thierry
+    Diaporama diapoThierry("Diaporama de Thierry", 4);
+
+    // Les images du diaporama de Thierry
+    imageDansDiapo = ImageDansDiaporama(pImages,4,1);
+    diaporama.getLocalisationImages().push_back(imageDansDiapo);
+    imageDansDiapo = ImageDansDiaporama(pImages,1,2);
+    diaporama.getLocalisationImages().push_back(imageDansDiapo);
+    imageDansDiapo = ImageDansDiaporama(pImages,2,3);
+    diaporama.getLocalisationImages().push_back(imageDansDiapo);
+    imageDansDiapo = ImageDansDiaporama(pImages,3,4);
+    diaporama.getLocalisationImages().push_back(imageDansDiapo);
+
+    // ajout du diaporama dans le tableau de diaporamas
+    getToutesDiapos().push_back(diaporama);
+
+    // vider la variable temporaire avant de la remplir avec le diaporama suivant
+    diaporama.getLocalisationImages().clear();
+
+    // Diaporama de Yann
+    Diaporama diapoYann("Diaporama Yann", 3);
+
+    // Les images du diaporama de Yann
+    imageDansDiapo = ImageDansDiaporama(pImages,4,2);
+    diaporama.getLocalisationImages().push_back(imageDansDiapo);
+    imageDansDiapo = ImageDansDiaporama(pImages,1,1);
+    diaporama.getLocalisationImages().push_back(imageDansDiapo);
+    imageDansDiapo = ImageDansDiaporama(pImages,4,2);
+    diaporama.getLocalisationImages().push_back(imageDansDiapo);
+    imageDansDiapo = ImageDansDiaporama(pImages,3,3);
+    diaporama.getLocalisationImages().push_back(imageDansDiapo);
+
+    // ajout du diaporama dans le tableau de diaporamas
+    getToutesDiapos().push_back(diaporama);
+
+    // vider la variable temporaire avant de la remplir avec le diaporama suivant
+    diaporama.getLocalisationImages().clear();
+
+    // Diaporama de Manu
+    Diaporama diapoManu("Diaporama Manu", 1);
+
+    // Les images du diaporama de Yann
+    imageDansDiapo = ImageDansDiaporama(pImages,4,4);
+    diaporama.getLocalisationImages().push_back(imageDansDiapo);
+    imageDansDiapo = ImageDansDiaporama(pImages,1,3);
+    diaporama.getLocalisationImages().push_back(imageDansDiapo);
+    imageDansDiapo = ImageDansDiaporama(pImages,2,2);
+    diaporama.getLocalisationImages().push_back(imageDansDiapo);
+    imageDansDiapo = ImageDansDiaporama(pImages,3,1);
+    diaporama.getLocalisationImages().push_back(imageDansDiapo);
+
+    // ajout du diaporama dans le tableau de diaporamas
+    m_toutesDiapos.push_back(diaporama);
+
+    // vider la variable temporaire avant de la remplir avec le diaporama suivant
+    diaporama.getLocalisationImages().clear();
+
+    cout << "Images chargées (atteinte de fin de programme)" << endl;
+    cin >> debug;
 }
 
 void Lecteur::afficherDiapoCourant()

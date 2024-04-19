@@ -34,7 +34,7 @@ void Image::afficher() const
     cout << "image(titre:" << this->getTitre() << ", categorie:"
          << this->getCategorie() << ", chemin:"<< this->getChemin() << ")" << endl;
 }
-
+/*
 void Image::charger(vector<Image>& pImages) {
     Image imageACharger;
 
@@ -61,4 +61,5 @@ void Image::charger(vector<Image>& pImages) {
 
     imageACharger = Image("animal", "Bambi", "C:\\cartesDisney\\Disney_3.gif");
     pImages.push_back(imageACharger);
-}
+}*/
+

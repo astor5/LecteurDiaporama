@@ -11,8 +11,9 @@ private :
     unsigned int m_rang;
 
 public:
-    ImageDansDiaporama(unsigned int, unsigned int);//les paramètres dans l'ordre : titre, categorie, rang, chemin
-    ImageDansDiaporama(const ImageDansDiaporama&);
+    ImageDansDiaporama();
+    ImageDansDiaporama(const Image&, unsigned int, unsigned int);//les paramètres dans l'ordre : titre, categorie, rang, chemin
+    ImageDansDiaporama(Images&, unsigned int, unsigned int);
     //~Image(); //pas besoin de destructeur car on ne fait pas d'allocation dynamique (je crois)
 
     unsigned int getPosition() const;
