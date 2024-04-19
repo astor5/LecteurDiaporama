@@ -124,6 +124,9 @@
         </item>
         <item>
          <widget class="QRadioButton" name="rbModeDefilement">
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
           <property name="layoutDirection">
            <enum>Qt::LeftToRight</enum>
           </property>
@@ -140,6 +143,9 @@
         </item>
         <item>
          <widget class="QRadioButton" name="rbModeBoucle">
+          <property name="focusPolicy">
+           <enum>Qt::NoFocus</enum>
+          </property>
           <property name="autoFillBackground">
            <bool>false</bool>
           </property>
@@ -235,6 +241,9 @@
         </property>
         <property name="shortcut">
          <string>N</string>
+        </property>
+        <property name="default">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
