@@ -17,7 +17,7 @@
     <DEPENDENCIES>
       <COMP relation="OwnedOperation">
         <OBJECT>
-          <ID name="Diaporama" mc="Standard.Operation" uid="af4904ba-40a3-451e-ab2b-6750d3f6ccf8"/>
+          <ID name="Diaporama" mc="Standard.Operation" uid="c86d7bb9-1859-4b14-bec8-a57a73745f54"/>
           <ATTRIBUTES>
             <ATT name="Concurrency">false</ATT>
             <ATT name="Final">false</ATT>
@@ -31,7 +31,7 @@
           <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="getTitre" mc="Standard.Operation" uid="ab4dc5c3-60ec-47bb-a95b-4ab3b8d488da"/>
+          <ID name="getTitre" mc="Standard.Operation" uid="4b49a10d-a218-4019-8b7c-393ca9b519fd"/>
           <ATTRIBUTES>
             <ATT name="Concurrency">false</ATT>
             <ATT name="Final">false</ATT>
@@ -45,7 +45,7 @@
           <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="getLocalisationImages" mc="Standard.Operation" uid="81c7de1c-6b65-4eea-aab3-376fa3ccedb6"/>
+          <ID name="getLocalisationImages" mc="Standard.Operation" uid="61e4d73f-6eb9-43b9-ade9-b6afcf624c31"/>
           <ATTRIBUTES>
             <ATT name="Concurrency">false</ATT>
             <ATT name="Final">false</ATT>
@@ -59,7 +59,7 @@
           <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="getVitesseDefilement" mc="Standard.Operation" uid="9bac7029-d09d-4d10-982b-725c753b6bdf"/>
+          <ID name="getVitesseDefilement" mc="Standard.Operation" uid="a9a7e373-2314-4caa-b3b5-908a301bff7c"/>
           <ATTRIBUTES>
             <ATT name="Concurrency">false</ATT>
             <ATT name="Final">false</ATT>
@@ -73,7 +73,7 @@
           <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="setTitre" mc="Standard.Operation" uid="4315acc8-fd3d-45f0-a9cd-c7fcf54aae82"/>
+          <ID name="setTitre" mc="Standard.Operation" uid="fb344a82-73f6-467b-b0a2-6b17c81ba648"/>
           <ATTRIBUTES>
             <ATT name="Concurrency">false</ATT>
             <ATT name="Final">false</ATT>
@@ -87,7 +87,7 @@
           <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="setVitesseDefilement" mc="Standard.Operation" uid="b6a5459e-2935-4843-99b1-5aae5c188c9b"/>
+          <ID name="setVitesseDefilement" mc="Standard.Operation" uid="d08fd5e1-172a-40ef-8573-e88475088cd8"/>
           <ATTRIBUTES>
             <ATT name="Concurrency">false</ATT>
             <ATT name="Final">false</ATT>
@@ -101,7 +101,7 @@
           <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="setLocalisationImages" mc="Standard.Operation" uid="0d05fbe3-977b-485e-957c-439b78cd329f"/>
+          <ID name="setLocalisationImages" mc="Standard.Operation" uid="dbbb00fd-f096-4e33-bcf1-ccdcaec03636"/>
           <ATTRIBUTES>
             <ATT name="Concurrency">false</ATT>
             <ATT name="Final">false</ATT>
@@ -115,7 +115,7 @@
           <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="charger" mc="Standard.Operation" uid="d49172ef-4e19-47db-bfda-6cf3068ed6b2"/>
+          <ID name="afficherImageCouranteDansDiaporamaCourant" mc="Standard.Operation" uid="40f57cb9-dd7d-4d5d-99ad-a111cd55c985"/>
           <ATTRIBUTES>
             <ATT name="Concurrency">false</ATT>
             <ATT name="Final">false</ATT>
@@ -123,13 +123,13 @@
             <ATT name="Visibility">Public</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[charger]]></ATT>
+            <ATT name="Name"><![CDATA[afficherImageCouranteDansDiaporamaCourant]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="declencherAction" mc="Standard.Operation" uid="528f0adc-bd43-4d92-ac35-882b309415a7"/>
+          <ID name="avancer" mc="Standard.Operation" uid="4fbf8b03-94a1-40a5-8d2e-e9cd08f19df7"/>
           <ATTRIBUTES>
             <ATT name="Concurrency">false</ATT>
             <ATT name="Final">false</ATT>
@@ -137,13 +137,13 @@
             <ATT name="Visibility">Public</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[declencherAction]]></ATT>
+            <ATT name="Name"><![CDATA[avancer]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="saisieVerifChoixDiaporama" mc="Standard.Operation" uid="03e0af49-c445-4ba2-af57-4e0874339187"/>
+          <ID name="reculer" mc="Standard.Operation" uid="e74cf84e-b625-4509-b218-1249fc22c1da"/>
           <ATTRIBUTES>
             <ATT name="Concurrency">false</ATT>
             <ATT name="Final">false</ATT>
@@ -151,13 +151,13 @@
             <ATT name="Visibility">Public</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[saisieVerifChoixDiaporama]]></ATT>
+            <ATT name="Name"><![CDATA[reculer]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
         <OBJECT>
-          <ID name="afficherImageDansDiaporamaCourant" mc="Standard.Operation" uid="00aa63aa-7f55-49b4-9047-830e10e0f6c0"/>
+          <ID name="triCroissantRang" mc="Standard.Operation" uid="2c4344af-3d74-48e5-8d50-045861e7ce07"/>
           <ATTRIBUTES>
             <ATT name="Concurrency">false</ATT>
             <ATT name="Final">false</ATT>
@@ -165,21 +165,7 @@
             <ATT name="Visibility">Public</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[afficherImageDansDiaporamaCourant]]></ATT>
-            <ATT name="status">1970354901745664</ATT>
-          </ATTRIBUTES>
-          <DEPENDENCIES></DEPENDENCIES>
-        </OBJECT>
-        <OBJECT>
-          <ID name="~Diaporama" mc="Standard.Operation" uid="3be7638b-1359-4998-ac6e-f361f69199cd"/>
-          <ATTRIBUTES>
-            <ATT name="Concurrency">false</ATT>
-            <ATT name="Final">false</ATT>
-            <ATT name="Passing">MethodOut</ATT>
-            <ATT name="Visibility">Public</ATT>
-            <ATT name="IsClass">false</ATT>
-            <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[~Diaporama]]></ATT>
+            <ATT name="Name"><![CDATA[triCroissantRang]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES></DEPENDENCIES>
