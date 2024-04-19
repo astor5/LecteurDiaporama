@@ -22,6 +22,9 @@ lecteurVue::lecteurVue(QWidget *parent)
     QObject::connect(ui->actionEnlever_le_diaporama, SIGNAL(triggered()), this, SLOT(sl_enleverDiporama()));
     QObject::connect(ui->actionVitesse_de_defilement, SIGNAL(triggered()), this, SLOT(sl_vitesseDefilement()));
     QObject::connect(ui->actionA_propos, SIGNAL(triggered()), this, SLOT(sl_aPropos()));
+
+    //navigation entre les bouton avec tab
+    QWidget::setTabOrder({ui->bSuivant, ui->bPrecedent, ui->bPause, ui->bSuivant});
 }
 
 lecteurVue::~lecteurVue()
