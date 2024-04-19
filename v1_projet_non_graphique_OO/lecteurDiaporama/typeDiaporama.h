@@ -19,7 +19,7 @@ private:
 
 
 public:
-    Diaporama(string = "", unsigned short int =0);
+    Diaporama(string = "Defaut", unsigned short int =0);
     Diaporama(const Diaporama&);
     ~Diaporama();
 
