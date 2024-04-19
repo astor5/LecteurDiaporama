@@ -7,9 +7,9 @@ using namespace std;
 //***********************************************************************************
 
 
-Lecteur::Lecteur()
-{
-
+Lecteur::Lecteur():
+    m_numDiapoCourant(0),
+    m_nombreDiapos(0){
 }
 
 Lecteur::Lecteur(vector<Diaporama> diapo, unsigned int numero, unsigned int nombre):
@@ -162,14 +162,15 @@ void Lecteur::chargerDiapos(Images & pImages)
     ImageDansDiaporama imageDansDiapo;
     int debug;
 
-    Diaporama diaporama("Diaporama par défaut", 2);
+    Diaporama diaporama("Diaporama par défaut");
+    diaporama.setVitesseDefilement(2);
 
     imageDansDiapo = ImageDansDiaporama(pImages,0,1);
     diaporama.getLocalisationImages().push_back(imageDansDiapo);
-    getToutesDiapos().push_back(diaporama);
+    m_toutesDiapos.push_back(diaporama);
 
     // Diaporama de Pantxika
-    Diaporama diapoPantxika("Diaporama Pantxika",2);
+    Diaporama diapoPantxika("Diaporama Pantxika",2,0);
 
     // Les images du diaporama de Pantxika
     imageDansDiapo = ImageDansDiaporama(pImages,4,3);
@@ -182,13 +183,10 @@ void Lecteur::chargerDiapos(Images & pImages)
     diaporama.getLocalisationImages().push_back(imageDansDiapo);
 
     // ajout du diaporama dans le tableau de diaporamas
-    getToutesDiapos().push_back(diaporama);
-
-    // vider la variable temporaire avant de la remplir avec le diaporama suivant
-    diaporama.getLocalisationImages().clear();
+    m_toutesDiapos.push_back(diaporama);
 
     // Diaporama de Thierry
-    Diaporama diapoThierry("Diaporama de Thierry", 4);
+    Diaporama diapoThierry("Diaporama de Thierry", 4,0);
 
     // Les images du diaporama de Thierry
     imageDansDiapo = ImageDansDiaporama(pImages,4,1);
@@ -201,13 +199,10 @@ void Lecteur::chargerDiapos(Images & pImages)
     diaporama.getLocalisationImages().push_back(imageDansDiapo);
 
     // ajout du diaporama dans le tableau de diaporamas
-    getToutesDiapos().push_back(diaporama);
-
-    // vider la variable temporaire avant de la remplir avec le diaporama suivant
-    diaporama.getLocalisationImages().clear();
+    m_toutesDiapos.push_back(diaporama);
 
     // Diaporama de Yann
-    Diaporama diapoYann("Diaporama Yann", 3);
+    Diaporama diapoYann("Diaporama Yann", 3,0);
 
     // Les images du diaporama de Yann
     imageDansDiapo = ImageDansDiaporama(pImages,4,2);
@@ -220,13 +215,10 @@ void Lecteur::chargerDiapos(Images & pImages)
     diaporama.getLocalisationImages().push_back(imageDansDiapo);
 
     // ajout du diaporama dans le tableau de diaporamas
-    getToutesDiapos().push_back(diaporama);
-
-    // vider la variable temporaire avant de la remplir avec le diaporama suivant
-    diaporama.getLocalisationImages().clear();
+    m_toutesDiapos.push_back(diaporama);
 
     // Diaporama de Manu
-    Diaporama diapoManu("Diaporama Manu", 1);
+    Diaporama diapoManu("Diaporama Manu", 1,0);
 
     // Les images du diaporama de Yann
     imageDansDiapo = ImageDansDiaporama(pImages,4,4);
@@ -240,9 +232,6 @@ void Lecteur::chargerDiapos(Images & pImages)
 
     // ajout du diaporama dans le tableau de diaporamas
     m_toutesDiapos.push_back(diaporama);
-
-    // vider la variable temporaire avant de la remplir avec le diaporama suivant
-    diaporama.getLocalisationImages().clear();
 
     cout << "Images chargées (atteinte de fin de programme)" << endl;
     cin >> debug;

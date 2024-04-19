@@ -19,7 +19,7 @@ private:
 public:
     /*** Constructeurs ***/
     Lecteur(); // Constructeur par défaut
-    Lecteur(vector<Diaporama>, unsigned int, unsigned int);
+    Lecteur(vector<Diaporama>, unsigned int, unsigned int = 0);
 
 
     /*** Getters ***/

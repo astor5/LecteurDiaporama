@@ -23,22 +23,31 @@ int main()
     // Chargement des urls des images, chargement des diaporamas
     l1.charger(images);
     l1.chargerDiapos(images);
+    cout << "Nombre d'images dane le diapo" << d1.nbImages() << endl;
     cout << "Images chargées " << endl;
     cin >> debug;
 
     // Afficher toutes les images de tous les diapos
+    cout << "Le nombre de diapos de l1 est " << l1.getNombreDiapos() << endl;
     for(int i = 0; i < l1.getNombreDiapos(); i++)
     {
         cout << l1.getToutesDiapos()[i].getTitre() << endl;
+        cout << "Avant le auto sus" << endl;
         const auto& images = l1.getToutesDiapos()[i].getLocalisationImages();
+        cout << "Avant la boucle for" << endl;
         for (const auto& image : images) {
             // Affiche les détails de chaque image
+            cout << "On est supposé afficher les images" << endl;
             image.afficher();
         }
+        cout << "La valeur de i est " << i << endl;
     }
+    cout << "fin de la boucle for" << endl;
 
     unsigned int taille_images = d1.nbImages();
     unsigned int taille_diaporamas = images.size();
+    cout << "on a calculé les tailles" << endl;
+
 
     /*
     // Tri des images contenues dans les diaporamas pour les placer dans l'ordre d'apparition (rang) souhaité par l'utilisateur
