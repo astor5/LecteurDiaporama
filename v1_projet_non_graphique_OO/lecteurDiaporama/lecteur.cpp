@@ -2,6 +2,180 @@
 #include "lecteur.h"
 using namespace std;
 
+//***********************************************************************************
+//                                  Nouvelle classe
+//***********************************************************************************
+
+
+Lecteur::Lecteur()
+{
+
+}
+
+Lecteur::Lecteur(vector<Diaporama> diapo, unsigned int numero, unsigned int nombre):
+    m_toutesDiapos(diapo),
+    m_numDiapoCourant(numero),
+    m_nombreDiapos(nombre){
+}
+
+vector<Diaporama> Lecteur::getToutesDiapos() const
+{
+    return m_toutesDiapos;
+}
+
+Diaporama Lecteur::getDiapoCourant() const
+{
+
+}
+
+unsigned int Lecteur::getNumDiapoCourant() const
+{
+    return m_numDiapoCourant;
+}
+
+unsigned int Lecteur::getNombreDiapos() const
+{
+    return m_nombreDiapos;
+}
+
+void Lecteur::setToutesDiapos(const vector<Diaporama> & diapos)
+{
+    m_toutesDiapos = diapos;
+}
+
+void Lecteur::setNumDiapoCourant(unsigned int numero)
+{
+    m_numDiapoCourant = numero;
+}
+
+void Lecteur::setNombreDiapos(unsigned int nombre)
+{
+    m_nombreDiapos = nombre;
+}
+
+void Lecteur::declencherAction(char pChoixAction)
+{
+    unsigned int position;
+    unsigned int choixDiaporama;
+    switch (pChoixAction)
+    {
+        case 'A':
+            avancer(pDiaporamas[pDiaporamaCourant], pImageCourante);
+            position = pDiaporamas[pDiaporamaCourant].localisationImages[pImageCourante].pos;
+            afficherImageCouranteDansDiaporamaCourant (pDiaporamas[pDiaporamaCourant], pImageCourante, pImages[position]);
+            break;
+        case 'R':
+            reculer(pDiaporamas[pDiaporamaCourant], pImageCourante);
+            position = pDiaporamas[pDiaporamaCourant].localisationImages[pImageCourante].pos;
+            afficherImageCouranteDansDiaporamaCourant (pDiaporamas[pDiaporamaCourant], pImageCourante, pImages[position]);
+            break;
+        case 'C' :
+            cout << "Choisissez un Diaporama " << endl;
+            choixDiaporama = saisieVerifChoixDiaporama();
+            // Changer de diaporama
+            pDiaporamaCourant = choixDiaporama;
+            pImageCourante = 0;
+            break;
+
+        default : break;
+    }
+}
+
+void Lecteur::saisieVerifChoixActionSurImageCourante(char & pChoixAction)
+{
+    cout << endl << endl;
+    while (true)
+    {
+        cout  << endl ;
+        cout << "ACTIONS :" << "  A-vancer" << "  R-eculer" << "  C-hanger de diaporama " << "  Q-uitter .......  votre choix ? ";
+        cin >> pChoixAction;
+        pChoixAction = toupper(pChoixAction);
+
+        if ((pChoixAction == 'A') || (pChoixAction == 'R') || (pChoixAction == 'C') || (pChoixAction == 'Q'))
+        {
+            break;
+        }
+    }
+}
+
+unsigned int Lecteur::saisieVerifChoixDiaporama()
+{
+    unsigned int choixSaisi;
+    int choixDiaporama; // valeur retournée
+
+    while (true)
+    {
+        system("cls");  // effacer l'écran
+         cout << endl << endl << "CHANGEMENT DIAPORAMA : " << endl << endl;
+        for (unsigned int num = 1; num < getToutesDiapos().size(); num++)
+        {
+            cout << num << ": " << getToutesDiapos()[num].getTitre();
+            if (num != getToutesDiapos().size()-1) { cout << endl; }
+        }
+        cout << ".......  votre choix ? "; cin >> choixSaisi;
+        choixDiaporama = choixSaisi;
+
+        if ((choixDiaporama >= 1)&&(choixDiaporama < static_cast<unsigned int>(getToutesDiapos().size())))
+        {
+            break;
+        }
+    }
+    return choixDiaporama;
+}
+
+void Lecteur::charger(Images & pImages)
+{
+    Image imageACharger;
+
+    imageACharger = Image("objet", "", "C:\\cartesDisney\\Disney_tapis.gif");
+    pImages.push_back(imageACharger);
+
+    imageACharger = Image("personnage", "Blanche Neige", "C:\\cartesDisney\\Disney_4.gif");
+    pImages.push_back(imageACharger);
+
+    imageACharger = Image("personnage", "Alice", "C:\\cartesDisney\\Disney_2.gif");
+    pImages.push_back(imageACharger);
+
+    imageACharger = Image("animal", "Mickey", "C:\\cartesDisney\\Disney_19.gif");
+    pImages.push_back(imageACharger);
+
+    imageACharger = Image("personnage", "Pinnochio", "C:\\cartesDisney\\Disney_29.gif");
+    pImages.push_back(imageACharger);
+
+    imageACharger = Image("objet", "chateau", "C:\\cartesDisney\\Disney_0.gif");
+    pImages.push_back(imageACharger);
+
+    imageACharger = Image("personnage", "Minnie", "C:\\cartesDisney\\Disney_14.gif");
+    pImages.push_back(imageACharger);
+
+    imageACharger = Image("animal", "Bambi", "C:\\cartesDisney\\Disney_3.gif");
+    pImages.push_back(imageACharger);
+}
+
+void Lecteur::chargerDiapos(Images &)
+{
+
+}
+
+void Lecteur::afficherDiapoCourant()
+{
+
+}
+
+
+
+
+
+
+
+
+
+//***********************************************************************************
+//                                  Ancienne classe
+//***********************************************************************************
+
+
+/*
 Lecteur::Lecteur()
 {
 
@@ -11,7 +185,7 @@ Lecteur::~Lecteur()
 {
 
 }
-
+*/
 /*
 void Lecteur::avancer(const DiaporamasT& unDiapo)
 {
@@ -26,7 +200,7 @@ void Lecteur::reculer(const DiaporamasT& unDiapo)
             m_posImageCourante = (m_posImageCourante-1) % nbImages(unDiapo);
     }
 }*/
-
+/*
 void Lecteur::changerDiaporama(const DiaporamasT& monDiapo, unsigned int pNumDiaporama)
 {
 
@@ -158,7 +332,7 @@ unsigned int saisieVerifChoixDiaporama(const DiaporamaT& pDiaporamas)
 
 void declencherAction(char pChoixAction, const DiaporamaT& pDiaporamas, unsigned int& pDiaporamaCourant,
                       unsigned int& pImageCourante, const ImageT& pImages)
-/* Selon le pChoix fait l'utilisateur, réalise une des actions A)vancer, R)eculer, C)hoisir un autre diaporama, Q)quitter */
+// Selon le pChoix fait l'utilisateur, réalise une des actions A)vancer, R)eculer, C)hoisir un autre diaporama, Q)quitter
 {
     unsigned int position;
     unsigned int choixDiaporama;
@@ -175,3 +349,4 @@ void declencherAction(char pChoixAction, const DiaporamaT& pDiaporamas, unsigned
         default : break;
     }
 }
+*/

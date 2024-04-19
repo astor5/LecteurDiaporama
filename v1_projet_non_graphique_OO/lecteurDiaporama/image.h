@@ -30,6 +30,6 @@ public:
 };
 
 
-typedef vector<Image> ImageT;
+typedef vector<Image> Images;
 
 #endif // IMAGE_H

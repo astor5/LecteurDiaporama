@@ -23,8 +23,6 @@ public:
     Diaporama(const Diaporama&);
     ~Diaporama();
 
-    typedef vector<Diaporama> DiaporamaT;
-
     //Getter
     string getTitre() const;
     vector<ImageDansDiaporama> getLocalisationImages();
@@ -33,14 +31,15 @@ public:
     //Setter
     void setTitre(const string &);
     void setVitesseDefilement(unsigned int);
-    void setLocalisationImages(const std::vector<ImageDansDiaporama> &);
+    void setLocalisationImages(const vector<ImageDansDiaporama> &);
 
     //Sous-programmes de base
     void afficherImageCouranteDansDiaporamaCourant(unsigned int) const;
-    unsigned int nbImages() const;
     void avancer(unsigned int&) const;
     void reculer(unsigned int&) const;
     void triCroissantRang();
+
+    unsigned int nbImages() const;
 };
 
 

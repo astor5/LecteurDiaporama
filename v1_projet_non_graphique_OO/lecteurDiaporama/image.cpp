@@ -29,11 +29,6 @@ string Image::getChemin() const
     return this->m_chemin;
 }
 
-void Image::saisieVerifChoixActionSurImageCourante()
-{
-
-}
-
 void Image::afficher() const
 {
     cout << "image(titre:" << this->getTitre() << ", categorie:"

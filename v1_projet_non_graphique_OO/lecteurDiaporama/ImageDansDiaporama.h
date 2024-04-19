@@ -5,9 +5,8 @@
 #include "image.h"
 using namespace std;
 
-class ImageDansDiaporama {
+class ImageDansDiaporama : public Image {
 private :
-    Image m_image;
     unsigned int m_pos;
     unsigned int m_rang;
 
