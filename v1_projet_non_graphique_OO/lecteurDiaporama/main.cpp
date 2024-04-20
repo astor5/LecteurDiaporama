@@ -13,40 +13,35 @@ int main()
      * - Charger les images et diaporamas
      * Dans un second temps, ces contenus proviendront d'une base de données
      --------------------------------------------------------------------------------------*/
-    Images images;          // les images
+    vector<Image> images;          // les images
     int debug;
 
-    Image i1("Thibault et Caillou", "F/S1.01", "0");  //Une image
-    Diaporama d1("Diapo defaut", 2, 0);            //Un diaporama
+    Diaporama d1("Diapo par defaut pas par fonction defaut");            //Un diaporama
+    d1.setVitesseDefilement(2);
+    d1.setPosImageCouranteInt(0);
     Lecteur l1;                                 //Un lecteur
 
     // Chargement des urls des images, chargement des diaporamas
     l1.charger(images);
     l1.chargerDiapos(images);
-    cout << "Nombre d'images dane le diapo" << d1.nbImages() << endl;
-    cout << "Images chargées " << endl;
-    cin >> debug;
+    //cout << "Nombre de diapos dans le lecteur " << l1.getNombreDiapos() << endl;
+    cout << "Images chargees " << endl;
 
     // Afficher toutes les images de tous les diapos
-    cout << "Le nombre de diapos de l1 est " << l1.getNombreDiapos() << endl;
+    //cout << "Le nombre de diapos de l1 est " << l1.getNombreDiapos() << endl;
     for(int i = 0; i < l1.getNombreDiapos(); i++)
     {
-        cout << l1.getToutesDiapos()[i].getTitre() << endl;
-        cout << "Avant le auto sus" << endl;
-        const auto& images = l1.getToutesDiapos()[i].getLocalisationImages();
-        cout << "Avant la boucle for" << endl;
-        for (const auto& image : images) {
+        cout << endl << l1.getToutesDiapos()[i].getTitre() << endl << endl;
+        for (int j = 0; j<l1.getDiapoCourant().getNombreImages(); j++ ) {
             // Affiche les détails de chaque image
-            cout << "On est supposé afficher les images" << endl;
-            image.afficher();
+            images[j].afficher();
         }
-        cout << "La valeur de i est " << i << endl;
+        l1.setNumDiapoCourant(l1.getNumDiapoCourant()+1);
     }
-    cout << "fin de la boucle for" << endl;
 
     unsigned int taille_images = d1.nbImages();
     unsigned int taille_diaporamas = images.size();
-    cout << "on a calculé les tailles" << endl;
+    cout << "on a calcule les tailles" << endl;
 
 
     /*
@@ -90,7 +85,7 @@ int main()
         /* Affichage à l'écran des infos de l'image courante dans son diaporama   */
         //system("cls");  // effacer l'écran
         //unsigned int position = diaporamas[diaporamaCourant].getLocalisationImages()[imageCourante].getPosition();
-        cout << "Début du programme : avant l'affichage de l'image en cours " << endl;
+        cout << "Debut du programme : avant l'affichage de l'image en cours " << endl;
         cin >> debug;
         d1.afficherImageCouranteDansDiaporamaCourant();
         cout << "Fin de l'affichage de l'image " << endl;

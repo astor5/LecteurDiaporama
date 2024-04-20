@@ -20,7 +20,8 @@ private:
 
 
 public:
-    Diaporama(string = "Defaut", unsigned short int =0, unsigned int =0);
+    Diaporama(string);
+    Diaporama(unsigned short int =0, unsigned int =0);
     Diaporama(const Diaporama&);
     ~Diaporama();
 
@@ -30,6 +31,7 @@ public:
     unsigned int getPosImageCouranteInt() const;
     unsigned short int getVitesseDefilement() const;
     ImageDansDiaporama getPositionImage() const;
+    unsigned int getNombreImages() const;
 
 
 
@@ -40,6 +42,7 @@ public:
     void setPosImageCouranteInt(const unsigned int&);
 
     //Sous-programmes de base
+    void ajouterImage(const ImageDansDiaporama&);
     void afficherImageCouranteDansDiaporamaCourant() const;
     void avancer();
     void reculer();

@@ -2,8 +2,11 @@
 #include "typeDiaporama.h"
 using namespace std;
 
-Diaporama::Diaporama(string titre, unsigned short vitesseDefilement, unsigned int position):
-    m_titre(titre),
+Diaporama::Diaporama(string titre):
+    m_titre(titre){
+}
+
+Diaporama::Diaporama(unsigned short vitesseDefilement, unsigned int position):
     m_vitesseDefilement(vitesseDefilement),
     m_posImage(position){
 }
@@ -44,6 +47,11 @@ unsigned short Diaporama::getVitesseDefilement() const
     return m_vitesseDefilement;
 }
 
+unsigned int Diaporama::getNombreImages() const
+{
+    return getLocalisationImages().size();
+}
+
 void Diaporama::setTitre(const string & titre)
 {
     m_titre = titre;
@@ -62,6 +70,11 @@ void Diaporama::setLocalisationImages(const std::vector<ImageDansDiaporama> &ima
 void Diaporama::setPosImageCouranteInt(const unsigned int& positionImgC)
 {
     m_posImage = positionImgC;
+}
+
+void Diaporama::ajouterImage(const ImageDansDiaporama& image)
+{
+    m_localisationImages.push_back(image);
 }
 
 unsigned int Diaporama::nbImages() const
@@ -95,13 +108,14 @@ void Diaporama::reculer()
 void Diaporama::afficherImageCouranteDansDiaporamaCourant() const {
     int debug;
     cout << endl << endl;
-    cout << "DIAPORAMA : " << this->getTitre() << endl << endl;
+    cout << "DIAPORAMA : " << getTitre() << endl << endl;
     cout << "Avant l'appel de getPositionImage().getRang() " << endl;
     cin >> debug;
+    cout << "Affichage du nombre d'images" << endl;
     cout << nbImages() << endl;
     cout << getPositionImage().getRang() << endl;
-    cout << this->getPositionImage().getRang() << " sur " << nbImages() << " / ";
-    this->getPositionImage().afficher();
+    cout << getPositionImage().getRang() << " sur " << nbImages() << " / ";
+    getPositionImage().afficher();
 }
 
 void Diaporama::triCroissantRang() {

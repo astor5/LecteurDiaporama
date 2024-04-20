@@ -14,7 +14,7 @@ private :
     string m_chemin;
 
 public:
-    Image(string = "", string = "", string="");//les paramètres dans l'ordre : titre, categorie, chemin
+    Image(string = "Def", string = "Def", string="Def");//les paramètres dans l'ordre : titre, categorie, chemin
     Image(const Image&);
     //~Image(); //pas besoin de destructeur car on ne fait pas d'allocation dynamique (je crois)
 
