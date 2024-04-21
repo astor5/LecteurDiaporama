@@ -16,16 +16,13 @@ int main()
     vector<Image> images;          // les images
     int debug;
 
-    Diaporama d1("Diapo par defaut pas par fonction defaut");            //Un diaporama
-    d1.setVitesseDefilement(2);
-    d1.setPosImageCouranteInt(0);
     Lecteur l1;                                 //Un lecteur
 
     // Chargement des urls des images, chargement des diaporamas
     l1.charger(images);
     l1.chargerDiapos(images);
     //cout << "Nombre de diapos dans le lecteur " << l1.getNombreDiapos() << endl;
-    cout << "Images chargees " << endl;
+    cout << "DEBUG : Images chargees " << endl;
 
     // Afficher toutes les images de tous les diapos
     //cout << "Le nombre de diapos de l1 est " << l1.getNombreDiapos() << endl;
@@ -35,13 +32,16 @@ int main()
         for (int j = 0; j<l1.getDiapoCourant().getNombreImages(); j++ ) {
             // Affiche les détails de chaque image
             images[j].afficher();
+            l1.getDiapoCourant().getPosImageCouranteInt();
         }
         l1.setNumDiapoCourant(l1.getNumDiapoCourant()+1);
     }
 
-    unsigned int taille_images = d1.nbImages();
+    l1.setNumDiapoCourant(0);
+    cout << endl << "DEBUG : Numero du diaporama courant " << l1.getNumDiapoCourant() << endl;
+    unsigned int taille_images = l1.getDiapoCourant().nbImages();
     unsigned int taille_diaporamas = images.size();
-    cout << "on a calcule les tailles" << endl;
+    cout << "DEBUG : On a calcule les tailles" << endl;
 
 
     /*
@@ -85,11 +85,9 @@ int main()
         /* Affichage à l'écran des infos de l'image courante dans son diaporama   */
         //system("cls");  // effacer l'écran
         //unsigned int position = diaporamas[diaporamaCourant].getLocalisationImages()[imageCourante].getPosition();
-        cout << "Debut du programme : avant l'affichage de l'image en cours " << endl;
-        cin >> debug;
-        d1.afficherImageCouranteDansDiaporamaCourant();
-        cout << "Fin de l'affichage de l'image " << endl;
-        cin >> debug;
+        cout << "DEBUG : Debut du programme : avant l'affichage de l'image en cours " << endl;
+        l1.getDiapoCourant().afficherImageCouranteDansDiaporamaCourant();
+        cout << "DEBUG : Fin de l'affichage de l'image " << endl;
 
 
         /* Menu des actions possibles (saisie choix utilisateur) :

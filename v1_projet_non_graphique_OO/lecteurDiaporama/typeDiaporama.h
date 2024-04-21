@@ -43,7 +43,7 @@ public:
 
     //Sous-programmes de base
     void ajouterImage(const ImageDansDiaporama&);
-    void afficherImageCouranteDansDiaporamaCourant() const;
+    void afficherImageCouranteDansDiaporamaCourant();
     void avancer();
     void reculer();
     void triCroissantRang();

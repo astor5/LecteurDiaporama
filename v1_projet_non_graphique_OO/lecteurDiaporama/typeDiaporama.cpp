@@ -33,7 +33,7 @@ vector<ImageDansDiaporama> Diaporama::getLocalisationImages() const
 }
 
 unsigned int Diaporama::getPosImageCouranteInt() const
-{
+{    
     return m_posImage;
 }
 
@@ -85,11 +85,18 @@ unsigned int Diaporama::nbImages() const
 void Diaporama::avancer() {
     if (this->getPosImageCouranteInt() == this->nbImages() - 1)
     {
+        cout << "DEBUG : On avance (fin du diapo) " << endl;
+        cout << "DEBUG : Position de l'image courante " << getPosImageCouranteInt() << endl; 
         this->setPosImageCouranteInt(0);
+        cout << "DEBUG : Position de l'image courante apres le set " << this->getPosImageCouranteInt() << endl; 
+
     }
     else
     {
-        this->setPosImageCouranteInt(this->getPosImageCouranteInt() + 1);
+        cout << "DEBUG : On avance " << endl;
+        cout << "DEBUG : Position de l'image courante " << getPosImageCouranteInt() << endl; 
+        setPosImageCouranteInt(getPosImageCouranteInt() + 1);
+        cout << "DEBUG : Position de l'image courante apres le set " << this->getPosImageCouranteInt() << endl; 
     }
 }
 
@@ -97,24 +104,28 @@ void Diaporama::reculer()
 {
     if (this->getPosImageCouranteInt() == 0)
     {
+        cout << "DEBUG : On recule (debut du diapo) " << endl;
+        cout << "DEBUG : Position de l'image courante " << getPosImageCouranteInt() << endl; 
         this->setPosImageCouranteInt(this->nbImages() - 1);
+        cout << "DEBUG : Position de l'image courante apres le set " << getPosImageCouranteInt() << endl; 
     }
     else
     {
+        cout << "DEBUG : On recule " << endl;
+        cout << "DEBUG : Position de l'image courante " << getPosImageCouranteInt() << endl; 
         this->setPosImageCouranteInt(this->getPosImageCouranteInt() - 1);
+        cout << "DEBUG : Position de l'image courante apres le set " << getPosImageCouranteInt() << endl; 
     }
 }
 
-void Diaporama::afficherImageCouranteDansDiaporamaCourant() const {
+void Diaporama::afficherImageCouranteDansDiaporamaCourant() {
     int debug;
     cout << endl << endl;
+    //setPosImageCouranteInt(0);
     cout << "DIAPORAMA : " << getTitre() << endl << endl;
-    cout << "Avant l'appel de getPositionImage().getRang() " << endl;
-    cin >> debug;
-    cout << "Affichage du nombre d'images" << endl;
-    cout << nbImages() << endl;
-    cout << getPositionImage().getRang() << endl;
-    cout << getPositionImage().getRang() << " sur " << nbImages() << " / ";
+    cout << getLocalisationImages()[getPosImageCouranteInt()].getRang() << " sur " << nbImages() << " / ";  //Méthode d'affichage 1
+    getLocalisationImages()[getPosImageCouranteInt()].afficher();
+    cout << getPositionImage().getRang() << " sur " << nbImages() << " / ";                                 //Méthode d'affichage 2
     getPositionImage().afficher();
 }
 
