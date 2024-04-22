@@ -164,8 +164,6 @@ void Lecteur::chargerDiapos(Images & pImages)
 
     imageDansDiapo = ImageDansDiaporama(pImages,0,1);
     diaporama.ajouterImage(imageDansDiapo);
-    imageDansDiapo = ImageDansDiaporama(pImages,4,3);
-    diaporama.ajouterImage(imageDansDiapo);
     diaporama.setPosImageCouranteInt(0);
     m_toutesDiapos.push_back(diaporama);
 
@@ -202,11 +200,11 @@ void Lecteur::chargerDiapos(Images & pImages)
     diapoYann.setVitesseDefilement(3);
 
     // Les images du diaporama de Yann
-    imageDansDiapo = ImageDansDiaporama(pImages,4,2);
+    imageDansDiapo = ImageDansDiaporama(pImages,4,1);
     diapoYann.ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,1,1);
     diapoYann.ajouterImage(imageDansDiapo);
-    imageDansDiapo = ImageDansDiaporama(pImages,4,1);
+    imageDansDiapo = ImageDansDiaporama(pImages,0,1);
     diapoYann.ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,3,3);
     diapoYann.ajouterImage(imageDansDiapo);
