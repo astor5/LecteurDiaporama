@@ -59,6 +59,20 @@
           <DEPENDENCIES></DEPENDENCIES>
         </OBJECT>
         <OBJECT>
+          <ID name="getPosImageCouranteInt" mc="Standard.Operation" uid="4add8cd6-81fc-4c2b-bbe2-55d0e90fa33a"/>
+          <ATTRIBUTES>
+            <ATT name="Concurrency">false</ATT>
+            <ATT name="Final">false</ATT>
+            <ATT name="Passing">MethodOut</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name"><![CDATA[getPosImageCouranteInt]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
           <ID name="getVitesseDefilement" mc="Standard.Operation" uid="a9a7e373-2314-4caa-b3b5-908a301bff7c"/>
           <ATTRIBUTES>
             <ATT name="Concurrency">false</ATT>
@@ -68,6 +82,20 @@
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
             <ATT name="Name"><![CDATA[getVitesseDefilement]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="getNombreImages" mc="Standard.Operation" uid="c9ba81e3-b886-44ea-8d81-32319ce784d4"/>
+          <ATTRIBUTES>
+            <ATT name="Concurrency">false</ATT>
+            <ATT name="Final">false</ATT>
+            <ATT name="Passing">MethodOut</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name"><![CDATA[getNombreImages]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES></DEPENDENCIES>
@@ -110,6 +138,34 @@
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
             <ATT name="Name"><![CDATA[setLocalisationImages]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="setPosImageCouranteInt" mc="Standard.Operation" uid="8efd2e06-1974-48f5-b464-3e3cfb5907b8"/>
+          <ATTRIBUTES>
+            <ATT name="Concurrency">false</ATT>
+            <ATT name="Final">false</ATT>
+            <ATT name="Passing">MethodOut</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name"><![CDATA[setPosImageCouranteInt]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
+          <ID name="ajouterImage" mc="Standard.Operation" uid="36fdaa18-a236-4ddc-b483-a85bbd6ecd49"/>
+          <ATTRIBUTES>
+            <ATT name="Concurrency">false</ATT>
+            <ATT name="Final">false</ATT>
+            <ATT name="Passing">MethodOut</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name"><![CDATA[ajouterImage]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES></DEPENDENCIES>
@@ -244,10 +300,34 @@
             </LINK>
           </DEPENDENCIES>
         </OBJECT>
+        <OBJECT>
+          <ID name="m_posImage" mc="Standard.Attribute" uid="6c7e9cbb-2fe9-45fb-8e6e-5e60c398c566"/>
+          <ATTRIBUTES>
+            <ATT name="TypeConstraint"></ATT>
+            <ATT name="Value"></ATT>
+            <ATT name="TargetIsClass">false</ATT>
+            <ATT name="Changeable">AccesNone</ATT>
+            <ATT name="IsDerived">false</ATT>
+            <ATT name="IsOrdered">false</ATT>
+            <ATT name="IsUnique">false</ATT>
+            <ATT name="MultiplicityMin"><![CDATA[1]]></ATT>
+            <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
+            <ATT name="Visibility">Private</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name"><![CDATA[m_posImage]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES>
+            <LINK relation="Type">
+              <FOREIGNID name="integer" mc="Standard.DataType" uid="00000004-0000-0009-0000-000000000000"/>
+            </LINK>
+          </DEPENDENCIES>
+        </OBJECT>
       </COMP>
       <COMP relation="OwnedEnd">
         <OBJECT>
-          <ID name="composer" mc="Standard.AssociationEnd" uid="ab644cff-4840-4576-b9dc-e1169c2236ed"/>
+          <ID name="associer" mc="Standard.AssociationEnd" uid="816b5773-9734-467d-9199-7a17974cb2b1"/>
           <ATTRIBUTES>
             <ATT name="Aggregation">KindIsAssociation</ATT>
             <ATT name="IsChangeable">true</ATT>
@@ -256,20 +336,20 @@
             <ATT name="IsOrdered">false</ATT>
             <ATT name="IsUnique">false</ATT>
             <ATT name="MultiplicityMin"><![CDATA[0]]></ATT>
-            <ATT name="MultiplicityMax"><![CDATA[*]]></ATT>
+            <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
             <ATT name="Visibility">Public</ATT>
             <ATT name="IsClass">false</ATT>
             <ATT name="IsAbstract">false</ATT>
-            <ATT name="Name"><![CDATA[composer]]></ATT>
+            <ATT name="Name"><![CDATA[associer]]></ATT>
             <ATT name="status">1970354901745664</ATT>
           </ATTRIBUTES>
           <DEPENDENCIES>
             <LINK relation="Target">
-              <ID name="Image" mc="Standard.Class" uid="c975ccae-8bed-4663-99ea-0d4521ad63c3"/>
+              <ID name="ImageDansDiaporama" mc="Standard.Class" uid="c623802b-dac1-4a65-85e0-b47c551b45fc"/>
             </LINK>
             <COMP relation="Opposite">
               <OBJECT>
-                <ID name="" mc="Standard.AssociationEnd" uid="4f624b89-7d3b-46da-b47d-d24b3d315356"/>
+                <ID name="" mc="Standard.AssociationEnd" uid="c441168c-d68d-4ce5-a95a-aa018aa8ba99"/>
                 <ATTRIBUTES>
                   <ATT name="Aggregation">KindIsAssociation</ATT>
                   <ATT name="IsChangeable">true</ATT>
@@ -278,7 +358,7 @@
                   <ATT name="IsOrdered">false</ATT>
                   <ATT name="IsUnique">false</ATT>
                   <ATT name="MultiplicityMin"><![CDATA[0]]></ATT>
-                  <ATT name="MultiplicityMax"><![CDATA[*]]></ATT>
+                  <ATT name="MultiplicityMax"><![CDATA[1]]></ATT>
                   <ATT name="Visibility">Public</ATT>
                   <ATT name="IsClass">false</ATT>
                   <ATT name="IsAbstract">false</ATT>
@@ -287,11 +367,11 @@
                 </ATTRIBUTES>
                 <DEPENDENCIES>
                   <COMP relation="Opposite">
-                    <COMPID name="composer" mc="Standard.AssociationEnd" uid="ab644cff-4840-4576-b9dc-e1169c2236ed"/>
+                    <COMPID name="associer" mc="Standard.AssociationEnd" uid="816b5773-9734-467d-9199-7a17974cb2b1"/>
                   </COMP>
                   <COMP relation="Association">
                     <OBJECT>
-                      <ID name="" mc="Standard.Association" uid="ae638a03-5051-4e47-866e-dd7f282e7a18"/>
+                      <ID name="" mc="Standard.Association" uid="9d8e7674-db3b-4136-a98e-0bbebbc80391"/>
                       <ATTRIBUTES>
                         <ATT name="Name"></ATT>
                         <ATT name="status">1970354901745664</ATT>
@@ -303,7 +383,7 @@
               </OBJECT>
             </COMP>
             <COMP relation="Association">
-              <COMPID name="" mc="Standard.Association" uid="ae638a03-5051-4e47-866e-dd7f282e7a18"/>
+              <COMPID name="" mc="Standard.Association" uid="9d8e7674-db3b-4136-a98e-0bbebbc80391"/>
             </COMP>
           </DEPENDENCIES>
         </OBJECT>

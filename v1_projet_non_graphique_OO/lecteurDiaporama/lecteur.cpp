@@ -58,9 +58,10 @@ void Lecteur::declencherAction(char pChoixAction)
     switch (pChoixAction)
     {
         case 'A':
+            cout << "DEBUG : titre du diapo courant " << getDiapoCourant().getTitre() << endl;
             this->getDiapoCourant().avancer();
             //position = this->getDiapoCourant().getLocalisationImages()[pImageCourante].getPosition();
-            cout << "DEBUG : appel de la methode getPosImageCouranteInt " << getDiapoCourant().getPosImageCouranteInt();            
+            cout << "DEBUG : appel de la methode getPosImageCouranteInt " << this->getDiapoCourant().getPosImageCouranteInt();
             this->getDiapoCourant().afficherImageCouranteDansDiaporamaCourant ();
             break;
         case 'R':
@@ -75,6 +76,7 @@ void Lecteur::declencherAction(char pChoixAction)
             // Changer de diaporama
             cout << "DEBUG : numero du diaporama courant : " << getNumDiapoCourant() << endl;
             this->setNumDiapoCourant(choixDiaporama);
+            this->getDiapoCourant().setPosImageCouranteInt(0);
             cout << "DEBUG : numero du diaporama courant (apres le set) : " << getNumDiapoCourant() << endl;
             cout << "DEBUG : numero de l'image courante du diaporama courant : " << getDiapoCourant().getPosImageCouranteInt() << endl;            
             //pImageCourante = 0;
