@@ -14,22 +14,22 @@ int main()
      * Dans un second temps, ces contenus proviendront d'une base de données
      --------------------------------------------------------------------------------------*/
     vector<Image> images;          // les images
-    int debug;
 
     Lecteur l1;                                 //Un lecteur
 
     // Chargement des urls des images, chargement des diaporamas
     l1.charger(images);
     l1.chargerDiapos(images);
+
     //cout << "Nombre de diapos dans le lecteur " << l1.getNombreDiapos() << endl;
     cout << "DEBUG : Images chargees " << endl;
 
     // Afficher toutes les images de tous les diapos
     //cout << "Le nombre de diapos de l1 est " << l1.getNombreDiapos() << endl;
-    for(int i = 0; i < l1.getNombreDiapos(); i++)
+    for(unsigned int i = 0; i < l1.getNombreDiapos(); i++)
     {
         cout << endl << l1.getToutesDiapos()[i].getTitre() << endl << endl;
-        for (int j = 0; j<l1.getDiapoCourant().getNombreImages(); j++ ) {
+        for (unsigned int j = 0; j<l1.getDiapoCourant().getNombreImages(); j++ ) {
             // Affiche les détails de chaque image
             images[j].afficher();
             l1.getDiapoCourant().getPosImageCouranteInt();
@@ -39,29 +39,25 @@ int main()
 
     l1.setNumDiapoCourant(0);
     cout << endl << "DEBUG : Numero du diaporama courant " << l1.getNumDiapoCourant() << endl;
-    unsigned int taille_images = l1.getDiapoCourant().nbImages();
-    unsigned int taille_diaporamas = images.size();
-    cout << "DEBUG : On a calcule les tailles" << endl;
+    //unsigned int taille_images = l1.getDiapoCourant().nbImages();
+    //unsigned int taille_diaporamas = images.size();
+    //cout << "DEBUG : On a calcule les tailles" << endl;
 
 
-    /*
+
     // Tri des images contenues dans les diaporamas pour les placer dans l'ordre d'apparition (rang) souhaité par l'utilisateur
-    for (unsigned int posDiapo = 0; posDiapo < taille_diaporamas; posDiapo++)
-    {
-        d1.triCroissantRang();
+    for (unsigned int var = 0; var < l1.getNombreDiapos(); ++var) {
+        for (unsigned int posDiapo = 0; posDiapo < l1.getDiapoCourant().getNombreImages(); posDiapo++)
+        {
+            l1.getToutesDiapos()[var].triCroissantRang();
+        }
     }
-    cout << "Diapo trié " << endl;
-    cin >> debug;*/
 
+    cout << "Diapos tries " << endl;
 
     /* ---------------------
      * Lecteur de diaporamas
      * --------------------- */
-
-    // Elements autres que les images et diaporamas
-    unsigned int diaporamaCourant ; // identifiant du diaporama courant = indice dans le tableau diaporamas
-    unsigned int imageCourante ;    // identifiant de l'image courante du diaporama courant
-                                    // = indice de l'image dans le tableau diaporamas[diaporamaCourant].images, trié par ordre croissant de rang
 
     /* Initialiser le diaporama et l'image courants
      * ---------------
@@ -71,14 +67,10 @@ int main()
        - pas de diaporama courant au lancement de l'application
        - le diaporama courant est choisi par l'utilisateur parmi une liste de diaporamas disponibles. */
 
-    diaporamaCourant = 0;
-    imageCourante = 0;
-
 
     /* Faire fonctionner le lecteur
        --------------*/
     char choixAction ;              // pour saisir le choix de l'utilisateur dans le menu d'actions possibles
-    unsigned int choixDiaporama ;  // pour saisir le numéro de diaporama choisi par l'utilisiateur
     while (true)
     {
 

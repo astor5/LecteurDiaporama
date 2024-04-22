@@ -119,11 +119,10 @@ void Diaporama::reculer()
 }
 
 void Diaporama::afficherImageCouranteDansDiaporamaCourant() {
-    int debug;
     cout << endl << endl;
     //setPosImageCouranteInt(0);
     cout << "DIAPORAMA : " << getTitre() << endl << endl;
-    cout << getLocalisationImages()[getPosImageCouranteInt()].getRang() << " sur " << nbImages() << " / ";  //Méthode d'affichage 1
+    cout << this->getLocalisationImages()[getPosImageCouranteInt()].getRang() << " sur " << nbImages() << " / ";  //Méthode d'affichage 1
     getLocalisationImages()[getPosImageCouranteInt()].afficher();
     cout << getPositionImage().getRang() << " sur " << nbImages() << " / ";                                 //Méthode d'affichage 2
     getPositionImage().afficher();
@@ -134,7 +133,7 @@ void Diaporama::triCroissantRang() {
     ImageDansDiaporama imageDansDiapo;
     for (unsigned int ici = taille - 1; ici >= 1; ici--) {
         for (unsigned int i = 0; i < ici; i++) {
-            if (m_localisationImages[i].getRang() > m_localisationImages[i + 1].getRang()) {
+            if (m_localisationImages[i].getPosition() > m_localisationImages[i + 1].getPosition()) {
                 imageDansDiapo = m_localisationImages[i];
                 m_localisationImages[i] = m_localisationImages[i + 1];
                 m_localisationImages[i + 1] = imageDansDiapo;

@@ -108,7 +108,7 @@ unsigned int Lecteur::saisieVerifChoixDiaporama()
 
     while (true)
     {
-        system("cls");  // effacer l'écran
+        //system("cls");  // effacer l'écran
          cout << endl << endl << "CHANGEMENT DIAPORAMA : " << endl << endl;
         for (unsigned int num = 1; num < getToutesDiapos().size(); num++)
         {
@@ -118,7 +118,7 @@ unsigned int Lecteur::saisieVerifChoixDiaporama()
         cout << ".......  votre choix ? "; cin >> choixSaisi;
         choixDiaporama = choixSaisi;
 
-        if ((choixDiaporama >= 1)&&(choixDiaporama < static_cast<unsigned int>(getToutesDiapos().size())))
+        if ((choixDiaporama >= 1)&&(choixDiaporama < static_cast<int>(getToutesDiapos().size())))
         {
             break;
         }
@@ -128,8 +128,6 @@ unsigned int Lecteur::saisieVerifChoixDiaporama()
 
 void Lecteur::charger(Images & pImages)
 {
-    int debug;
-
     Image imageACharger("objet", "", "C:\\cartesDisney\\Disney_tapis.gif");
     pImages.push_back(imageACharger);
 
@@ -158,7 +156,6 @@ void Lecteur::charger(Images & pImages)
 void Lecteur::chargerDiapos(Images & pImages)
 {
     ImageDansDiaporama imageDansDiapo;
-    int debug;
 
     Diaporama diaporama("Diaporama par defaut");
     diaporama.setVitesseDefilement(2);
