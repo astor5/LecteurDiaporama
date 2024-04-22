@@ -133,7 +133,7 @@ void Diaporama::triCroissantRang() {
     ImageDansDiaporama imageDansDiapo;
     for (unsigned int ici = taille - 1; ici >= 1; ici--) {
         for (unsigned int i = 0; i < ici; i++) {
-            if (m_localisationImages[i].getPosition() > m_localisationImages[i + 1].getPosition()) {
+            if (m_localisationImages[i].getRang() > m_localisationImages[i + 1].getRang()) {
                 imageDansDiapo = m_localisationImages[i];
                 m_localisationImages[i] = m_localisationImages[i + 1];
                 m_localisationImages[i + 1] = imageDansDiapo;
