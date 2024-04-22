@@ -17,6 +17,20 @@
     <DEPENDENCIES>
       <COMP relation="OwnedOperation">
         <OBJECT>
+          <ID name="ImageDansDiaporama" mc="Standard.Operation" uid="4d8b07a1-dcaf-4319-bc4b-352c27668bb0"/>
+          <ATTRIBUTES>
+            <ATT name="Concurrency">false</ATT>
+            <ATT name="Final">false</ATT>
+            <ATT name="Passing">MethodOut</ATT>
+            <ATT name="Visibility">Public</ATT>
+            <ATT name="IsClass">false</ATT>
+            <ATT name="IsAbstract">false</ATT>
+            <ATT name="Name"><![CDATA[ImageDansDiaporama]]></ATT>
+            <ATT name="status">1970354901745664</ATT>
+          </ATTRIBUTES>
+          <DEPENDENCIES></DEPENDENCIES>
+        </OBJECT>
+        <OBJECT>
           <ID name="getPosition" mc="Standard.Operation" uid="0447edc9-aa86-4014-b5ec-2e21a22d3337"/>
           <ATTRIBUTES>
             <ATT name="Concurrency">false</ATT>
