@@ -16,22 +16,22 @@ Lecteur::Lecteur(vector<Diaporama> diapo, unsigned int nombre):
     m_nombreDiapos(nombre){
 }
 
-vector<Diaporama> Lecteur::getToutesDiapos() const
+vector<Diaporama> & Lecteur::getToutesDiapos()
 {
     return m_toutesDiapos;
 }
 
-Diaporama Lecteur::getDiapoCourant() const
+Diaporama & Lecteur::getDiapoCourant()
 {
     return getToutesDiapos()[getNumDiapoCourant()];
 }
 
-unsigned int Lecteur::getNumDiapoCourant() const
+unsigned int Lecteur::getNumDiapoCourant()
 {
     return m_numDiapoCourant;
 }
 
-unsigned int Lecteur::getNombreDiapos() const
+unsigned int Lecteur::getNombreDiapos()
 {
     return getToutesDiapos().size();
 }
@@ -234,11 +234,6 @@ void Lecteur::chargerDiapos(Images & pImages)
 
     // ajout du diaporama dans le tableau de diaporamas
     m_toutesDiapos.push_back(diapoManu);
-}
-
-void Lecteur::afficherDiapoCourant()
-{
-
 }
 
 

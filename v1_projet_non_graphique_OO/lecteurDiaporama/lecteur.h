@@ -23,10 +23,10 @@ public:
 
 
     /*** Getters ***/
-    vector<Diaporama> getToutesDiapos() const;
-    Diaporama getDiapoCourant() const;
-    unsigned int getNumDiapoCourant() const;
-    unsigned int getNombreDiapos() const;
+    vector<Diaporama> & getToutesDiapos();
+    Diaporama & getDiapoCourant();
+    unsigned int getNumDiapoCourant();
+    unsigned int getNombreDiapos();
 
     /*** Setters ***/
     void setToutesDiapos(const vector<Diaporama>&);
@@ -39,7 +39,6 @@ public:
     unsigned int saisieVerifChoixDiaporama();
     void charger(Images&);
     void chargerDiapos(Images&);
-    void afficherDiapoCourant();
 };
 
 /*

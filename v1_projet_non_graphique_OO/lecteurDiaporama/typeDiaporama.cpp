@@ -94,7 +94,7 @@ void Diaporama::avancer() {
     else
     {
         cout << "DEBUG : On avance " << endl;
-        cout << "DEBUG : Position de l'image courante " << getPosImageCouranteInt() << endl; 
+        cout << "DEBUG : Position de l'image courante " << getPosImageCouranteInt() << endl;
         setPosImageCouranteInt(getPosImageCouranteInt() + 1);
         cout << "DEBUG : Position de l'image courante apres le set " << this->getPosImageCouranteInt() << endl; 
     }
