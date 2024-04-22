@@ -174,6 +174,10 @@ void Lecteur::chargerDiapos(Images & pImages)
     // Les images du diaporama de Pantxika
     imageDansDiapo = ImageDansDiaporama(pImages,4,3);
     diapoPantxika.ajouterImage(imageDansDiapo);
+    imageDansDiapo = ImageDansDiaporama(pImages,0,3);
+    diapoPantxika.ajouterImage(imageDansDiapo);
+    imageDansDiapo = ImageDansDiaporama(pImages,2,3);
+    diapoPantxika.ajouterImage(imageDansDiapo);
     diapoPantxika.setPosImageCouranteInt(0);
 
     // ajout du diaporama dans le tableau de diaporamas
