@@ -172,11 +172,11 @@ void Lecteur::chargerDiapos(Images & pImages)
     diapoPantxika.setVitesseDefilement(2);
 
     // Les images du diaporama de Pantxika
-    imageDansDiapo = ImageDansDiaporama(pImages,4,3);
-    diapoPantxika.ajouterImage(imageDansDiapo);
-    imageDansDiapo = ImageDansDiaporama(pImages,0,3);
-    diapoPantxika.ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,2,3);
+    diapoPantxika.ajouterImage(imageDansDiapo);
+    imageDansDiapo = ImageDansDiaporama(pImages,4,1);
+    diapoPantxika.ajouterImage(imageDansDiapo);
+    imageDansDiapo = ImageDansDiaporama(pImages,1,2);
     diapoPantxika.ajouterImage(imageDansDiapo);
     diapoPantxika.setPosImageCouranteInt(0);
 
@@ -204,15 +204,15 @@ void Lecteur::chargerDiapos(Images & pImages)
     diapoYann.setVitesseDefilement(3);
 
     // Les images du diaporama de Yann
-    imageDansDiapo = ImageDansDiaporama(pImages,4,1);
+    imageDansDiapo = ImageDansDiaporama(pImages,5,5);
     diapoYann.ajouterImage(imageDansDiapo);
-    imageDansDiapo = ImageDansDiaporama(pImages,1,1);
+    imageDansDiapo = ImageDansDiaporama(pImages,3,1);
     diapoYann.ajouterImage(imageDansDiapo);
-    imageDansDiapo = ImageDansDiaporama(pImages,0,1);
+    imageDansDiapo = ImageDansDiaporama(pImages,1,2);
     diapoYann.ajouterImage(imageDansDiapo);
-    imageDansDiapo = ImageDansDiaporama(pImages,3,3);
+    imageDansDiapo = ImageDansDiaporama(pImages,2,3);
     diapoYann.ajouterImage(imageDansDiapo);
-    imageDansDiapo = ImageDansDiaporama(pImages,0,3);
+    imageDansDiapo = ImageDansDiaporama(pImages,4,4);
     diapoYann.ajouterImage(imageDansDiapo);
     diapoYann.setPosImageCouranteInt(0);
 
@@ -223,7 +223,7 @@ void Lecteur::chargerDiapos(Images & pImages)
     Diaporama diapoManu("Diaporama Manu");
     diapoManu.setVitesseDefilement(1);
 
-    // Les images du diaporama de Yann
+    // Les images du diaporama de Manu
     imageDansDiapo = ImageDansDiaporama(pImages,4,4);
     diapoManu.ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,1,3);
