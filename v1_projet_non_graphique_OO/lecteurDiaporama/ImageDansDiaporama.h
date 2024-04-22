@@ -7,8 +7,8 @@ using namespace std;
 
 class ImageDansDiaporama : public Image {
 private :
-    unsigned int m_pos;
-    unsigned int m_rang;
+    unsigned int m_pos; // rang de l'image dans le tableau d'images (vector<Images>)
+    unsigned int m_rang; // rang de l'image dans le diaporama
 
 public:
     ImageDansDiaporama();

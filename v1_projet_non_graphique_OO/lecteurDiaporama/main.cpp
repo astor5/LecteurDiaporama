@@ -51,6 +51,7 @@ int main()
         {
             l1.getToutesDiapos()[var].triCroissantRang();
         }
+        cout << "DEBUG : Diaporama qui vient d'etre trie " << l1.getToutesDiapos()[var].getTitre() << endl;
     }
 
     cout << "Diapos tries " << endl;
