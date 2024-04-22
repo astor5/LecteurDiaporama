@@ -23,10 +23,10 @@ public:
 
 
     /*** Getters ***/
-    vector<Diaporama>& getToutesDiapos();
-    Diaporama& getDiapoCourant();
-    unsigned int getNumDiapoCourant()const;
-    unsigned int getNombreDiapos() ;
+    vector<Diaporama> & getToutesDiapos();
+    Diaporama & getDiapoCourant();
+    unsigned int getNumDiapoCourant();
+    unsigned int getNombreDiapos();
 
     /*** Setters ***/
     void setToutesDiapos(const vector<Diaporama>&);

@@ -42,12 +42,11 @@ public:
     void setPosImageCouranteInt(const unsigned int&);
 
     //Sous-programmes de base
-    void ajouterImage(ImageDansDiaporama&);
+    void ajouterImage(const ImageDansDiaporama&);
     void afficherImageCouranteDansDiaporamaCourant();
     void avancer();
     void reculer();
     void triCroissantRang();
-    void afficherDiapoC();
 
     unsigned int nbImages() const;
 };

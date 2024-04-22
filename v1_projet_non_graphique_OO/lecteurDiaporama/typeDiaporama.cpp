@@ -72,7 +72,7 @@ void Diaporama::setPosImageCouranteInt(const unsigned int& positionImgC)
     m_posImage = positionImgC;
 }
 
-void Diaporama::ajouterImage(ImageDansDiaporama& image)
+void Diaporama::ajouterImage(const ImageDansDiaporama& image)
 {
     m_localisationImages.push_back(image);
 }
@@ -94,10 +94,9 @@ void Diaporama::avancer() {
     else
     {
         cout << "DEBUG : On avance " << endl;
-        cout << "DEBUG : Position de l'image courante " << getPosImageCouranteInt() << endl; 
+        cout << "DEBUG : Position de l'image courante " << getPosImageCouranteInt() << endl;
         setPosImageCouranteInt(getPosImageCouranteInt() + 1);
         cout << "DEBUG : Position de l'image courante apres le set " << this->getPosImageCouranteInt() << endl; 
-        //afficherDiapoC();
     }
 }
 
@@ -141,12 +140,4 @@ void Diaporama::triCroissantRang() {
             }
         }
     }
-}
-
-void Diaporama::afficherDiapoC()
-{
-    cout << "DEBUG : Position de l'image courante en int " << getPosImageCouranteInt() << endl;
-    cout << "DEBUG : Nombre d'images du diaporama " << getNombreImages() << endl;
-    cout << "DEBUG : Titre du diaporama " << getTitre() << endl;
-    cout << "DEBUG : Vitesse de defilement du diaporama " << getVitesseDefilement() << endl;
 }

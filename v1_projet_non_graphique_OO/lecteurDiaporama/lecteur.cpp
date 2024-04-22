@@ -16,17 +16,17 @@ Lecteur::Lecteur(vector<Diaporama> diapo, unsigned int nombre):
     m_nombreDiapos(nombre){
 }
 
-vector<Diaporama>& Lecteur::getToutesDiapos()
+vector<Diaporama> & Lecteur::getToutesDiapos()
 {
     return m_toutesDiapos;
 }
 
-Diaporama& Lecteur::getDiapoCourant()
+Diaporama & Lecteur::getDiapoCourant()
 {
     return getToutesDiapos()[getNumDiapoCourant()];
 }
 
-unsigned int Lecteur::getNumDiapoCourant() const
+unsigned int Lecteur::getNumDiapoCourant()
 {
     return m_numDiapoCourant;
 }
@@ -166,7 +166,7 @@ void Lecteur::chargerDiapos(Images & pImages)
     diaporama.ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,4,3);
     diaporama.ajouterImage(imageDansDiapo);
-    //diaporama.setPosImageCouranteInt(0);
+    diaporama.setPosImageCouranteInt(0);
     m_toutesDiapos.push_back(diaporama);
 
     // Diaporama de Pantxika
@@ -176,7 +176,7 @@ void Lecteur::chargerDiapos(Images & pImages)
     // Les images du diaporama de Pantxika
     imageDansDiapo = ImageDansDiaporama(pImages,4,3);
     diapoPantxika.ajouterImage(imageDansDiapo);
-    //diapoPantxika.setPosImageCouranteInt(0);
+    diapoPantxika.setPosImageCouranteInt(0);
 
     // ajout du diaporama dans le tableau de diaporamas
     m_toutesDiapos.push_back(diapoPantxika);
@@ -192,7 +192,7 @@ void Lecteur::chargerDiapos(Images & pImages)
     diapoThierry.ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,2,3);
     diapoThierry.ajouterImage(imageDansDiapo);
-    //diapoThierry.setPosImageCouranteInt(0);
+    diapoThierry.setPosImageCouranteInt(0);
 
     // ajout du diaporama dans le tableau de diaporamas
     m_toutesDiapos.push_back(diapoThierry);
@@ -212,7 +212,7 @@ void Lecteur::chargerDiapos(Images & pImages)
     diapoYann.ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,0,3);
     diapoYann.ajouterImage(imageDansDiapo);
-    //diapoYann.setPosImageCouranteInt(0);
+    diapoYann.setPosImageCouranteInt(0);
 
     // ajout du diaporama dans le tableau de diaporamas
     m_toutesDiapos.push_back(diapoYann);
@@ -230,11 +230,13 @@ void Lecteur::chargerDiapos(Images & pImages)
     diapoManu.ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,3,1);
     diapoManu.ajouterImage(imageDansDiapo);
-    //diapoManu.setPosImageCouranteInt(0);
+    diapoManu.setPosImageCouranteInt(0);
 
     // ajout du diaporama dans le tableau de diaporamas
     m_toutesDiapos.push_back(diapoManu);
 }
+
+
 
 
 
