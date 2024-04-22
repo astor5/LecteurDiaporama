@@ -21,29 +21,8 @@ int main()
     l1.charger(images);
     l1.chargerDiapos(images);
 
-    //cout << "Nombre de diapos dans le lecteur " << l1.getNombreDiapos() << endl;
-    cout << "DEBUG : Images chargees " << endl;
-
-    // Afficher toutes les images de tous les diapos
-    //cout << "Le nombre de diapos de l1 est " << l1.getNombreDiapos() << endl;
-    for(unsigned int i = 0; i < l1.getNombreDiapos(); i++)
-    {
-        cout << endl << l1.getToutesDiapos()[i].getTitre() << endl << endl;
-        for (unsigned int j = 0; j<l1.getDiapoCourant().getNombreImages(); j++ ) {
-            // Affiche les détails de chaque image
-            images[j].afficher();
-            l1.getDiapoCourant().getPosImageCouranteInt();
-        }
-        l1.setNumDiapoCourant(l1.getNumDiapoCourant()+1);
-    }
-
+    //On précise que le diaporama courant est celui par défaut
     l1.setNumDiapoCourant(0);
-    cout << endl << "DEBUG : Numero du diaporama courant " << l1.getNumDiapoCourant() << endl;
-    //unsigned int taille_images = l1.getDiapoCourant().nbImages();
-    //unsigned int taille_diaporamas = images.size();
-    //cout << "DEBUG : On a calcule les tailles" << endl;
-
-
 
     // Tri des images contenues dans les diaporamas pour les placer dans l'ordre d'apparition (rang) souhaité par l'utilisateur
     for (unsigned int var = 0; var < l1.getNombreDiapos(); ++var) {
@@ -51,10 +30,8 @@ int main()
         {
             l1.getToutesDiapos()[var].triCroissantRang();
         }
-        cout << "DEBUG : Diaporama qui vient d'etre trie " << l1.getToutesDiapos()[var].getTitre() << endl;
     }
 
-    cout << "Diapos tries " << endl;
 
     /* ---------------------
      * Lecteur de diaporamas
@@ -76,11 +53,8 @@ int main()
     {
 
         /* Affichage à l'écran des infos de l'image courante dans son diaporama   */
-        //system("cls");  // effacer l'écran
-        //unsigned int position = diaporamas[diaporamaCourant].getLocalisationImages()[imageCourante].getPosition();
-        cout << "DEBUG : Debut du programme : avant l'affichage de l'image en cours " << endl;
+        system("cls");  // effacer l'écran
         l1.getDiapoCourant().afficherImageCouranteDansDiaporamaCourant();
-        cout << "DEBUG : Fin de l'affichage de l'image " << endl;
 
 
         /* Menu des actions possibles (saisie choix utilisateur) :
@@ -93,7 +67,7 @@ int main()
         }
 
         /* Faire l'action demandée (Avancer - Reculer - Changer de Diaporama - Quitter) */
-        //system("cls");  // effacer l'écran
+        system("cls");  // effacer l'écran
         l1.declencherAction(choixAction);
     }
 

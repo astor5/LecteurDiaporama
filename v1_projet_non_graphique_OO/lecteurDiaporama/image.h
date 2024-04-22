@@ -16,7 +16,6 @@ private :
 public:
     Image(string = "Def", string = "Def", string="Def");//les paramètres dans l'ordre : titre, categorie, chemin
     Image(const Image&);
-    //~Image(); //pas besoin de destructeur car on ne fait pas d'allocation dynamique (je crois)
 
     //Getters
     string getCategorie() const;                // catégorie de l'image (personne, animal, objet)
@@ -27,7 +26,6 @@ public:
     //void charger(vector<Image>&);
     void afficher() const;
 };
-
 
 typedef vector<Image> Images;
 
