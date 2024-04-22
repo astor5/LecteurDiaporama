@@ -206,7 +206,7 @@ void Lecteur::chargerDiapos(Images & pImages)
     diapoYann.ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,1,1);
     diapoYann.ajouterImage(imageDansDiapo);
-    imageDansDiapo = ImageDansDiaporama(pImages,4,2);
+    imageDansDiapo = ImageDansDiaporama(pImages,4,1);
     diapoYann.ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,3,3);
     diapoYann.ajouterImage(imageDansDiapo);
