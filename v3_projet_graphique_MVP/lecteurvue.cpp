@@ -61,7 +61,7 @@ void lecteurVue::sl_boucle()
 
 void lecteurVue::sl_quitter()
 {
-    qDebug() << "Quitter";
+
     QApplication::quit();
 
 }
@@ -91,5 +91,4 @@ void lecteurVue::sl_aPropos()
        QMessageBox::information(nullptr, titre, message);
 
 
-    qDebug() << "A propos";
 }
