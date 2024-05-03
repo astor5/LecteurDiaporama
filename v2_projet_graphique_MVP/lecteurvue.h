@@ -30,6 +30,8 @@ public:
     Presentation * getPresentation() const;
     void setPresentation(Presentation *);
 
+    void majPresentation();
+
 public slots:
     void sl_suivant();
     void sl_precedent();
@@ -41,7 +43,8 @@ public slots:
     void sl_enleverDiporama();
     void sl_vitesseDefilement();
     void sl_aPropos();
-    void miseAJourVue();
+
+
 
 public:
 

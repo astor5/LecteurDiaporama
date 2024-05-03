@@ -2,7 +2,7 @@
 #define TYPE_DIAPORAMA_H
 #include <iostream>
 using namespace std;
-#include <vector>
+/*#include <vector>
 #include "image.h"
 #include "ImageDansDiaporama.h"
 
@@ -55,4 +55,4 @@ public:
 
 
 #endif // TYPE_DIAPORAMA_H
-
+*/

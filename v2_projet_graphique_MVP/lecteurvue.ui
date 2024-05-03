@@ -75,7 +75,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QLabel" name="lCategorieImage">
+         <widget class="QLabel" name="lCatrgorieImage">
           <property name="sizePolicy">
            <sizepolicy hsizetype="Preferred" vsizetype="Maximum">
             <horstretch>0</horstretch>
@@ -270,7 +270,7 @@
      <x>0</x>
      <y>0</y>
      <width>776</width>
-     <height>22</height>
+     <height>25</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuParametres">

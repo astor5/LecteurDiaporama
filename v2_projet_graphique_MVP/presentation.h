@@ -8,7 +8,6 @@
 class Presentation : public QObject
 { Q_OBJECT
 public:
-    //explicit Presentation(QObject *parent = nullptr);
 private:
     Modele * _leModele;
     lecteurVue * _laVue;
@@ -18,6 +17,14 @@ public:
     lecteurVue* getVue() const;
     void setModele(Modele *);
     void setVue(lecteurVue *);
+
+private slots:
+    void demanderAvancer();
+    void demanderReculer();
+
+    //void declencherAction(char);
+    //void saisieVerifChoixActionSurImageCourante(char&);
+    //unsigned int saisieVerifChoixDiaporama();
 
 
 

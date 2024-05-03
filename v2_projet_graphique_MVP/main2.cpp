@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include <vector>
 #include "lecteur.h"
 
@@ -12,7 +12,7 @@ int main()
      * Charge les images et les diaporamas 'en dur' ... en attendant l'implantation de la BD :
      * - Charger les images et diaporamas
      * Dans un second temps, ces contenus proviendront d'une base de données
-     --------------------------------------------------------------------------------------*/
+     --------------------------------------------------------------------------------------*
     vector<Image> images;          // les images
 
     Lecteur l1;                                 //Un lecteur
@@ -47,18 +47,18 @@ int main()
 
 
     /* Faire fonctionner le lecteur
-       --------------*/
+       --------------*
     char choixAction ;              // pour saisir le choix de l'utilisateur dans le menu d'actions possibles
     while (true)
     {
 
-        /* Affichage à l'écran des infos de l'image courante dans son diaporama   */
+        /* Affichage à l'écran des infos de l'image courante dans son diaporama   *
         system("cls");  // effacer l'écran
         l1.getDiapoCourant().afficherImageCouranteDansDiaporamaCourant();
 
 
         /* Menu des actions possibles (saisie choix utilisateur) :
-         * A-vancer, R-eculer, C-hanger de diaporama, Q-uitter */
+         * A-vancer, R-eculer, C-hanger de diaporama, Q-uitter *
 
         l1.saisieVerifChoixActionSurImageCourante(choixAction);
         if (choixAction == 'Q')
@@ -66,13 +66,13 @@ int main()
             break;
         }
 
-        /* Faire l'action demandée (Avancer - Reculer - Changer de Diaporama - Quitter) */
+        /* Faire l'action demandée (Avancer - Reculer - Changer de Diaporama - Quitter) *
         system("cls");  // effacer l'écran
         l1.declencherAction(choixAction);
     }
 
     /* Fin
-       --------------*/
+       --------------*
       cout << "Au revoir " << endl;
       return 0;
 }
@@ -136,7 +136,7 @@ int test(){
         {
             break;
         }
-    }
+    }*
     // Changer de diaporama
     pDiaporamaCourant = choixDiaporama;
     pImageCourante = 0;
