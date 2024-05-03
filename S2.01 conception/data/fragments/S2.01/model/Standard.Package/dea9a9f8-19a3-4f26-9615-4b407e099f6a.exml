@@ -21,6 +21,7 @@
       </COMP>
       <COMP relation="Product">
         <COMPID name="Diagramme de classe s2.01" mc="Standard.ClassDiagram" uid="5250e2fe-637b-491c-88f3-76387bde3149"/>
+        <COMPID name="Diagramme de classe v2" mc="Standard.ClassDiagram" uid="2b2b1bc1-3220-4841-8603-56994fefbd58"/>
       </COMP>
     </DEPENDENCIES>
   </OBJECT>
