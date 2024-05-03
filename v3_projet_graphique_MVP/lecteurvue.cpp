@@ -83,8 +83,13 @@ void lecteurVue::sl_vitesseDefilement()
 
 void lecteurVue::sl_aPropos()
 {
-    QMessageBox::information(   "  Version         ");
-    QMessageBox::
+    QString titre = "A propos";
+    QString message = "Version : 3\n\n"
+                         "Date de création : 03/05/2024\n\n"
+                         "Auteurs : ARANDIA Iban, CHIPY Thibault, LATXAGUE Thibault";
+
+       QMessageBox::information(nullptr, titre, message);
+
 
     qDebug() << "A propos";
 }
