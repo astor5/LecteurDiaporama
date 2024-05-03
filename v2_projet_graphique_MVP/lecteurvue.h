@@ -7,7 +7,7 @@
 #include <QWidget>
 
 
-class presentation;
+class Presentation;
 QT_BEGIN_NAMESPACE
 namespace Ui {
 class lecteurVue;
@@ -21,14 +21,14 @@ class lecteurVue : public QMainWindow
 private:
     Ui::lecteurVue *ui;
 
-    presentation * _laPresentation;
+    Presentation * _laPresentation;
 
 public:
     lecteurVue(QWidget *parent = nullptr);
     ~lecteurVue();
 
-    presentation * getPresentation() const;
-    void setPresentation(presentation *);
+    Presentation * getPresentation() const;
+    void setPresentation(Presentation *);
 
 public slots:
     void sl_suivant();
