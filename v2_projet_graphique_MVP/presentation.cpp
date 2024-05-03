@@ -1,7 +1,5 @@
 #include "presentation.h"
 
-Presentation::Presentation() {}
-
 Modele *Presentation::getModele() const
 {
     return _leModele;

@@ -41,8 +41,7 @@ public slots:
     void sl_enleverDiporama();
     void sl_vitesseDefilement();
     void sl_aPropos();
-
-
+    void miseAJourVue();
 
 public:
 

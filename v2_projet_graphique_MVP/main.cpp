@@ -15,7 +15,7 @@ int main(int argc, char *argv[])
     p->setModele(m);
     p->setVue(v);
 
-    v->setPresentation(p)
+    v->setPresentation(p);
 
 
     w.show();
