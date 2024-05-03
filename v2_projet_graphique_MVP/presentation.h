@@ -8,11 +8,12 @@
 class Presentation : public QObject
 { Q_OBJECT
 public:
-    explicit Presentation(QObject *parent = nullptr);
+    //explicit Presentation(QObject *parent = nullptr);
 private:
     Modele * _leModele;
     lecteurVue * _laVue;
 public:
+    Presentation();
     Modele* getModele() const;
     lecteurVue* getVue() const;
     void setModele(Modele *);

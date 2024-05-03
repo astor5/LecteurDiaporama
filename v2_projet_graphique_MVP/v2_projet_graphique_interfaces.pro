@@ -15,7 +15,6 @@ SOURCES += \
     lecteur.cpp \
     main.cpp \
     lecteurvue.cpp \
-    main2.cpp \
     modele.cpp \
     presentation.cpp \
     typeDiaporama.cpp

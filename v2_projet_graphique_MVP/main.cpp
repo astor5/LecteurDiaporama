@@ -10,14 +10,11 @@ int main(int argc, char *argv[])
 
     Modele *m = new Modele();
     Presentation * p = new Presentation();
-    lecteurVue * v = new lecteurVue();
 
     p->setModele(m);
-    p->setVue(v);
+    p->setVue(&w);
 
-    v->setPresentation(p);
-
-
+    w.setPresentation(p);
     w.show();
     return a.exec();
 
