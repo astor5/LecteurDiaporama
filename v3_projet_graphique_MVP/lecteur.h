@@ -1,9 +1,8 @@
-#ifndef LECTEUR_H
+/*#ifndef LECTEUR_H
 #define LECTEUR_H
 #include "image.h"
 #include "typeDiaporama.h"
 #include <vector>
-
 
 
 class Image;
@@ -17,23 +16,23 @@ private:
 
 
 public:
-    /*** Constructeurs ***/
+    /*** Constructeurs ***
     Lecteur(); // Constructeur par défaut
     Lecteur(vector<Diaporama>, unsigned int = 0);
 
 
-    /*** Getters ***/
+    /*** Getters ***
     vector<Diaporama> & getToutesDiapos();
     Diaporama & getDiapoCourant();
     unsigned int getNumDiapoCourant();
     unsigned int getNombreDiapos();
 
-    /*** Setters ***/
+    /*** Setters ***
     void setToutesDiapos(const vector<Diaporama>&);
     void setNumDiapoCourant(unsigned int);
     void setNombreDiapos(unsigned int);
 
-    /*** Autres méthodes ***/
+    /*** Autres méthodes ***
     void declencherAction(char);
     void saisieVerifChoixActionSurImageCourante(char&);
     unsigned int saisieVerifChoixDiaporama();
@@ -42,3 +41,5 @@ public:
 };
 
 #endif // LECTEUR_H
+
+*/

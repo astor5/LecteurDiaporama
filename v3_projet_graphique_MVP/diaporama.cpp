@@ -1,65 +1,96 @@
-#include "typeDiaporama.h"
+#include <iostream>
+#include "diaporama.h"
+using namespace std;
 
-Diaporama::Diaporama(string titre, Image monImage, unsigned short int vitesse, string filtreCategorie):
-    m_titre(titre),
-    m_image(monImage),
-    m_vitesseDefilement(vitesse),
-    m_filtre(filtreCategorie){
+Diaporama::Diaporama(string titre):
+    m_titre(titre){
+}
+
+Diaporama::Diaporama(unsigned short vitesseDefilement, unsigned int position):
+    m_vitesseDefilement(vitesseDefilement),
+    m_posImage(position){
 }
 
 Diaporama::Diaporama(const Diaporama & original):
     m_titre(original.m_titre),
-    m_image(original.m_image),
     m_vitesseDefilement(original.m_vitesseDefilement),
-    m_filtre(original.m_filtre){
+    m_localisationImages(original.m_localisationImages),
+    m_posImage(original.m_posImage){
 }
 
 Diaporama::~Diaporama()
 {
-
 }
 
 string Diaporama::getTitre() const
 {
-    return this->m_titre;
+    return m_titre;
 }
 
-void Diaporama::passerAuSuivant() const
+vector<ImageDansDiaporama> Diaporama::getLocalisationImages() const
 {
-
+    return m_localisationImages;
 }
 
-void Diaporama::passerAuPrecedent() const
+unsigned int Diaporama::getPosImageCouranteInt() const
 {
-
+    return m_posImage;
 }
 
-void Diaporama::allerPremiereImage() const
+ImageDansDiaporama Diaporama::getPositionImage() const
 {
-
+    return getLocalisationImages()[getPosImageCouranteInt()];
 }
 
-unsigned short Diaporama::getVitesseDefilement() const
+unsigned int Diaporama::getNombreImages() const
 {
-    return this->m_vitesseDefilement;
+    return getLocalisationImages().size();
 }
 
-Diaporama Diaporama::getDiaporama() const
+void Diaporama::setTitre(const string & titre)
 {
-    return (*this);
+    m_titre = titre;
 }
 
-string Diaporama::getFiltre() const
+void Diaporama::setLocalisationImages(const std::vector<ImageDansDiaporama> &images)
 {
-    return this->m_filtre;
+    m_localisationImages = images;
 }
 
-void Diaporama::modifierFiltre()
+void Diaporama::setPosImageCouranteInt(const unsigned int& positionImgC)
 {
-
+    m_posImage = positionImgC;
 }
 
-unsigned short Diaporama::nombreImages() const
+void Diaporama::ajouterImage(const ImageDansDiaporama& image)
 {
-    return this->std::size();
+    m_localisationImages.push_back(image);
+}
+
+unsigned int Diaporama::nbImages() const
+{
+    return m_localisationImages.size();
+}
+
+
+/*
+void Diaporama::afficherImageCouranteDansDiaporamaCourant() {
+    cout << endl << endl;
+    cout << "DIAPORAMA : " << getTitre() << endl << endl;
+    cout << getPositionImage().getRang() << " sur " << nbImages() << " / ";
+    getPositionImage().afficher();
+}*/
+
+void Diaporama::triCroissantRang() {
+    unsigned int taille = this->nbImages();
+    ImageDansDiaporama imageDansDiapo;
+    for (unsigned int ici = taille - 1; ici >= 1; ici--) {
+        for (unsigned int i = 0; i < ici; i++) {
+            if (m_localisationImages[i].getRang() > m_localisationImages[i + 1].getRang()) {
+                imageDansDiapo = m_localisationImages[i];
+                m_localisationImages[i] = m_localisationImages[i + 1];
+                m_localisationImages[i + 1] = imageDansDiapo;
+            }
+        }
+    }
 }

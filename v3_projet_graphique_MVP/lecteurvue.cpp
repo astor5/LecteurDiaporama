@@ -1,6 +1,5 @@
 #include "lecteurvue.h"
 #include "ui_lecteurvue.h"
-#include <QDialog>
 #include <QMessageBox>
 
 lecteurVue::lecteurVue(QWidget *parent)
@@ -26,12 +25,29 @@ lecteurVue::lecteurVue(QWidget *parent)
     QObject::connect(ui->actionA_propos, SIGNAL(triggered()), this, SLOT(sl_aPropos()));
 
     //navigation entre les bouton avec tab
-   // QWidget::setTabOrder({ui->bSuivant, ui->bPrecedent, ui->bPause, ui->bSuivant});
+    QWidget::setTabOrder(ui->bSuivant, ui->bPrecedent);
+    QWidget::setTabOrder(ui->bPrecedent, ui->bPause);
+    QWidget::setTabOrder(ui->bPause, ui->bSuivant);
 }
 
 lecteurVue::~lecteurVue()
 {
     delete ui;
+}
+
+Presentation *lecteurVue::getPresentation() const
+{
+    return _laPresentation;
+}
+
+void lecteurVue::setPresentation(Presentation * p)
+{
+    _laPresentation = p;
+}
+
+void lecteurVue::majPresentation()
+{
+
 }
 
 void lecteurVue::sl_suivant()
@@ -61,9 +77,7 @@ void lecteurVue::sl_boucle()
 
 void lecteurVue::sl_quitter()
 {
-
     QApplication::quit();
-
 }
 
 void lecteurVue::sl_chargerDiaporama()

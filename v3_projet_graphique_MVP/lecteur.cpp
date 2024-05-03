@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include "lecteur.h"
 using namespace std;
 
@@ -237,3 +237,4 @@ void Lecteur::chargerDiapos(Images & pImages)
     // ajout du diaporama dans le tableau de diaporamas
     m_toutesDiapos.push_back(diapoManu);
 }
+*/

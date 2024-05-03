@@ -1,4 +1,4 @@
-#include <iostream>
+/*#include <iostream>
 #include "typeDiaporama.h"
 using namespace std;
 
@@ -126,3 +126,4 @@ void Diaporama::triCroissantRang() {
         }
     }
 }
+*/
