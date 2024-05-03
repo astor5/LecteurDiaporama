@@ -1,5 +1,7 @@
 #include "lecteurvue.h"
 #include "ui_lecteurvue.h"
+#include <QDialog>
+#include <QMessageBox>
 
 lecteurVue::lecteurVue(QWidget *parent)
     : QMainWindow(parent)
@@ -81,5 +83,8 @@ void lecteurVue::sl_vitesseDefilement()
 
 void lecteurVue::sl_aPropos()
 {
+    QMessageBox::information(   "  Version         ");
+    QMessageBox::
+
     qDebug() << "A propos";
 }
