@@ -24,7 +24,9 @@ lecteurVue::lecteurVue(QWidget *parent)
     QObject::connect(ui->actionA_propos, SIGNAL(triggered()), this, SLOT(sl_aPropos()));
 
     //navigation entre les bouton avec tab
-    QWidget::setTabOrder({ui->bSuivant, ui->bPrecedent, ui->bPause, ui->bSuivant});
+    QWidget::setTabOrder(ui->bSuivant, ui->bPrecedent);
+    QWidget::setTabOrder(ui->bPrecedent, ui->bPause);
+    QWidget::setTabOrder(ui->bPause, ui->bSuivant);
 }
 
 lecteurVue::~lecteurVue()
