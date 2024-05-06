@@ -1,6 +1,7 @@
 #include "lecteurvue.h"
 #include "ui_lecteurvue.h"
 #include <QMessageBox>
+#include <QString>
 
 lecteurVue::lecteurVue(QWidget *parent)
     : QMainWindow(parent)
@@ -45,19 +46,29 @@ void lecteurVue::setPresentation(Presentation * p)
     _laPresentation = p;
 }
 
+<<<<<<< HEAD
+void lecteurVue::majPresentation(ImageDansDiaporama img)
+{
+    ui->lTitreImage->setText(QString::fromStdString(img.getImage().getTitre()));
+=======
 void lecteurVue::majPresentation()
 {
 
+>>>>>>> 422ce7f7bf4d2a9bff56053c7c809889e60194aa
 }
 
 void lecteurVue::sl_suivant()
 {
     qDebug() << "image suivante";
+    _laPresentation->demanderAvancer();
+    majPresentation(_laPresentation->getImageActuelle());
 }
 
 void lecteurVue::sl_precedent()
 {
     qDebug() << "Image précédente";
+    _laPresentation->demanderReculer();
+    majPresentation(_laPresentation->getImageActuelle());
 }
 
 void lecteurVue::sl_pause()
@@ -99,10 +110,8 @@ void lecteurVue::sl_aPropos()
 {
     QString titre = "A propos";
     QString message = "Version : 3\n\n"
-                         "Date de création : 03/05/2024\n\n"
-                         "Auteurs : ARANDIA Iban, CHIPY Thibault, LATXAGUE Thibault";
+                      "Date de création : 03/05/2024\n\n"
+                      "Auteurs : ARANDIA Iban, CHIPY Thibault, LATXAGUE Thibault";
 
-       QMessageBox::information(nullptr, titre, message);
-
-
+    QMessageBox::information(nullptr, titre, message);
 }

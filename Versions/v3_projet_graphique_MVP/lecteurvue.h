@@ -6,14 +6,14 @@
 #include <QShortcut>
 #include <QWidget>
 
+//#include "presentation.h"
+#include "ImageDansDiaporama.h"
 
-class Presentation;
 QT_BEGIN_NAMESPACE
-namespace Ui {
-class lecteurVue;
+namespace Ui {class lecteurVue;
 }
 QT_END_NAMESPACE
-
+class Presentation;
 class lecteurVue : public QMainWindow
 {
     Q_OBJECT
@@ -30,7 +30,7 @@ public:
     Presentation * getPresentation() const;
     void setPresentation(Presentation *);
 
-    void majPresentation();
+    void majPresentation(ImageDansDiaporama);
 
 public slots:
     void sl_suivant();

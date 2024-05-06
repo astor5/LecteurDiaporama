@@ -3,8 +3,13 @@
 
 #include <QObject>
 #include "modele.h"
+<<<<<<< HEAD
+
+class lecteurVue;
+=======
 #include "lecteurvue.h"
 
+>>>>>>> 422ce7f7bf4d2a9bff56053c7c809889e60194aa
 class Presentation : public QObject
 { Q_OBJECT
 public:
@@ -18,7 +23,12 @@ public:
     void setModele(Modele *);
     void setVue(lecteurVue *);
 
+<<<<<<< HEAD
+    ImageDansDiaporama getImageActuelle();
+
+=======
 private slots:
+>>>>>>> 422ce7f7bf4d2a9bff56053c7c809889e60194aa
     void demanderAvancer();
     void demanderReculer();
 
