@@ -1,4 +1,5 @@
 #include "lecteurvue.h"
+#include "presentation.h"
 #include "ui_lecteurvue.h"
 #include <QMessageBox>
 #include <QString>
@@ -46,15 +47,13 @@ void lecteurVue::setPresentation(Presentation * p)
     _laPresentation = p;
 }
 
-<<<<<<< HEAD
 void lecteurVue::majPresentation(ImageDansDiaporama img)
 {
     ui->lTitreImage->setText(QString::fromStdString(img.getImage().getTitre()));
-=======
-void lecteurVue::majPresentation()
+}
+void lecteurVue::majPresentation(ImageDansDiaporama *)
 {
-
->>>>>>> 422ce7f7bf4d2a9bff56053c7c809889e60194aa
+    qDebug() << "mise a jour de l'interface ";
 }
 
 void lecteurVue::sl_suivant()

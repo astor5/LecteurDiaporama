@@ -30,7 +30,7 @@ public:
     Presentation * getPresentation() const;
     void setPresentation(Presentation *);
 
-    void majPresentation(ImageDansDiaporama);
+    void majPresentation(ImageDansDiaporama *);
 
 public slots:
     void sl_suivant();

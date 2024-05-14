@@ -22,14 +22,13 @@ void Presentation::setVue(lecteurVue * v)
     _laVue = v;
 }
 
-<<<<<<< HEAD
+
 ImageDansDiaporama Presentation::getImageActuelle()
 {
-    _leModele->getDiaporama()->getPositionImage();
+    return _leModele->getDiaporama()->getPositionImage();
 }
 
-=======
->>>>>>> 422ce7f7bf4d2a9bff56053c7c809889e60194aa
+
 void Presentation::demanderAvancer()
 {
     getModele()->avancer();
