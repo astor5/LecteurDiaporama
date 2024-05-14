@@ -44,6 +44,8 @@ public slots:
     void sl_chargerDiaporama();
     void sl_enleverDiporama();
     void sl_vitesseDefilement();
+    void sl_lancerDiaporama();
+    void sl_arreterDiaporama();
     void sl_aPropos();
 
 

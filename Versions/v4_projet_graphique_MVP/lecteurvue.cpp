@@ -16,7 +16,6 @@ lecteurVue::lecteurVue(QWidget *parent)
     QObject::connect(ui->bPause, SIGNAL(clicked()), this, SLOT(sl_pause()));
 
     //connextion des radio-boutons
-    QObject::connect(ui->rbModeDefilement, SIGNAL(clicked()), this, SLOT(sl_mode()));
     QObject::connect(ui->rbModeBoucle, SIGNAL(clicked()), this, SLOT(sl_boucle()));
 
     //conexion de boutons de la barre de menu
@@ -24,6 +23,8 @@ lecteurVue::lecteurVue(QWidget *parent)
     QObject::connect(ui->actionCharger_diaporama, SIGNAL(triggered()), this, SLOT(sl_chargerDiaporama()));
     QObject::connect(ui->actionEnlever_le_diaporama, SIGNAL(triggered()), this, SLOT(sl_enleverDiporama()));
     QObject::connect(ui->actionVitesse_de_defilement, SIGNAL(triggered()), this, SLOT(sl_vitesseDefilement()));
+    QObject::connect(ui->bLancerDiaporama, SIGNAL(triggered()), this, SLOT(sl_lancerDiaporama()));
+    QObject::connect(ui->bArreterDiaporama, SIGNAL(triggered()), this, SLOT(sl_arreterDiaporama()));
     QObject::connect(ui->actionA_propos, SIGNAL(triggered()), this, SLOT(sl_aPropos()));
 
     //navigation entre les bouton avec tab
@@ -78,11 +79,6 @@ void lecteurVue::sl_pause()
     qDebug() << "defilement mis en pause";
 }
 
-void lecteurVue::sl_mode()
-{
-    qDebug() << "mode de défilement mis à : " << ui->rbModeDefilement->isChecked();
-}
-
 void lecteurVue::sl_boucle()
 {
     qDebug() << "mode de boucle mis à : " << ui->rbModeBoucle->isChecked();
@@ -105,6 +101,16 @@ void lecteurVue::sl_enleverDiporama()
 }
 
 void lecteurVue::sl_vitesseDefilement()
+{
+    qDebug() << "changement de vitesse de défilement";
+}
+
+void lecteurVue::sl_lancerDiaporama()
+{
+    qDebug() << "changement de vitesse de défilement";
+}
+
+void lecteurVue::sl_arreterDiaporama()
 {
     qDebug() << "changement de vitesse de défilement";
 }
