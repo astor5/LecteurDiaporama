@@ -1,5 +1,6 @@
 #include "modele.h"
 #include "qdebug.h"
+#include "QTimer"
 
 
 Modele::Modele(UnEtat etat)
@@ -76,12 +77,15 @@ void Modele::changementEtat()
     }
 }
 
-void Modele::defilerAutomatiquement()
+bool Modele::defilageAutoPossible()
 {
+    bool result;
+    result = false;
     if (getEtat() == Modele::automatique)
     {
-        qDebug() << "Je défile automatiquement";
+        result = true;
     }
+    return result;
 }
 
 Modele::UnEtat Modele::getEtat()

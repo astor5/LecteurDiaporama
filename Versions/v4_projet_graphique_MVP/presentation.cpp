@@ -1,5 +1,7 @@
 #include "presentation.h"
 #include "lecteurvue.h"
+#include "QTimer"
+
 Presentation::Presentation() {
 }
 
@@ -68,7 +70,14 @@ void Presentation::demanderArretDiapo()
 
 void Presentation::demandeModeAutomatique()
 {
-    getModele()->defilerAutomatiquement();
+    while(getModele()->defilageAutoPossible())
+    {
+        if (getModele()->defilageAutoPossible())
+        {
+            QTimer::singleShot(getModele()->getDiaporamaCourant()->getVitesseDefilement()*1000, this, SLOT(demanderAvancer()));
+        }
+    }
+
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 

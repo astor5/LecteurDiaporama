@@ -34,7 +34,7 @@ public:
 
     void charger();
     void touchePressee();
-    void defilerAutomatiquement();
+    bool defilageAutoPossible();
 
 private:
     string m_titre;
