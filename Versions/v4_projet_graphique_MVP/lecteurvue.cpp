@@ -78,14 +78,14 @@ void lecteurVue::sl_suivant()
 {
 
     getPresentation()->demanderAvancer();
-    majPresentation(getPresentation()->getDiapoActuel(), getPresentation()->getModele()->getEtat());
+    //majPresentation(getPresentation()->getDiapoActuel(), getPresentation()->getModele()->getEtat());
 }
 
 void lecteurVue::sl_precedent()
 {
 
     getPresentation()->demanderReculer();
-    majPresentation(getPresentation()->getDiapoActuel(), getPresentation()->getModele()->getEtat());
+    //majPresentation(getPresentation()->getDiapoActuel(), getPresentation()->getModele()->getEtat());
 }
 
 void lecteurVue::sl_pause()
