@@ -6,7 +6,7 @@ Modele::Modele()
     diapo = new Diaporama();
     diapo->chargerDiapos(diapo->charger(), _Diaporamas);
     setDiaporamaCourant(0);
-    qDebug() << getDiaporamaCourant()->getTitre();
+
 }
 
 Diaporama * Modele::getDiaporamaCourant() const
@@ -47,5 +47,5 @@ void Modele::reculer()
 void Modele::charger()
 {
     setDiaporamaCourant(0);
-    qDebug() << getDiaporamaCourant()->getTitre();
+
 }

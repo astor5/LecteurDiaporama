@@ -79,31 +79,30 @@ unsigned int Diaporama::nbImages() const
 
 vector<Image> Diaporama::charger()
 {
-    qDebug() << "chargement images";
     vector<Image> pImages;
 
-    Image imageACharger("", "objet", "C:\\cartesDisney\\Disney_tapis.gif");
+    Image imageACharger("", "objet", ":/images/Disney_tapis.gif");
     pImages.push_back(imageACharger);
 
-    imageACharger = Image("Blanche Neige", "personnage", "C:\\cartesDisney\\Disney_4.gif");
+    imageACharger = Image("Blanche Neige", "personnage", ":/images/Disney_4.gif");
     pImages.push_back(imageACharger);
 
-    imageACharger = Image("Alice", "personnage", "C:\\cartesDisney\\Disney_2.gif");
+    imageACharger = Image("Alice", "personnage", ":/images/Disney_2.gif");
     pImages.push_back(imageACharger);
 
-    imageACharger = Image("Mickey", "animal", "C:\\cartesDisney\\Disney_19.gif");
+    imageACharger = Image("Mickey", "animal", "C:/images/Disney_19.gif");
     pImages.push_back(imageACharger);
 
-    imageACharger = Image("Pinnochio", "personnage", "C:\\cartesDisney\\Disney_29.gif");
+    imageACharger = Image("Pinnochio", "personnage", ":/images/Disney_29.gif");
     pImages.push_back(imageACharger);
 
-    imageACharger = Image("chateau", "objet", "C:\\cartesDisney\\Disney_0.gif");
+    imageACharger = Image("chateau", "objet", ":/images/Disney_0.gif");
     pImages.push_back(imageACharger);
 
-    imageACharger = Image("Minnie", "personnage", "C:\\cartesDisney\\Disney_14.gif");
+    imageACharger = Image("Minnie", "personnage", ":/images/Disney_14.gif");
     pImages.push_back(imageACharger);
 
-    imageACharger = Image("Bambi", "animal", "C:\\cartesDisney\\Disney_3.gif");
+    imageACharger = Image("Bambi", "animal", ":/images/\Disney_3.gif");
     pImages.push_back(imageACharger);
 
     return pImages;
@@ -111,11 +110,9 @@ vector<Image> Diaporama::charger()
 
 void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diaposCharges)
 {
-    qDebug() << "chargement Diapos";
 
     ImageDansDiaporama imageDansDiapo;
 
-       qDebug() << "chargement Diapo 1";
     Diaporama * diaporama = new Diaporama("Diaporama par defaut");
 
     imageDansDiapo = ImageDansDiaporama(pImages,0,1);
@@ -126,7 +123,6 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
     diaposCharges.push_back(diaporama);
 
     // Diaporama de Pantxika
-    qDebug() << "chargement Diapo 2";
     Diaporama * diapoPantxika = new Diaporama("Diaporama Pantxika");
 
     // Les images du diaporama de Pantxika
@@ -142,7 +138,6 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
     diaposCharges.push_back(diapoPantxika);
 
     // Diaporama de Thierry
-    qDebug() << "chargement Diapo 3";
     Diaporama * diapoThierry = new Diaporama("Diaporama de Thierry");
 
     // Les images du diaporama de Thierry
@@ -158,7 +153,6 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
     diaposCharges.push_back(diapoThierry);
 
     // Diaporama de Yann
-    qDebug() << "chargement Diapo 4";
     Diaporama * diapoYann = new Diaporama("Diaporama Yann");
 
     // Les images du diaporama de Yann
@@ -177,7 +171,6 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
     // ajout du diaporama dans le tableau de diaporamas
     diaposCharges.push_back(diapoYann);
     // Diaporama de Manu
-    qDebug() << "chargement Diapo 5";
     Diaporama * diapoManu = new Diaporama("Diaporama Manu");
 
     // Les images du diaporama de Manu
@@ -193,7 +186,6 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
 
     // ajout du diaporama dans le tableau de diaporamas
     diaposCharges.push_back(diapoManu);
-    qDebug() << "Avant return";
 }
 
 

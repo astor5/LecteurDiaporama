@@ -30,6 +30,7 @@ lecteurVue::lecteurVue(QWidget *parent)
     QWidget::setTabOrder(ui->bSuivant, ui->bPrecedent);
     QWidget::setTabOrder(ui->bPrecedent, ui->bPause);
     QWidget::setTabOrder(ui->bPause, ui->bSuivant);
+
 }
 
 lecteurVue::~lecteurVue()
@@ -45,11 +46,12 @@ Presentation *lecteurVue::getPresentation() const
 void lecteurVue::setPresentation(Presentation * p)
 {
     _laPresentation = p;
+    majPresentation(getPresentation()->getDiapoActuel());
 }
 
 void lecteurVue::majPresentation(Diaporama * diapo)
 {
-    qDebug() << "mise a jour de l'interface ";
+
     ui->lTitreDiaporama->setText(QString::fromStdString(diapo->getTitre()));
     ui->lTitreImage->setText(QString::fromStdString(diapo->getImageCourante().getTitre())); //getImageCourante est une fonction qui renvoie une imageDansDiaporama
     ui->lCatrgorieImage->setText(QString::number(diapo->getImageCourante().getRang()));
@@ -59,14 +61,14 @@ void lecteurVue::majPresentation(Diaporama * diapo)
 
 void lecteurVue::sl_suivant()
 {
-    qDebug() << "image suivante";
+
     getPresentation()->demanderAvancer();
     majPresentation(getPresentation()->getDiapoActuel());
 }
 
 void lecteurVue::sl_precedent()
 {
-    qDebug() << "Image précédente";
+
     getPresentation()->demanderReculer();
     majPresentation(getPresentation()->getDiapoActuel());
 }
@@ -93,7 +95,7 @@ void lecteurVue::sl_quitter()
 
 void lecteurVue::sl_chargerDiaporama()
 {
-    qDebug() << "charger un diaporama";
+
     getPresentation()->demanderCharger();
 }
 

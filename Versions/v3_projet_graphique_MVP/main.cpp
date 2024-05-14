@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 
     w.setPresentation(p);
 
-    qDebug() << m->getDiaporamaCourant()->getTitre();
+
 
     w.show();
     return a.exec();

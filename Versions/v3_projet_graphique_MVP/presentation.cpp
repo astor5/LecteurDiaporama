@@ -1,6 +1,7 @@
 #include "presentation.h"
-
-Presentation::Presentation() {}
+#include "lecteurvue.h"
+Presentation::Presentation() {
+}
 
 Modele *Presentation::getModele() const
 {
@@ -30,7 +31,7 @@ ImageDansDiaporama Presentation::getImageActuelle()
 
 Diaporama *Presentation::getDiapoActuel()
 {
-    getModele()->getDiaporamaCourant();
+    return getModele()->getDiaporamaCourant();
 }
 
 
