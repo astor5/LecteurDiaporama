@@ -47,31 +47,45 @@ Presentation *lecteurVue::getPresentation() const
 void lecteurVue::setPresentation(Presentation * p)
 {
     _laPresentation = p;
-    majPresentation(getPresentation()->getDiapoActuel());
+    majPresentation(getPresentation()->getDiapoActuel(), getPresentation()->getModele()->getEtat());
 }
 
-void lecteurVue::majPresentation(Diaporama * diapo)
+void lecteurVue::majPresentation(Diaporama * diapo, Modele::UnEtat etat)
 {
-
     ui->lTitreDiaporama->setText(QString::fromStdString(diapo->getTitre()));
     ui->lTitreImage->setText(QString::fromStdString(diapo->getImageCourante().getTitre())); //getImageCourante est une fonction qui renvoie une imageDansDiaporama
     ui->lCatrgorieImage->setText(QString::number(diapo->getImageCourante().getRang()));
     ui->lRangImage->setText(QString::fromStdString(diapo->getImageCourante().getImage().getCategorie()));
     ui->imageDiapo->setPixmap(QPixmap(QString::fromStdString(diapo->getImageCourante().getImage().getChemin())));
+
+    switch (etat) {
+    case Modele::manuel:
+        qDebug() << "Mod manuel";
+        ui->bArreterDiaporama->setDisabled(true);
+        break;
+    case Modele::automatique:
+        qDebug() << "aaaaaaaaaaaaaaaaaaaaa";
+        ui->bArreterDiaporama->setDisabled(false);
+        break;
+    default:
+        qDebug() << "default case";
+        ui->bArreterDiaporama->setDisabled(true);
+        break;
+    }
 }
 
 void lecteurVue::sl_suivant()
 {
 
     getPresentation()->demanderAvancer();
-    majPresentation(getPresentation()->getDiapoActuel());
+    majPresentation(getPresentation()->getDiapoActuel(), getPresentation()->getModele()->getEtat());
 }
 
 void lecteurVue::sl_precedent()
 {
 
     getPresentation()->demanderReculer();
-    majPresentation(getPresentation()->getDiapoActuel());
+    majPresentation(getPresentation()->getDiapoActuel(), getPresentation()->getModele()->getEtat());
 }
 
 void lecteurVue::sl_pause()

@@ -8,6 +8,7 @@
 
 //#include "presentation.h"
 #include "ImageDansDiaporama.h"
+#include "modele.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {class lecteurVue;
@@ -32,7 +33,7 @@ public:
     Presentation * getPresentation() const;
     void setPresentation(Presentation *);
 
-    void majPresentation(Diaporama *);
+    void majPresentation(Diaporama *, Modele::UnEtat);
 
 public slots:
     void sl_suivant();
