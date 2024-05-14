@@ -29,7 +29,7 @@ public:
     string getTitre() const;
     vector<ImageDansDiaporama> getLocalisationImages() const;
     unsigned int getPosImageCouranteInt() const;
-    ImageDansDiaporama getPositionImage() const;
+    ImageDansDiaporama getImageCourante() const;
     unsigned int getNombreImages() const;
     vector<Image> getToutesImages() const;
 

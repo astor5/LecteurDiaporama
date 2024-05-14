@@ -12,6 +12,8 @@
 QT_BEGIN_NAMESPACE
 namespace Ui {class lecteurVue;
 }
+#include "diaporama.h"
+
 QT_END_NAMESPACE
 class Presentation;
 class lecteurVue : public QMainWindow
@@ -30,7 +32,7 @@ public:
     Presentation * getPresentation() const;
     void setPresentation(Presentation *);
 
-    void majPresentation(ImageDansDiaporama);
+    void majPresentation(Diaporama *);
 
 public slots:
     void sl_suivant();

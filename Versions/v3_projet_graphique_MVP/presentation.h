@@ -20,6 +20,7 @@ public:
     void setVue(lecteurVue *);
 
     ImageDansDiaporama getImageActuelle();
+    Diaporama * getDiapoActuel();
 
 
 public slots:

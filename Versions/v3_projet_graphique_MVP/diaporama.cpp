@@ -36,7 +36,7 @@ unsigned int Diaporama::getPosImageCouranteInt() const
     return m_posImage;
 }
 
-ImageDansDiaporama Diaporama::getPositionImage() const
+ImageDansDiaporama Diaporama::getImageCourante() const
 {
     return getLocalisationImages()[getPosImageCouranteInt()];
 }
@@ -50,6 +50,7 @@ vector<Image> Diaporama::getToutesImages() const
 {
     return _Images;
 }
+
 
 void Diaporama::setTitre(const string & titre)
 {

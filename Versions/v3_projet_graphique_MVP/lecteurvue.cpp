@@ -47,27 +47,28 @@ void lecteurVue::setPresentation(Presentation * p)
     _laPresentation = p;
 }
 
-void lecteurVue::majPresentation(ImageDansDiaporama img)
+void lecteurVue::majPresentation(Diaporama * diapo)
 {
     qDebug() << "mise a jour de l'interface ";
-    ui->lTitreDiaporama->setText(QString::fromStdString(img.getImage().getCategorie()))
-    ui->lTitreImage->setText(QString::fromStdString(img.getImage().getTitre()));
-    ui->lCatrgorieImage->setText(QString::number(img.getRang()));
-    ui->lRangImage->setText(QString::fromStdString(img.getImage().getCategorie()));
+    ui->lTitreDiaporama->setText(QString::fromStdString(diapo->getTitre()));
+    ui->lTitreImage->setText(QString::fromStdString(diapo->getImageCourante().getTitre())); //getImageCourante est une fonction qui renvoie une imageDansDiaporama
+    ui->lCatrgorieImage->setText(QString::number(diapo->getImageCourante().getRang()));
+    ui->lRangImage->setText(QString::fromStdString(diapo->getImageCourante().getImage().getCategorie()));
+    ui->imageDiapo->setPixmap(QPixmap(QString::fromStdString(diapo->getImageCourante().getImage().getChemin())));
 }
 
 void lecteurVue::sl_suivant()
 {
     qDebug() << "image suivante";
     getPresentation()->demanderAvancer();
-    majPresentation(getPresentation()->getImageActuelle());
+    majPresentation(getPresentation()->getDiapoActuel());
 }
 
 void lecteurVue::sl_precedent()
 {
     qDebug() << "Image précédente";
     getPresentation()->demanderReculer();
-    majPresentation(getPresentation()->getImageActuelle());
+    majPresentation(getPresentation()->getDiapoActuel());
 }
 
 void lecteurVue::sl_pause()

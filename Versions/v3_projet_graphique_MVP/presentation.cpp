@@ -25,7 +25,12 @@ void Presentation::setVue(lecteurVue * v)
 
 ImageDansDiaporama Presentation::getImageActuelle()
 {
-    return _leModele->getDiaporamaCourant()->getPositionImage();
+    return _leModele->getDiaporamaCourant()->getImageCourante();
+}
+
+Diaporama *Presentation::getDiapoActuel()
+{
+    getModele()->getDiaporamaCourant();
 }
 
 
