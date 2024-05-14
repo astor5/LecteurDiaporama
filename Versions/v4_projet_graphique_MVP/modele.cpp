@@ -53,7 +53,19 @@ void Modele::charger()
 
 void Modele::changementEtat()
 {
-
+    switch (getEtat()) {
+    case Modele::manuel:
+        setEtat(Modele::automatique);
+        qDebug() << "Passage en mode auto";
+        break;
+    case Modele::automatique:
+        setEtat(Modele::manuel);
+        qDebug() << "Passage en mode manuel";
+        break;
+    default:
+        setEtat(Modele::manuel);
+        break;
+    }
 }
 
 Modele::UnEtat Modele::getEtat()

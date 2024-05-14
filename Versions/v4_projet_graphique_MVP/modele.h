@@ -11,7 +11,7 @@ class Modele : public QObject
     Q_OBJECT
 
 public:
-    enum UnEtat {automatic, manuel};
+    enum UnEtat {automatique, manuel};
     void changementEtat();
     UnEtat getEtat();
     void setEtat(UnEtat);
@@ -44,7 +44,6 @@ private:
     vector<Diaporama *> _Diaporamas;
     int _diaporamaCourant;
     UnEtat _etat;
-
 };
 
 #endif // MODELE_H

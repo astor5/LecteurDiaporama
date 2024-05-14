@@ -50,6 +50,16 @@ void Presentation::demanderCharger()
     getModele()->charger();
 }
 
+void Presentation::demanderLancementDiapo()
+{
+    getModele()->changementEtat();
+}
+
+void Presentation::demanderArretDiapo()
+{
+    getModele()->changementEtat();
+}
+
 /*void Presentation::declencherAction(char pChoixAction)
 {
     //unsigned int position;

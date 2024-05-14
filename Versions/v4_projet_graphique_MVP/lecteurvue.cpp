@@ -108,11 +108,13 @@ void lecteurVue::sl_vitesseDefilement()
 void lecteurVue::sl_lancerDiaporama()
 {
     qDebug() << "lancement du diaporama : défilement auto";
+    getPresentation()->demanderLancementDiapo();
 }
 
 void lecteurVue::sl_arreterDiaporama()
 {
     qDebug() << "arret du défilement auto";
+    getPresentation()->demanderArretDiapo();
 }
 
 void lecteurVue::sl_aPropos()
