@@ -75,8 +75,10 @@ unsigned int Diaporama::nbImages() const
     return m_localisationImages.size();
 }
 
-void Diaporama::charger(vector<Image> pImages)
+vector<Image> Diaporama::charger()
 {
+    vector<Image> pImages;
+
     Image imageACharger("", "objet", "C:\\cartesDisney\\Disney_tapis.gif");
     pImages.push_back(imageACharger);
 
@@ -100,10 +102,14 @@ void Diaporama::charger(vector<Image> pImages)
 
     imageACharger = Image("Bambi", "animal", "C:\\cartesDisney\\Disney_3.gif");
     pImages.push_back(imageACharger);
+
+    return pImages;
 }
 
-void Diaporama::chargerDiapos(vector<Image> pImages)
+vector<Diaporama *> Diaporama::chargerDiapos(vector<Image> pImages)
 {
+    vector<Diaporama*> diaposCharges;
+
     ImageDansDiaporama imageDansDiapo;
 
     Diaporama diaporama("Diaporama par defaut");
@@ -111,7 +117,7 @@ void Diaporama::chargerDiapos(vector<Image> pImages)
     imageDansDiapo = ImageDansDiaporama(pImages,0,1);
     diaporama.ajouterImage(imageDansDiapo);
     diaporama.setPosImageCouranteInt(0);
-    (*this).getToutesDiapos().push_back(diaporama);
+    diaposCharges.push_back(& diaporama);
 
     // Diaporama de Pantxika
     Diaporama diapoPantxika("Diaporama Pantxika");
@@ -126,7 +132,7 @@ void Diaporama::chargerDiapos(vector<Image> pImages)
     diapoPantxika.setPosImageCouranteInt(0);
 
     // ajout du diaporama dans le tableau de diaporamas
-    getToutesDiapos().push_back(diapoPantxika);
+    diaposCharges.push_back(& diapoPantxika);
 
     // Diaporama de Thierry
     Diaporama diapoThierry("Diaporama de Thierry");
@@ -141,7 +147,7 @@ void Diaporama::chargerDiapos(vector<Image> pImages)
     diapoThierry.setPosImageCouranteInt(0);
 
     // ajout du diaporama dans le tableau de diaporamas
-    getToutesDiapos().push_back(diapoThierry);
+    diaposCharges.push_back(& diapoThierry);
 
     // Diaporama de Yann
     Diaporama diapoYann("Diaporama Yann");
@@ -160,8 +166,7 @@ void Diaporama::chargerDiapos(vector<Image> pImages)
     diapoYann.setPosImageCouranteInt(0);
 
     // ajout du diaporama dans le tableau de diaporamas
-    getToutesDiapos().push_back(diapoYann);
-
+    diaposCharges.push_back(& diapoYann);
     // Diaporama de Manu
     Diaporama diapoManu("Diaporama Manu");
 
@@ -177,7 +182,9 @@ void Diaporama::chargerDiapos(vector<Image> pImages)
     diapoManu.setPosImageCouranteInt(0);
 
     // ajout du diaporama dans le tableau de diaporamas
-    getToutesDiapos().push_back(diapoManu);
+    diaposCharges.push_back(& diapoManu);
+
+    return diaposCharges;
 }
 
 

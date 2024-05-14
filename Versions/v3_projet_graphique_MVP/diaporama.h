@@ -57,8 +57,8 @@ public:
     void triCroissantRang();
     unsigned int nbImages() const;
 
-    void charger(vector<Image>);
-    void chargerDiapos(vector<Image>);
+    vector<Image> charger();
+    vector<Diaporama*> chargerDiapos(vector<Image>);
 
     /*** Getters ***/
 

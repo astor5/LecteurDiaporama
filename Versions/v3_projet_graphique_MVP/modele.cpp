@@ -2,6 +2,8 @@
 
 Modele::Modele()
 {
+    Diaporama * diapo = new Diaporama();
+    _Diaporamas = diapo->chargerDiapos(diapo->charger());
 }
 
 Diaporama * Modele::getDiaporamaCourant() const
@@ -13,6 +15,7 @@ void Modele::setDiaporamaCourant(int pos)
 {
     _diaporamaCourant = pos;
 }
+
 
 void Modele::avancer() {
     if (getDiaporamaCourant()->getPosImageCouranteInt() == getDiaporamaCourant()->getNombreImages() - 1)
@@ -40,6 +43,5 @@ void Modele::reculer()
 
 void Modele::charger()
 {
-    getDiaporamaCourant()->charger(getDiaporamaCourant()->getToutesImages());
-    getDiaporamaCourant()->chargerDiapos(getDiaporamaCourant()->getToutesImages());
+
 }
