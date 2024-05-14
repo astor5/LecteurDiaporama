@@ -10,20 +10,12 @@ class Modele : public QObject
 {
     Q_OBJECT
 
-private:
-    string m_titre;
-    unsigned short int m_vitesseDefilement; //Vitesse de défilement en secondes
-    vector <ImageDansDiaporama> m_localisationImages; // images du diaporama
-    unsigned int m_posImage;
-
-    Diaporama * diapo;
-    vector<Diaporama *> _Diaporamas;
-    int _diaporamaCourant;
-
-
-
 public:
-    Modele();
+    enum UnEtat {automatic, manuel};
+    void changementEtat();
+    UnEtat getEtat();
+    void setEtat(UnEtat);
+    Modele(UnEtat e=manuel);
 
     //Getter
     unsigned short int getVitesseDefilement() const;
@@ -41,6 +33,17 @@ public:
     void triCroissantRang();
 
     void charger();
+
+private:
+    string m_titre;
+    unsigned short int m_vitesseDefilement; //Vitesse de défilement en secondes
+    vector <ImageDansDiaporama> m_localisationImages; // images du diaporama
+    unsigned int m_posImage;
+
+    Diaporama * diapo;
+    vector<Diaporama *> _Diaporamas;
+    int _diaporamaCourant;
+    UnEtat _etat;
 
 };
 

@@ -14,6 +14,8 @@ lecteurVue::lecteurVue(QWidget *parent)
     QObject::connect(ui->bSuivant, SIGNAL(clicked()), this, SLOT(sl_suivant()));
     QObject::connect(ui->bPrecedent, SIGNAL(clicked()), this, SLOT(sl_precedent()));
     QObject::connect(ui->bPause, SIGNAL(clicked()), this, SLOT(sl_pause()));
+    QObject::connect(ui->bLancerDiaporama, SIGNAL(clicked()), this, SLOT(sl_lancerDiaporama()));
+    QObject::connect(ui->bArreterDiaporama, SIGNAL(clicked()), this, SLOT(sl_arreterDiaporama()));
 
     //connextion des radio-boutons
     QObject::connect(ui->rbModeBoucle, SIGNAL(clicked()), this, SLOT(sl_boucle()));
@@ -23,8 +25,6 @@ lecteurVue::lecteurVue(QWidget *parent)
     QObject::connect(ui->actionCharger_diaporama, SIGNAL(triggered()), this, SLOT(sl_chargerDiaporama()));
     QObject::connect(ui->actionEnlever_le_diaporama, SIGNAL(triggered()), this, SLOT(sl_enleverDiporama()));
     QObject::connect(ui->actionVitesse_de_defilement, SIGNAL(triggered()), this, SLOT(sl_vitesseDefilement()));
-    QObject::connect(ui->bLancerDiaporama, SIGNAL(triggered()), this, SLOT(sl_lancerDiaporama()));
-    QObject::connect(ui->bArreterDiaporama, SIGNAL(triggered()), this, SLOT(sl_arreterDiaporama()));
     QObject::connect(ui->actionA_propos, SIGNAL(triggered()), this, SLOT(sl_aPropos()));
 
     //navigation entre les bouton avec tab
@@ -107,12 +107,12 @@ void lecteurVue::sl_vitesseDefilement()
 
 void lecteurVue::sl_lancerDiaporama()
 {
-    qDebug() << "changement de vitesse de défilement";
+    qDebug() << "lancement du diaporama : défilement auto";
 }
 
 void lecteurVue::sl_arreterDiaporama()
 {
-    qDebug() << "changement de vitesse de défilement";
+    qDebug() << "arret du défilement auto";
 }
 
 void lecteurVue::sl_aPropos()

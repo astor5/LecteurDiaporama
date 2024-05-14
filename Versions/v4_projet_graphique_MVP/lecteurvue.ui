@@ -28,7 +28,7 @@
        </widget>
       </item>
       <item>
-       <layout class="QVBoxLayout" name="layoutinfomations" stretch="0,0,0,0,0,0,0">
+       <layout class="QVBoxLayout" name="layoutinfomations" stretch="0,0,0,0,0,0,0,0">
         <property name="topMargin">
          <number>20</number>
         </property>
@@ -126,25 +126,6 @@
          </spacer>
         </item>
         <item>
-         <widget class="QRadioButton" name="rbModeDefilement">
-          <property name="focusPolicy">
-           <enum>Qt::NoFocus</enum>
-          </property>
-          <property name="layoutDirection">
-           <enum>Qt::LeftToRight</enum>
-          </property>
-          <property name="text">
-           <string>Défilement automatique</string>
-          </property>
-          <property name="shortcut">
-           <string>A</string>
-          </property>
-          <property name="autoExclusive">
-           <bool>false</bool>
-          </property>
-         </widget>
-        </item>
-        <item>
          <widget class="QRadioButton" name="rbModeBoucle">
           <property name="focusPolicy">
            <enum>Qt::NoFocus</enum>
@@ -160,6 +141,20 @@
           </property>
           <property name="autoExclusive">
            <bool>false</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="bLancerDiaporama">
+          <property name="text">
+           <string>Lancer Diaporama</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="bArreterDiaporama">
+          <property name="text">
+           <string>Arreter Diaporama</string>
           </property>
          </widget>
         </item>

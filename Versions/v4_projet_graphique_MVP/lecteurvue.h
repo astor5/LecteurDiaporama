@@ -38,7 +38,6 @@ public slots:
     void sl_suivant();
     void sl_precedent();
     void sl_pause();
-    void sl_mode();
     void sl_boucle();
     void sl_quitter();
     void sl_chargerDiaporama();

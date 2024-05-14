@@ -1,12 +1,13 @@
 #include "modele.h"
 #include "qdebug.h"
 
-Modele::Modele()
+
+Modele::Modele(UnEtat etat)
 {
     diapo = new Diaporama();
     diapo->chargerDiapos(diapo->charger(), _Diaporamas);
     setDiaporamaCourant(0);
-
+    setEtat(etat);
 }
 
 Diaporama * Modele::getDiaporamaCourant() const
@@ -48,4 +49,19 @@ void Modele::charger()
 {
     setDiaporamaCourant(0);
 
+}
+
+void Modele::changementEtat()
+{
+
+}
+
+Modele::UnEtat Modele::getEtat()
+{
+    return _etat;
+}
+
+void Modele::setEtat(UnEtat unEtat)
+{
+    _etat = unEtat;
 }
