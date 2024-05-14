@@ -72,10 +72,8 @@ void Presentation::demandeModeAutomatique()
 {
     while(getModele()->defilageAutoPossible())
     {
-        if (getModele()->defilageAutoPossible())
-        {
-            QTimer::singleShot(getModele()->getDiaporamaCourant()->getVitesseDefilement()*1000, this, SLOT(demanderAvancer()));
-        }
+        QTimer::singleShot(5000, this, SLOT(demanderAvancer()));
+        //QTimer::singleShot(getModele()->getDiaporamaCourant()->getVitesseDefilement()*1000, this, SLOT(demanderAvancer()));
     }
 
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
