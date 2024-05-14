@@ -47,17 +47,17 @@ void lecteurVue::setPresentation(Presentation * p)
     _laPresentation = p;
 }
 
-void lecteurVue::majPresentation(ImageDansDiaporama * img)
+void lecteurVue::majPresentation(ImageDansDiaporama img)
 {
     qDebug() << "mise a jour de l'interface ";
-    ui->lTitreImage->setText(QString::fromStdString(img->getImage().getTitre()));
+    ui->lTitreImage->setText(QString::fromStdString(img.getImage().getTitre()));
 }
 
 void lecteurVue::sl_suivant()
 {
     qDebug() << "image suivante";
     getPresentation()->demanderAvancer();
-    majPresentation(getPresentation()->getImageActuelle());
+    //majPresentation(getPresentation()->getImageActuelle());
 }
 
 void lecteurVue::sl_precedent()
