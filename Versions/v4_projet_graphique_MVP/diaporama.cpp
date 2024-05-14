@@ -90,7 +90,7 @@ vector<Image> Diaporama::charger()
     imageACharger = Image("Alice", "personnage", ":/images/Disney_2.gif");
     pImages.push_back(imageACharger);
 
-    imageACharger = Image("Mickey", "animal", "C:/images/Disney_19.gif");
+    imageACharger = Image("Mickey", "animal", ":/images/Disney_19.gif");
     pImages.push_back(imageACharger);
 
     imageACharger = Image("Pinnochio", "personnage", ":/images/Disney_29.gif");
@@ -102,7 +102,7 @@ vector<Image> Diaporama::charger()
     imageACharger = Image("Minnie", "personnage", ":/images/Disney_14.gif");
     pImages.push_back(imageACharger);
 
-    imageACharger = Image("Bambi", "animal", ":/images/\Disney_3.gif");
+    imageACharger = Image("Bambi", "animal", ":/images/Disney_3.gif");
     pImages.push_back(imageACharger);
 
     return pImages;

@@ -38,11 +38,15 @@ Diaporama *Presentation::getDiapoActuel()
 void Presentation::demanderAvancer()
 {
     getModele()->avancer();
+    getModele()->touchePressee();
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
 void Presentation::demanderReculer()
 {
     getModele()->reculer();
+    getModele()->touchePressee();
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
 void Presentation::demanderCharger()
@@ -53,11 +57,13 @@ void Presentation::demanderCharger()
 void Presentation::demanderLancementDiapo()
 {
     getModele()->changementEtat();
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
 void Presentation::demanderArretDiapo()
 {
     getModele()->changementEtat();
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
 /*void Presentation::declencherAction(char pChoixAction)

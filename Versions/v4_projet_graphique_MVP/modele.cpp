@@ -6,7 +6,7 @@ Modele::Modele(UnEtat etat)
 {
     diapo = new Diaporama();
     diapo->chargerDiapos(diapo->charger(), _Diaporamas);
-    setDiaporamaCourant(0);
+    setDiaporamaCourant(3);
     setEtat(etat);
 }
 
@@ -49,6 +49,14 @@ void Modele::charger()
 {
     setDiaporamaCourant(0);
 
+}
+
+void Modele::touchePressee()
+{
+    if (getEtat() == Modele::automatique)
+    {
+        setEtat(Modele::manuel);
+    }
 }
 
 void Modele::changementEtat()

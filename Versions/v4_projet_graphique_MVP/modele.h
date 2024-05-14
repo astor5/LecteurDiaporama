@@ -33,6 +33,7 @@ public:
     void triCroissantRang();
 
     void charger();
+    void touchePressee();
 
 private:
     string m_titre;
