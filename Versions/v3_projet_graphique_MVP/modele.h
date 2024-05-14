@@ -16,7 +16,8 @@ private:
     vector <ImageDansDiaporama> m_localisationImages; // images du diaporama
     unsigned int m_posImage;
 
-    Diaporama * _leDiaporama;
+    vector<Diaporama *> _Diaporamas;
+    int _diaporamaCourant;
 
 
 
@@ -25,18 +26,20 @@ public:
 
     //Getter
     unsigned short int getVitesseDefilement() const;
-    Diaporama * getDiaporama() const;
+    Diaporama * getDiaporamaCourant() const;
 
 
     //Setter
     void setVitesseDefilement(unsigned int);
-    void setDiaporama(Diaporama *);
+    void setDiaporamaCourant(int);
 
     //Sous-programmes de base
     void avancer();
     void reculer();
     //void afficherImageCouranteDansDiaporamaCourant();
     void triCroissantRang();
+
+    void charger();
 
 };
 

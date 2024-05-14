@@ -4,36 +4,42 @@ Modele::Modele()
 {
 }
 
-Diaporama * Modele::getDiaporama() const
+Diaporama * Modele::getDiaporamaCourant() const
 {
-    return _leDiaporama;
+    return _Diaporamas[_diaporamaCourant];
 }
 
-void Modele::setDiaporama(Diaporama * d)
+void Modele::setDiaporamaCourant(int pos)
 {
-    _leDiaporama = d;
+    _diaporamaCourant = pos;
 }
 
 void Modele::avancer() {
-    if (getDiaporama()->getPosImageCouranteInt() == getDiaporama()->getNombreImages() - 1)
+    if (getDiaporamaCourant()->getPosImageCouranteInt() == getDiaporamaCourant()->getNombreImages() - 1)
     {
-        getDiaporama()->setPosImageCouranteInt(0);
+        getDiaporamaCourant()->setPosImageCouranteInt(0);
 
     }
     else
     {
-        getDiaporama()->setPosImageCouranteInt(getDiaporama()->getPosImageCouranteInt() + 1);
+        getDiaporamaCourant()->setPosImageCouranteInt(getDiaporamaCourant()->getPosImageCouranteInt() + 1);
     }
 }
 
 void Modele::reculer()
 {
-    if (getDiaporama()->getPosImageCouranteInt() == 0)
+    if (getDiaporamaCourant()->getPosImageCouranteInt() == 0)
     {
-        getDiaporama()->setPosImageCouranteInt(getDiaporama()->getNombreImages() - 1);
+        getDiaporamaCourant()->setPosImageCouranteInt(getDiaporamaCourant()->getNombreImages() - 1);
     }
     else
     {
-        getDiaporama()->setPosImageCouranteInt(getDiaporama()->getPosImageCouranteInt() - 1);
+        getDiaporamaCourant()->setPosImageCouranteInt(getDiaporamaCourant()->getPosImageCouranteInt() - 1);
     }
+}
+
+void Modele::charger()
+{
+    getDiaporamaCourant()->charger(getDiaporamaCourant()->getToutesImages());
+    getDiaporamaCourant()->chargerDiapos(getDiaporamaCourant()->getToutesImages());
 }

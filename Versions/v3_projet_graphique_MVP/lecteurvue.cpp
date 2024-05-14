@@ -57,7 +57,7 @@ void lecteurVue::sl_suivant()
 {
     qDebug() << "image suivante";
     getPresentation()->demanderAvancer();
-    //majPresentation(getPresentation()->getImageActuelle());
+    majPresentation(getPresentation()->getImageActuelle());
 }
 
 void lecteurVue::sl_precedent()
@@ -90,6 +90,7 @@ void lecteurVue::sl_quitter()
 void lecteurVue::sl_chargerDiaporama()
 {
     qDebug() << "charger un diaporama";
+    getPresentation()->demanderCharger();
 }
 
 void lecteurVue::sl_enleverDiporama()

@@ -25,7 +25,7 @@ void Presentation::setVue(lecteurVue * v)
 
 ImageDansDiaporama Presentation::getImageActuelle()
 {
-    return _leModele->getDiaporama()->getPositionImage();
+    return _leModele->getDiaporamaCourant()->getPositionImage();
 }
 
 
@@ -37,6 +37,11 @@ void Presentation::demanderAvancer()
 void Presentation::demanderReculer()
 {
     getModele()->reculer();
+}
+
+void Presentation::demanderCharger()
+{
+    getModele()->charger();
 }
 
 /*void Presentation::declencherAction(char pChoixAction)

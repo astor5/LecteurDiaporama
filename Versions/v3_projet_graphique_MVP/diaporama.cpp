@@ -7,13 +7,11 @@ Diaporama::Diaporama(string titre):
 }
 
 Diaporama::Diaporama(unsigned short vitesseDefilement, unsigned int position):
-    m_vitesseDefilement(vitesseDefilement),
     m_posImage(position){
 }
 
 Diaporama::Diaporama(const Diaporama & original):
     m_titre(original.m_titre),
-    m_vitesseDefilement(original.m_vitesseDefilement),
     m_localisationImages(original.m_localisationImages),
     m_posImage(original.m_posImage){
 }
@@ -47,6 +45,11 @@ unsigned int Diaporama::getNombreImages() const
     return getLocalisationImages().size();
 }
 
+vector<Image> Diaporama::getToutesImages() const
+{
+    return _Images;
+}
+
 void Diaporama::setTitre(const string & titre)
 {
     m_titre = titre;
@@ -72,7 +75,7 @@ unsigned int Diaporama::nbImages() const
     return m_localisationImages.size();
 }
 
-void Diaporama::charger(Images &pImages)
+void Diaporama::charger(vector<Image> pImages)
 {
     Image imageACharger("", "objet", "C:\\cartesDisney\\Disney_tapis.gif");
     pImages.push_back(imageACharger);
@@ -99,7 +102,7 @@ void Diaporama::charger(Images &pImages)
     pImages.push_back(imageACharger);
 }
 
-void Diaporama::chargerDiapos(Images &pImages)
+void Diaporama::chargerDiapos(vector<Image> pImages)
 {
     ImageDansDiaporama imageDansDiapo;
 
@@ -108,7 +111,7 @@ void Diaporama::chargerDiapos(Images &pImages)
     imageDansDiapo = ImageDansDiaporama(pImages,0,1);
     diaporama.ajouterImage(imageDansDiapo);
     diaporama.setPosImageCouranteInt(0);
-    getToutesDiapos().push_back(diaporama);
+    (*this).getToutesDiapos().push_back(diaporama);
 
     // Diaporama de Pantxika
     Diaporama diapoPantxika("Diaporama Pantxika");

@@ -13,9 +13,9 @@ class Diaporama {
 
 private:
     string m_titre;
-    unsigned short int m_vitesseDefilement; //Vitesse de défilement en secondes
     vector <ImageDansDiaporama> m_localisationImages; // images du diaporama
     unsigned int m_posImage;
+    vector<Image> _Images;
 
 
 
@@ -31,6 +31,7 @@ public:
     unsigned int getPosImageCouranteInt() const;
     ImageDansDiaporama getPositionImage() const;
     unsigned int getNombreImages() const;
+    vector<Image> getToutesImages() const;
 
     vector<Diaporama> & getToutesDiapos();
     Diaporama & getDiapoCourant();
@@ -55,6 +56,9 @@ public:
     void reculer();
     void triCroissantRang();
     unsigned int nbImages() const;
+
+    void charger(vector<Image>);
+    void chargerDiapos(vector<Image>);
 
     /*** Getters ***/
 

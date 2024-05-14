@@ -25,6 +25,7 @@ public:
 public slots:
     void demanderAvancer();
     void demanderReculer();
+    void demanderCharger();
 
     //void declencherAction(char);
     //void saisieVerifChoixActionSurImageCourante(char&);
