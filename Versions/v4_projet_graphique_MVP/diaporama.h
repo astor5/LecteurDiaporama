@@ -16,11 +16,12 @@ private:
     vector <ImageDansDiaporama> m_localisationImages; // images du diaporama
     unsigned int m_posImage;
     vector<Image> _Images;
+    unsigned int _vitesseDefilement;
 
 
 
 public:
-    Diaporama(string);
+    Diaporama(string, unsigned int);
     Diaporama(unsigned short int =0, unsigned int =0);
     Diaporama(const Diaporama&);
     ~Diaporama();
@@ -32,6 +33,7 @@ public:
     ImageDansDiaporama getImageCourante() const;
     unsigned int getNombreImages() const;
     vector<Image> getToutesImages() const;
+    unsigned int getVitesseDefilement() const;
 
     vector<Diaporama> & getToutesDiapos();
     Diaporama & getDiapoCourant();
@@ -48,6 +50,7 @@ public:
     void setToutesDiapos(const vector<Diaporama>&);
     void setNumDiapoCourant(unsigned int);
     void setNombreDiapos(unsigned int);
+    void setVitesseDefilement(unsigned int);
 
     //Sous-programmes de base
     void ajouterImage(const ImageDansDiaporama&);

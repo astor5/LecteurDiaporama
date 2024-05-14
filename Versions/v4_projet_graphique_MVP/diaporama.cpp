@@ -3,16 +3,19 @@
 #include "qdebug.h"
 using namespace std;
 
-Diaporama::Diaporama(string titre):
-    m_titre(titre){
+Diaporama::Diaporama(string titre, unsigned int vitesseDefilement):
+    m_titre(titre),
+    _vitesseDefilement(vitesseDefilement){
 }
 
 Diaporama::Diaporama(unsigned short vitesseDefilement, unsigned int position):
+    _vitesseDefilement(vitesseDefilement),
     m_posImage(position){
 }
 
 Diaporama::Diaporama(const Diaporama & original):
     m_titre(original.m_titre),
+    _vitesseDefilement(original._vitesseDefilement),
     m_localisationImages(original.m_localisationImages),
     m_posImage(original.m_posImage){
 }
@@ -51,6 +54,10 @@ vector<Image> Diaporama::getToutesImages() const
     return _Images;
 }
 
+unsigned int Diaporama::getVitesseDefilement() const
+{
+    return _vitesseDefilement;
+}
 
 void Diaporama::setTitre(const string & titre)
 {
@@ -65,6 +72,11 @@ void Diaporama::setLocalisationImages(const std::vector<ImageDansDiaporama> &ima
 void Diaporama::setPosImageCouranteInt(const unsigned int& positionImgC)
 {
     m_posImage = positionImgC;
+}
+
+void Diaporama::setVitesseDefilement(unsigned int vitesse)
+{
+    _vitesseDefilement = vitesse;
 }
 
 void Diaporama::ajouterImage(const ImageDansDiaporama& image)
@@ -113,7 +125,7 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
 
     ImageDansDiaporama imageDansDiapo;
 
-    Diaporama * diaporama = new Diaporama("Diaporama par defaut");
+    Diaporama * diaporama = new Diaporama("Diaporama par defaut", 2);
 
     imageDansDiapo = ImageDansDiaporama(pImages,0,1);
     diaporama->ajouterImage(imageDansDiapo);
@@ -123,7 +135,7 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
     diaposCharges.push_back(diaporama);
 
     // Diaporama de Pantxika
-    Diaporama * diapoPantxika = new Diaporama("Diaporama Pantxika");
+    Diaporama * diapoPantxika = new Diaporama("Diaporama Pantxika", 3);
 
     // Les images du diaporama de Pantxika
     imageDansDiapo = ImageDansDiaporama(pImages,2,3);
@@ -138,7 +150,7 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
     diaposCharges.push_back(diapoPantxika);
 
     // Diaporama de Thierry
-    Diaporama * diapoThierry = new Diaporama("Diaporama de Thierry");
+    Diaporama * diapoThierry = new Diaporama("Diaporama de Thierry", 1);
 
     // Les images du diaporama de Thierry
     imageDansDiapo = ImageDansDiaporama(pImages,4,1);
@@ -153,7 +165,7 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
     diaposCharges.push_back(diapoThierry);
 
     // Diaporama de Yann
-    Diaporama * diapoYann = new Diaporama("Diaporama Yann");
+    Diaporama * diapoYann = new Diaporama("Diaporama Yann", 4);
 
     // Les images du diaporama de Yann
     imageDansDiapo = ImageDansDiaporama(pImages,5,5);
@@ -171,7 +183,7 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
     // ajout du diaporama dans le tableau de diaporamas
     diaposCharges.push_back(diapoYann);
     // Diaporama de Manu
-    Diaporama * diapoManu = new Diaporama("Diaporama Manu");
+    Diaporama * diapoManu = new Diaporama("Diaporama Manu", 3);
 
     // Les images du diaporama de Manu
     imageDansDiapo = ImageDansDiaporama(pImages,4,4);
