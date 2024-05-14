@@ -58,7 +58,7 @@ public:
     unsigned int nbImages() const;
 
     vector<Image> charger();
-    vector<Diaporama*> chargerDiapos(vector<Image>);
+    void chargerDiapos(vector<Image>, vector<Diaporama *> &);
 
     /*** Getters ***/
 

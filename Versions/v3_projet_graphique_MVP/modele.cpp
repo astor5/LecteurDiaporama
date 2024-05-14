@@ -1,9 +1,12 @@
 #include "modele.h"
+#include "qdebug.h"
 
 Modele::Modele()
 {
-    Diaporama * diapo = new Diaporama();
-    _Diaporamas = diapo->chargerDiapos(diapo->charger());
+    diapo = new Diaporama();
+    diapo->chargerDiapos(diapo->charger(), _Diaporamas);
+    setDiaporamaCourant(0);
+    qDebug() << getDiaporamaCourant()->getTitre();
 }
 
 Diaporama * Modele::getDiaporamaCourant() const
@@ -43,5 +46,6 @@ void Modele::reculer()
 
 void Modele::charger()
 {
-
+    setDiaporamaCourant(0);
+    qDebug() << getDiaporamaCourant()->getTitre();
 }

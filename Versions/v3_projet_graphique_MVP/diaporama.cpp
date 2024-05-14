@@ -1,5 +1,6 @@
 #include <iostream>
 #include "diaporama.h"
+#include "qdebug.h"
 using namespace std;
 
 Diaporama::Diaporama(string titre):
@@ -77,6 +78,7 @@ unsigned int Diaporama::nbImages() const
 
 vector<Image> Diaporama::charger()
 {
+    qDebug() << "chargement images";
     vector<Image> pImages;
 
     Image imageACharger("", "objet", "C:\\cartesDisney\\Disney_tapis.gif");
@@ -106,85 +108,91 @@ vector<Image> Diaporama::charger()
     return pImages;
 }
 
-vector<Diaporama *> Diaporama::chargerDiapos(vector<Image> pImages)
+void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diaposCharges)
 {
-    vector<Diaporama*> diaposCharges;
+    qDebug() << "chargement Diapos";
 
     ImageDansDiaporama imageDansDiapo;
 
-    Diaporama diaporama("Diaporama par defaut");
+       qDebug() << "chargement Diapo 1";
+    Diaporama * diaporama = new Diaporama("Diaporama par defaut");
 
     imageDansDiapo = ImageDansDiaporama(pImages,0,1);
-    diaporama.ajouterImage(imageDansDiapo);
-    diaporama.setPosImageCouranteInt(0);
-    diaposCharges.push_back(& diaporama);
+    diaporama->ajouterImage(imageDansDiapo);
+    imageDansDiapo = ImageDansDiaporama(pImages,2,2);
+    diaporama->ajouterImage(imageDansDiapo);
+    diaporama->setPosImageCouranteInt(0);
+    diaposCharges.push_back(diaporama);
 
     // Diaporama de Pantxika
-    Diaporama diapoPantxika("Diaporama Pantxika");
+    qDebug() << "chargement Diapo 2";
+    Diaporama * diapoPantxika = new Diaporama("Diaporama Pantxika");
 
     // Les images du diaporama de Pantxika
     imageDansDiapo = ImageDansDiaporama(pImages,2,3);
-    diapoPantxika.ajouterImage(imageDansDiapo);
+    diapoPantxika->ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,4,1);
-    diapoPantxika.ajouterImage(imageDansDiapo);
+    diapoPantxika->ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,1,2);
-    diapoPantxika.ajouterImage(imageDansDiapo);
-    diapoPantxika.setPosImageCouranteInt(0);
+    diapoPantxika->ajouterImage(imageDansDiapo);
+    diapoPantxika->setPosImageCouranteInt(0);
 
     // ajout du diaporama dans le tableau de diaporamas
-    diaposCharges.push_back(& diapoPantxika);
+    diaposCharges.push_back(diapoPantxika);
 
     // Diaporama de Thierry
-    Diaporama diapoThierry("Diaporama de Thierry");
+    qDebug() << "chargement Diapo 3";
+    Diaporama * diapoThierry = new Diaporama("Diaporama de Thierry");
 
     // Les images du diaporama de Thierry
     imageDansDiapo = ImageDansDiaporama(pImages,4,1);
-    diapoThierry.ajouterImage(imageDansDiapo);
+    diapoThierry->ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,1,2);
-    diapoThierry.ajouterImage(imageDansDiapo);
+    diapoThierry->ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,2,3);
-    diapoThierry.ajouterImage(imageDansDiapo);
-    diapoThierry.setPosImageCouranteInt(0);
+    diapoThierry->ajouterImage(imageDansDiapo);
+    diapoThierry->setPosImageCouranteInt(0);
 
     // ajout du diaporama dans le tableau de diaporamas
-    diaposCharges.push_back(& diapoThierry);
+    diaposCharges.push_back(diapoThierry);
 
     // Diaporama de Yann
-    Diaporama diapoYann("Diaporama Yann");
+    qDebug() << "chargement Diapo 4";
+    Diaporama * diapoYann = new Diaporama("Diaporama Yann");
 
     // Les images du diaporama de Yann
     imageDansDiapo = ImageDansDiaporama(pImages,5,5);
-    diapoYann.ajouterImage(imageDansDiapo);
+    diapoYann->ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,3,1);
-    diapoYann.ajouterImage(imageDansDiapo);
+    diapoYann->ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,1,2);
-    diapoYann.ajouterImage(imageDansDiapo);
+    diapoYann->ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,2,3);
-    diapoYann.ajouterImage(imageDansDiapo);
+    diapoYann->ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,4,4);
-    diapoYann.ajouterImage(imageDansDiapo);
-    diapoYann.setPosImageCouranteInt(0);
+    diapoYann->ajouterImage(imageDansDiapo);
+    diapoYann->setPosImageCouranteInt(0);
 
     // ajout du diaporama dans le tableau de diaporamas
-    diaposCharges.push_back(& diapoYann);
+    diaposCharges.push_back(diapoYann);
     // Diaporama de Manu
-    Diaporama diapoManu("Diaporama Manu");
+    qDebug() << "chargement Diapo 5";
+    Diaporama * diapoManu = new Diaporama("Diaporama Manu");
 
     // Les images du diaporama de Manu
     imageDansDiapo = ImageDansDiaporama(pImages,4,4);
-    diapoManu.ajouterImage(imageDansDiapo);
+    diapoManu->ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,1,3);
-    diapoManu.ajouterImage(imageDansDiapo);
+    diapoManu->ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,2,2);
-    diapoManu.ajouterImage(imageDansDiapo);
+    diapoManu->ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,3,1);
-    diapoManu.ajouterImage(imageDansDiapo);
-    diapoManu.setPosImageCouranteInt(0);
+    diapoManu->ajouterImage(imageDansDiapo);
+    diapoManu->setPosImageCouranteInt(0);
 
     // ajout du diaporama dans le tableau de diaporamas
-    diaposCharges.push_back(& diapoManu);
-
-    return diaposCharges;
+    diaposCharges.push_back(diapoManu);
+    qDebug() << "Avant return";
 }
 
 

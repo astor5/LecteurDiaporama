@@ -1,6 +1,7 @@
 #include "presentation.h"
 #include "lecteurvue.h"
 #include "modele.h"
+#include "qdebug.h"
 
 #include <QApplication>
 
@@ -19,6 +20,7 @@ int main(int argc, char *argv[])
 
     w.setPresentation(p);
 
+    qDebug() << m->getDiaporamaCourant()->getTitre();
 
     w.show();
     return a.exec();

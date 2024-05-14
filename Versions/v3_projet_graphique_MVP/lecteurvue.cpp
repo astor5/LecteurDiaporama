@@ -50,7 +50,10 @@ void lecteurVue::setPresentation(Presentation * p)
 void lecteurVue::majPresentation(ImageDansDiaporama img)
 {
     qDebug() << "mise a jour de l'interface ";
+    ui->lTitreDiaporama->setText(QString::fromStdString(img.getImage().getCategorie()))
     ui->lTitreImage->setText(QString::fromStdString(img.getImage().getTitre()));
+    ui->lCatrgorieImage->setText(QString::number(img.getRang()));
+    ui->lRangImage->setText(QString::fromStdString(img.getImage().getCategorie()));
 }
 
 void lecteurVue::sl_suivant()

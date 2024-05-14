@@ -16,6 +16,7 @@ private:
     vector <ImageDansDiaporama> m_localisationImages; // images du diaporama
     unsigned int m_posImage;
 
+    Diaporama * diapo;
     vector<Diaporama *> _Diaporamas;
     int _diaporamaCourant;
 
