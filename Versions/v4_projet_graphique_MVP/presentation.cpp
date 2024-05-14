@@ -66,6 +66,12 @@ void Presentation::demanderArretDiapo()
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
+void Presentation::demandeModeAutomatique()
+{
+    getModele()->defilerAutomatiquement();
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
+}
+
 /*void Presentation::declencherAction(char pChoixAction)
 {
     //unsigned int position;

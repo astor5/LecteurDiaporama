@@ -9,15 +9,15 @@ Diaporama::Diaporama(string titre, unsigned int vitesseDefilement):
 }
 
 Diaporama::Diaporama(unsigned short vitesseDefilement, unsigned int position):
-    _vitesseDefilement(vitesseDefilement),
-    m_posImage(position){
+    m_posImage(position),
+    _vitesseDefilement(vitesseDefilement){
 }
 
 Diaporama::Diaporama(const Diaporama & original):
     m_titre(original.m_titre),
-    _vitesseDefilement(original._vitesseDefilement),
     m_localisationImages(original.m_localisationImages),
-    m_posImage(original.m_posImage){
+    m_posImage(original.m_posImage),
+    _vitesseDefilement(original._vitesseDefilement){
 }
 
 Diaporama::~Diaporama()

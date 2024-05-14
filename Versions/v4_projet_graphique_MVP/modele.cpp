@@ -76,6 +76,14 @@ void Modele::changementEtat()
     }
 }
 
+void Modele::defilerAutomatiquement()
+{
+    if (getEtat() == Modele::automatique)
+    {
+        qDebug() << "Je défile automatiquement";
+    }
+}
+
 Modele::UnEtat Modele::getEtat()
 {
     return _etat;

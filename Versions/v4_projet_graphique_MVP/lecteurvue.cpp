@@ -60,15 +60,12 @@ void lecteurVue::majPresentation(Diaporama * diapo, Modele::UnEtat etat)
 
     switch (etat) {
     case Modele::manuel:
-        qDebug() << "Mod manuel";
         ui->bArreterDiaporama->setDisabled(true);
         break;
     case Modele::automatique:
-        qDebug() << "aaaaaaaaaaaaaaaaaaaaa";
         ui->bArreterDiaporama->setDisabled(false);
         break;
     default:
-        qDebug() << "default case";
         ui->bArreterDiaporama->setDisabled(true);
         break;
     }
@@ -114,18 +111,17 @@ void lecteurVue::sl_enleverDiporama()
 
 void lecteurVue::sl_vitesseDefilement()
 {
-    qDebug() << "changement de vitesse de défilement";
+    qDebug() << "Je change la vitesse de défilement";
 }
 
 void lecteurVue::sl_lancerDiaporama()
 {
-    qDebug() << "lancement du diaporama : défilement auto";
     getPresentation()->demanderLancementDiapo();
+    getPresentation()->demandeModeAutomatique();
 }
 
 void lecteurVue::sl_arreterDiaporama()
 {
-    qDebug() << "arret du défilement auto";
     getPresentation()->demanderArretDiapo();
 }
 
