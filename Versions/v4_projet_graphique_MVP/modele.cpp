@@ -3,13 +3,12 @@
 #include "QTimer"
 
 
-Modele::Modele(UnEtat etat, UnMode mode)
+Modele::Modele(UnEtat etat)
 {
     diapo = new Diaporama();
     diapo->chargerDiapos(diapo->charger(), _Diaporamas);
     setDiaporamaCourant(3);
     setEtat(etat);
-    setMode(mode);
 }
 
 Diaporama * Modele::getDiaporamaCourant() const
@@ -77,10 +76,6 @@ void Modele::changementEtat()
     }
 }
 
-void Modele::changementMode()
-{
-}
-
 bool Modele::defilageAutoPossible()
 {
     bool result;
@@ -97,17 +92,7 @@ Modele::UnEtat Modele::getEtat()
     return _etat;
 }
 
-Modele::UnMode Modele::getMode()
-{
-    return _mode;
-}
-
 void Modele::setEtat(UnEtat unEtat)
 {
     _etat = unEtat;
-}
-
-void Modele::setMode(UnMode unMode)
-{
-    _mode = unMode;
 }

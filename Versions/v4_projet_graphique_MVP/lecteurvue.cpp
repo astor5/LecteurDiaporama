@@ -44,10 +44,10 @@ Presentation *lecteurVue::getPresentation() const
 void lecteurVue::setPresentation(Presentation * p)
 {
     _laPresentation = p;
-    majPresentation(getPresentation()->getDiapoActuel(), getPresentation()->getModele()->getEtat(), getPresentation()->getModele()->getMode());
+    majPresentation(getPresentation()->getDiapoActuel(), getPresentation()->getModele()->getEtat());
 }
 
-void lecteurVue::majPresentation(Diaporama * diapo, Modele::UnEtat etat, Modele::UnMode mode)
+void lecteurVue::majPresentation(Diaporama * diapo, Modele::UnEtat etat)
 {
     ui->lTitreDiaporama->setText(QString::fromStdString(diapo->getTitre()));
     ui->lTitreImage->setText(QString::fromStdString(diapo->getImageCourante().getTitre())); //getImageCourante est une fonction qui renvoie une imageDansDiaporama

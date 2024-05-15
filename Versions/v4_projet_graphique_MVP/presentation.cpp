@@ -63,7 +63,7 @@ void Presentation::demanderAvancer()
     }
     getModele()->changementEtat();
     getModele()->touchePressee();
-    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getMode());
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
 void Presentation::demanderReculer()
@@ -74,7 +74,7 @@ void Presentation::demanderReculer()
     }
     getModele()->changementEtat();
     getModele()->touchePressee();
-    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getMode());
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
 void Presentation::demanderCharger()
@@ -84,12 +84,11 @@ void Presentation::demanderCharger()
 
 void Presentation::demandeChangementMode()
 {
-    getModele()->changementMode();
     if (getModele()->getEtat() == Modele::automatique)
     {
         getModele()->setEtat(Modele::manuel);
     }
-    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getMode());
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
 void Presentation::demanderLancementDiapo()
@@ -103,13 +102,13 @@ void Presentation::demanderLancementDiapo()
         _timer->stop();
     }
     getModele()->getDiaporamaCourant()->setPosImageCouranteInt(0);
-    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getMode());
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
 void Presentation::demanderArretDiapo()
 {
     getModele()->changementEtat();
-    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getMode());
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
 void Presentation::demandeModeAutomatique()
@@ -130,7 +129,7 @@ void Presentation::demandeModeAutomatique()
         _timer->stop();
     }
 
-    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getMode());
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
 void Presentation::onTimeout()
@@ -139,14 +138,14 @@ void Presentation::onTimeout()
     if (getModele()->getEtat() == Modele::automatique)
     {
         getModele()->avancer();
-        getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getMode());
+        getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
     }
     else
     {
         _timer->stop();
         qDebug() << "Appel de onTimeout mais mode manuel";
     }
-    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getMode());
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
 /*void Presentation::declencherAction(char pChoixAction)
