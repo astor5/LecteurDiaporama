@@ -116,7 +116,11 @@ void lecteurVue::sl_ouvrirChoixDiaporama()
     choixdiaporama maDlg(this);
 
     this->hide();
-    maDlg.exec();
+
+
+    int reponse = maDlg.exec();
+    cout << reponse;
+
     maDlg.hide();
     this->show();
 }

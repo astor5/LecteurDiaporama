@@ -6,6 +6,10 @@ choixdiaporama::choixdiaporama(QWidget *parent) :
     ui(new Ui::choixdiaporama)
 {
     ui->setupUi(this);
+
+    ui->comboBox->addItem("cc");
+    ui->comboBox->addItem("bonjoir");
+    ui->comboBox->addItem("he he he");
 }
 
 choixdiaporama::~choixdiaporama()
