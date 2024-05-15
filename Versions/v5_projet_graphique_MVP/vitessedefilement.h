@@ -15,8 +15,16 @@ public:
     explicit vitessedefilement(QWidget *parent = nullptr);
     ~vitessedefilement();
 
+    unsigned int getVitesseDefilementDialog();
+    void setVitesseDefilementDialog(unsigned int = 2);
+
 private:
     Ui::vitessedefilement *ui;
+    unsigned int _vitesse;
+
+private slots:
+    void sl_boutonOk();
+    void sl_boutonCancel();
 };
 
 #endif // VITESSEDEFILEMENT_H
