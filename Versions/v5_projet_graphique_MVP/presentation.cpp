@@ -24,26 +24,6 @@ void Presentation::setVue(lecteurVue * v)
     _laVue = v;
 }
 
-void Presentation::setExtremitesDiapoDroit(bool extremite)
-{
-    _extremiteDiapoDroit = extremite;
-}
-
-bool Presentation::getExtremitesDiapoDroit()
-{
-    return _extremiteDiapoDroit;
-}
-
-void Presentation::setExtremitesDiapoGauche(bool extremite)
-{
-    _extremiteDiapoGauche = extremite;
-}
-
-bool Presentation::getExtremitesDiapoGauche()
-{
-    return _extremiteDiapoGauche;
-}
-
 ImageDansDiaporama Presentation::getImageActuelle()
 {
     return _leModele->getDiaporamaCourant()->getImageCourante();
