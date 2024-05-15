@@ -29,6 +29,7 @@ public:
 
 public slots:
     void demanderAvancer();
+    void demanderAvancerAuto();
     void demanderReculer();
     void demanderCharger();
     void demanderLancementDiapo();

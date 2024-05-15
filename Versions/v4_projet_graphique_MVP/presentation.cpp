@@ -38,14 +38,14 @@ Diaporama *Presentation::getDiapoActuel()
 
 void Presentation::demanderAvancer()
 {
-    getModele()->reculer();
-    getModele()->touchePressee();
-    /*
     getModele()->avancer();
-    if (!_modeAutoDeclenche)
-    {
-        getModele()->touchePressee();
-    }*/
+    getModele()->touchePressee();
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
+}
+
+void Presentation::demanderAvancerAuto()
+{
+    getModele()->avancer();
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
@@ -88,6 +88,8 @@ void Presentation::demandeModeAutomatique()
     QObject::connect(_timer, &QTimer::timeout, this, &Presentation::onTimeout);
 
     _timer->setInterval(getModele()->getDiaporamaCourant()->getVitesseDefilement()*1000);
+    cout << "Interval dans demandeModeAutomatique : " << _timer->interval() << endl;
+    //L'INTERVAL NE CHANGE PAS
     _timer->start();
 
     //QTimer::setInterval(int(5000));
@@ -103,7 +105,8 @@ void Presentation::onTimeout()
     if (getModele()->getEtat() == Modele::automatique)
     {
         _modeAutoDeclenche = true;
-        demanderAvancer();
+        _timer->setInterval(getModele()->getDiaporamaCourant()->getVitesseDefilement()*1000);
+        demanderAvancerAuto();
         _timer->start();
         getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
         //getModele()->getDiaporamaCourant()->getVitesseDefilement()*1000
