@@ -28,12 +28,6 @@ public slots:
     void demanderReculer();
     void demanderCharger();
 
-    //void declencherAction(char);
-    //void saisieVerifChoixActionSurImageCourante(char&);
-    //unsigned int saisieVerifChoixDiaporama();
-
-
-
 };
 
 #endif // PRESENTATION_H

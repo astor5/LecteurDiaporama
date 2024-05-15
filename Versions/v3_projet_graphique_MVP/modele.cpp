@@ -6,7 +6,6 @@ Modele::Modele()
     diapo = new Diaporama();
     diapo->chargerDiapos(diapo->charger(), _Diaporamas);
     setDiaporamaCourant(0);
-
 }
 
 Diaporama * Modele::getDiaporamaCourant() const

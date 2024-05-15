@@ -126,40 +126,16 @@
          </spacer>
         </item>
         <item>
-         <widget class="QRadioButton" name="rbModeDefilement">
-          <property name="focusPolicy">
-           <enum>Qt::NoFocus</enum>
-          </property>
-          <property name="layoutDirection">
-           <enum>Qt::LeftToRight</enum>
-          </property>
+         <widget class="QPushButton" name="bLancerDiaporama">
           <property name="text">
-           <string>Défilement automatique</string>
-          </property>
-          <property name="shortcut">
-           <string>A</string>
-          </property>
-          <property name="autoExclusive">
-           <bool>false</bool>
+           <string>Lancer Diaporama</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QRadioButton" name="rbModeBoucle">
-          <property name="focusPolicy">
-           <enum>Qt::NoFocus</enum>
-          </property>
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
+         <widget class="QPushButton" name="bArreterDiaporama">
           <property name="text">
-           <string>Boucle</string>
-          </property>
-          <property name="shortcut">
-           <string>L</string>
-          </property>
-          <property name="autoExclusive">
-           <bool>false</bool>
+           <string>Arreter Diaporama</string>
           </property>
          </widget>
         </item>
@@ -168,7 +144,7 @@
      </layout>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="layoutBoutonAction" stretch="0,0,0,0,0">
+     <layout class="QHBoxLayout" name="layoutBoutonAction" stretch="0,0,0,0">
       <item>
        <spacer name="spacerGauche">
         <property name="orientation">
@@ -195,39 +171,6 @@
         </property>
         <property name="shortcut">
          <string>B</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QPushButton" name="bPause">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>40</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>40</width>
-          <height>30</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <pointsize>10</pointsize>
-         </font>
-        </property>
-        <property name="text">
-         <string>⏵II</string>
-        </property>
-        <property name="shortcut">
-         <string>Space</string>
         </property>
        </widget>
       </item>

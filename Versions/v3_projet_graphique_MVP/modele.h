@@ -37,7 +37,6 @@ public:
     //Sous-programmes de base
     void avancer();
     void reculer();
-    //void afficherImageCouranteDansDiaporamaCourant();
     void triCroissantRang();
 
     void charger();

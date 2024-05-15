@@ -90,7 +90,7 @@ vector<Image> Diaporama::charger()
     imageACharger = Image("Alice", "personnage", ":/images/Disney_2.gif");
     pImages.push_back(imageACharger);
 
-    imageACharger = Image("Mickey", "animal", "C:/images/Disney_19.gif");
+    imageACharger = Image("Mickey", "animal", ":/images/Disney_19.gif");
     pImages.push_back(imageACharger);
 
     imageACharger = Image("Pinnochio", "personnage", ":/images/Disney_29.gif");
@@ -102,7 +102,7 @@ vector<Image> Diaporama::charger()
     imageACharger = Image("Minnie", "personnage", ":/images/Disney_14.gif");
     pImages.push_back(imageACharger);
 
-    imageACharger = Image("Bambi", "animal", ":/images/\Disney_3.gif");
+    imageACharger = Image("Bambi", "animal", ":/images/Disney_3.gif");
     pImages.push_back(imageACharger);
 
     return pImages;
@@ -120,6 +120,7 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
     imageDansDiapo = ImageDansDiaporama(pImages,2,2);
     diaporama->ajouterImage(imageDansDiapo);
     diaporama->setPosImageCouranteInt(0);
+    diaporama->triCroissantRang();
     diaposCharges.push_back(diaporama);
 
     // Diaporama de Pantxika
@@ -133,6 +134,7 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
     imageDansDiapo = ImageDansDiaporama(pImages,1,2);
     diapoPantxika->ajouterImage(imageDansDiapo);
     diapoPantxika->setPosImageCouranteInt(0);
+    diapoPantxika->triCroissantRang();
 
     // ajout du diaporama dans le tableau de diaporamas
     diaposCharges.push_back(diapoPantxika);
@@ -148,6 +150,7 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
     imageDansDiapo = ImageDansDiaporama(pImages,2,3);
     diapoThierry->ajouterImage(imageDansDiapo);
     diapoThierry->setPosImageCouranteInt(0);
+    diapoThierry->triCroissantRang();
 
     // ajout du diaporama dans le tableau de diaporamas
     diaposCharges.push_back(diapoThierry);
@@ -167,6 +170,7 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
     imageDansDiapo = ImageDansDiaporama(pImages,4,4);
     diapoYann->ajouterImage(imageDansDiapo);
     diapoYann->setPosImageCouranteInt(0);
+    diapoYann->triCroissantRang();
 
     // ajout du diaporama dans le tableau de diaporamas
     diaposCharges.push_back(diapoYann);
@@ -183,19 +187,11 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
     imageDansDiapo = ImageDansDiaporama(pImages,3,1);
     diapoManu->ajouterImage(imageDansDiapo);
     diapoManu->setPosImageCouranteInt(0);
+    diapoManu->triCroissantRang();
 
     // ajout du diaporama dans le tableau de diaporamas
     diaposCharges.push_back(diapoManu);
 }
-
-
-/*
-void Diaporama::afficherImageCouranteDansDiaporamaCourant() {
-    cout << endl << endl;
-    cout << "DIAPORAMA : " << getTitre() << endl << endl;
-    cout << getPositionImage().getRang() << " sur " << nbImages() << " / ";
-    getPositionImage().afficher();
-}*/
 
 void Diaporama::triCroissantRang() {
     unsigned int taille = this->nbImages();

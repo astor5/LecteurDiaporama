@@ -13,11 +13,9 @@ lecteurVue::lecteurVue(QWidget *parent)
     //connexion des boutons
     QObject::connect(ui->bSuivant, SIGNAL(clicked()), this, SLOT(sl_suivant()));
     QObject::connect(ui->bPrecedent, SIGNAL(clicked()), this, SLOT(sl_precedent()));
-    QObject::connect(ui->bPause, SIGNAL(clicked()), this, SLOT(sl_pause()));
+    QObject::connect(ui->bLancerDiaporama, SIGNAL(clicked()), this, SLOT(sl_lancerDiaporama()));
+    QObject::connect(ui->bArreterDiaporama, SIGNAL(clicked()), this, SLOT(sl_arreterDiaporama()));
 
-    //connextion des radio-boutons
-    QObject::connect(ui->rbModeDefilement, SIGNAL(clicked()), this, SLOT(sl_mode()));
-    QObject::connect(ui->rbModeBoucle, SIGNAL(clicked()), this, SLOT(sl_boucle()));
 
     //conexion de boutons de la barre de menu
     QObject::connect(ui->actionQuitter, SIGNAL(triggered()), this, SLOT(sl_quitter()));
@@ -28,8 +26,7 @@ lecteurVue::lecteurVue(QWidget *parent)
 
     //navigation entre les bouton avec tab
     QWidget::setTabOrder(ui->bSuivant, ui->bPrecedent);
-    QWidget::setTabOrder(ui->bPrecedent, ui->bPause);
-    QWidget::setTabOrder(ui->bPause, ui->bSuivant);
+    QWidget::setTabOrder(ui->bPrecedent, ui->bSuivant);
 
 }
 
@@ -73,19 +70,14 @@ void lecteurVue::sl_precedent()
     majPresentation(getPresentation()->getDiapoActuel());
 }
 
-void lecteurVue::sl_pause()
+void lecteurVue::sl_lancerDiaporama()
 {
-    qDebug() << "defilement mis en pause";
+    qDebug() << "Mode automatique lancé";
 }
 
-void lecteurVue::sl_mode()
+void lecteurVue::sl_arreterDiaporama()
 {
-    qDebug() << "mode de défilement mis à : " << ui->rbModeDefilement->isChecked();
-}
-
-void lecteurVue::sl_boucle()
-{
-    qDebug() << "mode de boucle mis à : " << ui->rbModeBoucle->isChecked();
+    qDebug() << "Mode automatique arrete";
 }
 
 void lecteurVue::sl_quitter()
@@ -95,7 +87,7 @@ void lecteurVue::sl_quitter()
 
 void lecteurVue::sl_chargerDiaporama()
 {
-
+    qDebug() << "Charger un diaporama";
     getPresentation()->demanderCharger();
 }
 
@@ -106,7 +98,7 @@ void lecteurVue::sl_enleverDiporama()
 
 void lecteurVue::sl_vitesseDefilement()
 {
-    qDebug() << "changement de vitesse de défilement";
+    qDebug() << "Changement de vitesse de défilement";
 }
 
 void lecteurVue::sl_aPropos()
