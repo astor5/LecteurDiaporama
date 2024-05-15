@@ -165,7 +165,7 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
     diaposCharges.push_back(diapoThierry);
 
     // Diaporama de Yann
-    Diaporama * diapoYann = new Diaporama("Diaporama Yann", 4);
+    Diaporama * diapoYann = new Diaporama("Diaporama Yann", 1);
 
     // Les images du diaporama de Yann
     imageDansDiapo = ImageDansDiaporama(pImages,5,5);

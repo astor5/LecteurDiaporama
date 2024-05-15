@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "modele.h"
+#include "QTimer"
 
 
 class lecteurVue;
@@ -12,6 +13,9 @@ public:
 private:
     Modele * _leModele;
     lecteurVue * _laVue;
+    QTimer * _timer;
+    bool _modeAutoDeclenche;
+
 public:
     Presentation();
     Modele* getModele() const;
@@ -30,6 +34,7 @@ public slots:
     void demanderLancementDiapo();
     void demanderArretDiapo();
     void demandeModeAutomatique();
+    void onTimeout();
 
     //void declencherAction(char);
     //void saisieVerifChoixActionSurImageCourante(char&);

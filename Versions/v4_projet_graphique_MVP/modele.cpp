@@ -49,7 +49,6 @@ void Modele::reculer()
 void Modele::charger()
 {
     setDiaporamaCourant(0);
-
 }
 
 void Modele::touchePressee()

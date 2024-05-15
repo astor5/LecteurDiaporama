@@ -1,6 +1,5 @@
 #include "presentation.h"
 #include "lecteurvue.h"
-#include "QTimer"
 
 Presentation::Presentation() {
 }
@@ -39,8 +38,14 @@ Diaporama *Presentation::getDiapoActuel()
 
 void Presentation::demanderAvancer()
 {
-    getModele()->avancer();
+    getModele()->reculer();
     getModele()->touchePressee();
+    /*
+    getModele()->avancer();
+    if (!_modeAutoDeclenche)
+    {
+        getModele()->touchePressee();
+    }*/
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
@@ -58,25 +63,55 @@ void Presentation::demanderCharger()
 
 void Presentation::demanderLancementDiapo()
 {
-    getModele()->changementEtat();
+    if(_modeAutoDeclenche)
+    {
+        getModele()->changementEtat();
+        _modeAutoDeclenche = false;
+    }
+    else
+    {
+        getModele()->changementEtat();
+    }
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
 void Presentation::demanderArretDiapo()
 {
+    _modeAutoDeclenche = false;
     getModele()->changementEtat();
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
 void Presentation::demandeModeAutomatique()
 {
-    while(getModele()->defilageAutoPossible())
-    {
-        QTimer::singleShot(5000, this, SLOT(demanderAvancer()));
-        //QTimer::singleShot(getModele()->getDiaporamaCourant()->getVitesseDefilement()*1000, this, SLOT(demanderAvancer()));
-    }
+    _timer = new QTimer(this);
+    QObject::connect(_timer, &QTimer::timeout, this, &Presentation::onTimeout);
+
+    _timer->setInterval(getModele()->getDiaporamaCourant()->getVitesseDefilement()*1000);
+    _timer->start();
+
+    //QTimer::setInterval(int(5000));
+    //QTimer::singleShot(5000, this, SLOT(demanderAvancer()));
+    //QTimer::singleShot(getModele()->getDiaporamaCourant()->getVitesseDefilement()*1000, this, SLOT(demanderAvancer()));
 
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
+}
+
+void Presentation::onTimeout()
+{
+    qDebug() << "Appel de onTimeout()";
+    if (getModele()->getEtat() == Modele::automatique)
+    {
+        _modeAutoDeclenche = true;
+        demanderAvancer();
+        _timer->start();
+        getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
+        //getModele()->getDiaporamaCourant()->getVitesseDefilement()*1000
+    }
+    else
+    {
+        qDebug() << "Appel de onTimeout mais mode manuel";
+    }
 }
 
 /*void Presentation::declencherAction(char pChoixAction)
