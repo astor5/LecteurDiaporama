@@ -34,6 +34,7 @@ public slots:
     void demanderArretDiapo();
     void demandeModeAutomatique();
     void onTimeout();
+    void demandeChangementMode();
 
     //void declencherAction(char);
     //void saisieVerifChoixActionSurImageCourante(char&);

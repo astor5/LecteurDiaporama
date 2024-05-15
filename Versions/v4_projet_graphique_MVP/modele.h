@@ -12,10 +12,14 @@ class Modele : public QObject
 
 public:
     enum UnEtat {automatique, manuel};
+    enum UnMode {initial, boucle};
     void changementEtat();
+    void changementMode();
     UnEtat getEtat();
+    UnMode getMode();
     void setEtat(UnEtat);
-    Modele(UnEtat e=manuel);
+    void setMode(UnMode);
+    Modele(UnEtat e=manuel, UnMode m=initial);
 
     //Getter
     unsigned short int getVitesseDefilement() const;
@@ -46,6 +50,7 @@ private:
     vector<Diaporama *> _Diaporamas;
     int _diaporamaCourant;
     UnEtat _etat;
+    UnMode _mode;
 };
 
 #endif // MODELE_H

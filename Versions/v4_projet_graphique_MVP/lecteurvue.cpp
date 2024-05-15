@@ -47,10 +47,10 @@ Presentation *lecteurVue::getPresentation() const
 void lecteurVue::setPresentation(Presentation * p)
 {
     _laPresentation = p;
-    majPresentation(getPresentation()->getDiapoActuel(), getPresentation()->getModele()->getEtat());
+    majPresentation(getPresentation()->getDiapoActuel(), getPresentation()->getModele()->getEtat(), getPresentation()->getModele()->getMode());
 }
 
-void lecteurVue::majPresentation(Diaporama * diapo, Modele::UnEtat etat)
+void lecteurVue::majPresentation(Diaporama * diapo, Modele::UnEtat etat, Modele::UnMode mode)
 {
     ui->lTitreDiaporama->setText(QString::fromStdString(diapo->getTitre()));
     ui->lTitreImage->setText(QString::fromStdString(diapo->getImageCourante().getTitre())); //getImageCourante est une fonction qui renvoie une imageDansDiaporama
@@ -91,6 +91,7 @@ void lecteurVue::sl_pause()
 void lecteurVue::sl_boucle()
 {
     qDebug() << "mode de boucle mis à : " << ui->rbModeBoucle->isChecked();
+    getPresentation()->demandeChangementMode();
 }
 
 void lecteurVue::sl_quitter()

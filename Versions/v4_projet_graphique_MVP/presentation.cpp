@@ -40,14 +40,14 @@ void Presentation::demanderAvancer()
 {
     getModele()->avancer();
     getModele()->touchePressee();
-    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getMode());
 }
 
 void Presentation::demanderReculer()
 {
     getModele()->reculer();
     getModele()->touchePressee();
-    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getMode());
 }
 
 void Presentation::demanderCharger()
@@ -55,16 +55,21 @@ void Presentation::demanderCharger()
     getModele()->charger();
 }
 
+void Presentation::demandeChangementMode()
+{
+
+}
+
 void Presentation::demanderLancementDiapo()
 {
     getModele()->changementEtat();
-    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getMode());
 }
 
 void Presentation::demanderArretDiapo()
 {
     getModele()->changementEtat();
-    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getMode());
 }
 
 void Presentation::demandeModeAutomatique()
@@ -85,7 +90,7 @@ void Presentation::demandeModeAutomatique()
         _timer->stop();
     }
 
-    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getMode());
 }
 
 void Presentation::onTimeout()
@@ -94,7 +99,7 @@ void Presentation::onTimeout()
     if (getModele()->getEtat() == Modele::automatique)
     {
         getModele()->avancer();
-        getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
+        getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getMode());
     }
     else
     {

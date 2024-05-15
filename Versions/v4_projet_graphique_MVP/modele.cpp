@@ -3,12 +3,13 @@
 #include "QTimer"
 
 
-Modele::Modele(UnEtat etat)
+Modele::Modele(UnEtat etat, UnMode mode)
 {
     diapo = new Diaporama();
     diapo->chargerDiapos(diapo->charger(), _Diaporamas);
     setDiaporamaCourant(3);
     setEtat(etat);
+    setMode(mode);
 }
 
 Diaporama * Modele::getDiaporamaCourant() const
@@ -23,14 +24,22 @@ void Modele::setDiaporamaCourant(int pos)
 
 
 void Modele::avancer() {
-    if (getDiaporamaCourant()->getPosImageCouranteInt() == getDiaporamaCourant()->getNombreImages() - 1)
+    if (getMode() == Modele::boucle)
     {
-        getDiaporamaCourant()->setPosImageCouranteInt(0);
+        qDebug() << "Mode boucle";
+        if (getDiaporamaCourant()->getPosImageCouranteInt() == getDiaporamaCourant()->getNombreImages() - 1)
+        {
+            getDiaporamaCourant()->setPosImageCouranteInt(0);
 
+        }
+        else
+        {
+            getDiaporamaCourant()->setPosImageCouranteInt(getDiaporamaCourant()->getPosImageCouranteInt() + 1);
+        }
     }
     else
     {
-        getDiaporamaCourant()->setPosImageCouranteInt(getDiaporamaCourant()->getPosImageCouranteInt() + 1);
+        qDebug() << "Mode initial";
     }
 }
 
@@ -92,7 +101,17 @@ Modele::UnEtat Modele::getEtat()
     return _etat;
 }
 
+Modele::UnMode Modele::getMode()
+{
+    return _mode;
+}
+
 void Modele::setEtat(UnEtat unEtat)
 {
     _etat = unEtat;
+}
+
+void Modele::setMode(UnMode unMode)
+{
+    _mode = unMode;
 }
