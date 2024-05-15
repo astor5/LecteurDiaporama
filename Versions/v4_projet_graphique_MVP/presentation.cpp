@@ -57,7 +57,7 @@ void Presentation::demanderCharger()
 
 void Presentation::demandeChangementMode()
 {
-
+    getModele()->changementMode();
 }
 
 void Presentation::demanderLancementDiapo()

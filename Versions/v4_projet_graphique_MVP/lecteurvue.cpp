@@ -58,6 +58,23 @@ void lecteurVue::majPresentation(Diaporama * diapo, Modele::UnEtat etat, Modele:
     ui->lRangImage->setText(QString::fromStdString(diapo->getImageCourante().getImage().getCategorie()));
     ui->imageDiapo->setPixmap(QPixmap(QString::fromStdString(diapo->getImageCourante().getImage().getChemin())));
 
+    cout << getPresentation()->getDiapoActuel()->getNombreImages() << endl;
+    cout << getPresentation()->getDiapoActuel()->getPosImageCouranteInt() << endl;
+
+    if (mode == Modele::initial && (getPresentation()->getDiapoActuel()->getNombreImages()-1 == getPresentation()->getDiapoActuel()->getPosImageCouranteInt()))
+    {
+        ui->bSuivant->setDisabled(true);
+    }
+    else if (mode == Modele::initial && getPresentation()->getDiapoActuel()->getPosImageCouranteInt() == 0)
+    {
+        ui->bPrecedent->setDisabled(true);
+    }
+    else
+    {
+        ui->bSuivant->setDisabled(false);
+        ui->bPrecedent->setDisabled(false);
+    }
+
     switch (etat) {
     case Modele::manuel:
         ui->bArreterDiaporama->setDisabled(true);
