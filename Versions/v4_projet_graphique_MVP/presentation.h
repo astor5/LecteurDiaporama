@@ -14,6 +14,8 @@ private:
     Modele * _leModele;
     lecteurVue * _laVue;
     QTimer * _timer;
+    bool _extremiteDiapoDroit;
+    bool _extremiteDiapoGauche;
 
 public:
     Presentation();
@@ -25,6 +27,10 @@ public:
     ImageDansDiaporama getImageActuelle();
     Diaporama * getDiapoActuel();
 
+    void setExtremitesDiapoDroit(bool);
+    bool getExtremitesDiapoDroit();
+    void setExtremitesDiapoGauche(bool);
+    bool getExtremitesDiapoGauche();
 
 public slots:
     void demanderAvancer();

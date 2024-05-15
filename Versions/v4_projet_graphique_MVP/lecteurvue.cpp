@@ -64,15 +64,19 @@ void lecteurVue::majPresentation(Diaporama * diapo, Modele::UnEtat etat, Modele:
     if (mode == Modele::initial && (getPresentation()->getDiapoActuel()->getNombreImages()-1 == getPresentation()->getDiapoActuel()->getPosImageCouranteInt()))
     {
         ui->bSuivant->setDisabled(true);
+        getPresentation()->setExtremitesDiapoDroit(true);
     }
     else if (mode == Modele::initial && getPresentation()->getDiapoActuel()->getPosImageCouranteInt() == 0)
     {
         ui->bPrecedent->setDisabled(true);
+        getPresentation()->setExtremitesDiapoGauche(true);
     }
     else
     {
         ui->bSuivant->setDisabled(false);
         ui->bPrecedent->setDisabled(false);
+        getPresentation()->setExtremitesDiapoDroit(false);
+        getPresentation()->setExtremitesDiapoGauche(false);
     }
 
     switch (etat) {

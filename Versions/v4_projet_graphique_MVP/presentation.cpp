@@ -24,6 +24,25 @@ void Presentation::setVue(lecteurVue * v)
     _laVue = v;
 }
 
+void Presentation::setExtremitesDiapoDroit(bool extremite)
+{
+    _extremiteDiapoDroit = extremite;
+}
+
+bool Presentation::getExtremitesDiapoDroit()
+{
+    return _extremiteDiapoDroit;
+}
+
+void Presentation::setExtremitesDiapoGauche(bool extremite)
+{
+    _extremiteDiapoGauche = extremite;
+}
+
+bool Presentation::getExtremitesDiapoGauche()
+{
+    return _extremiteDiapoGauche;
+}
 
 ImageDansDiaporama Presentation::getImageActuelle()
 {
@@ -38,14 +57,28 @@ Diaporama *Presentation::getDiapoActuel()
 
 void Presentation::demanderAvancer()
 {
-    getModele()->avancer();
+    if (!getExtremitesDiapoDroit())
+    {
+        getModele()->avancer();
+    }
+    else
+    {
+        getModele()->changementEtat();
+    }
     getModele()->touchePressee();
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getMode());
 }
 
 void Presentation::demanderReculer()
 {
-    getModele()->reculer();
+    if (!getExtremitesDiapoGauche())
+    {
+        getModele()->reculer();
+    }
+    else
+    {
+        getModele()->changementEtat();
+    }
     getModele()->touchePressee();
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getMode());
 }
@@ -58,6 +91,11 @@ void Presentation::demanderCharger()
 void Presentation::demandeChangementMode()
 {
     getModele()->changementMode();
+    if (getModele()->getEtat() == Modele::automatique)
+    {
+        getModele()->setEtat(Modele::manuel);
+    }
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getMode());
 }
 
 void Presentation::demanderLancementDiapo()
@@ -106,6 +144,7 @@ void Presentation::onTimeout()
         _timer->stop();
         qDebug() << "Appel de onTimeout mais mode manuel";
     }
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getMode());
 }
 
 /*void Presentation::declencherAction(char pChoixAction)
