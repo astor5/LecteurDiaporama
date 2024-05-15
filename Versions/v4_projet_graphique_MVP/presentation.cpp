@@ -57,31 +57,34 @@ void Presentation::demanderCharger()
 
 void Presentation::demanderLancementDiapo()
 {
-    if(Modele::automatique)
-    {
-        _timer->stop();
-    }
     getModele()->changementEtat();
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
 void Presentation::demanderArretDiapo()
 {
-    _timer->stop();
     getModele()->changementEtat();
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
 void Presentation::demandeModeAutomatique()
 {
-    _timer = new QTimer(this);
-    QObject::connect(_timer, &QTimer::timeout, this, &Presentation::onTimeout);
+    if (getModele()->getEtat() == Modele::automatique)
+    {
+        _timer = new QTimer(this);
+        QObject::connect(_timer, &QTimer::timeout, this, &Presentation::onTimeout);
 
-    _timer->setInterval(getModele()->getDiaporamaCourant()->getVitesseDefilement()*1000);
-    cout << "Interval dans demandeModeAutomatique : " << _timer->interval() << endl;
-    //L'INTERVAL NE CHANGE PAS
+        _timer->setInterval(getModele()->getDiaporamaCourant()->getVitesseDefilement()*1000);
+        cout << "Interval dans demandeModeAutomatique : " << _timer->interval() << endl;
+        //L'INTERVAL NE CHANGE PAS
 
-    _timer->start();
+        _timer->start();
+    }
+    else
+    {
+        _timer->stop();
+    }
+
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
