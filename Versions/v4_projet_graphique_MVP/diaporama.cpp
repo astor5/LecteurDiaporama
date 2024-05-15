@@ -200,15 +200,6 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
     diaposCharges.push_back(diapoManu);
 }
 
-
-/*
-void Diaporama::afficherImageCouranteDansDiaporamaCourant() {
-    cout << endl << endl;
-    cout << "DIAPORAMA : " << getTitre() << endl << endl;
-    cout << getPositionImage().getRang() << " sur " << nbImages() << " / ";
-    getPositionImage().afficher();
-}*/
-
 void Diaporama::triCroissantRang() {
     unsigned int taille = this->nbImages();
     ImageDansDiaporama imageDansDiapo;
