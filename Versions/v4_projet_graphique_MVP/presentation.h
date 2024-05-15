@@ -14,7 +14,6 @@ private:
     Modele * _leModele;
     lecteurVue * _laVue;
     QTimer * _timer;
-    bool _modeAutoDeclenche;
 
 public:
     Presentation();
@@ -29,7 +28,6 @@ public:
 
 public slots:
     void demanderAvancer();
-    void demanderAvancerAuto();
     void demanderReculer();
     void demanderCharger();
     void demanderLancementDiapo();

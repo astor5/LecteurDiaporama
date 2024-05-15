@@ -43,12 +43,6 @@ void Presentation::demanderAvancer()
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
-void Presentation::demanderAvancerAuto()
-{
-    getModele()->avancer();
-    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
-}
-
 void Presentation::demanderReculer()
 {
     getModele()->reculer();
@@ -63,21 +57,13 @@ void Presentation::demanderCharger()
 
 void Presentation::demanderLancementDiapo()
 {
-    if(_modeAutoDeclenche)
-    {
-        getModele()->changementEtat();
-        _modeAutoDeclenche = false;
-    }
-    else
-    {
-        getModele()->changementEtat();
-    }
+    getModele()->changementEtat();
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
 void Presentation::demanderArretDiapo()
 {
-    _modeAutoDeclenche = false;
+    _timer->stop();
     getModele()->changementEtat();
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
@@ -90,11 +76,8 @@ void Presentation::demandeModeAutomatique()
     _timer->setInterval(getModele()->getDiaporamaCourant()->getVitesseDefilement()*1000);
     cout << "Interval dans demandeModeAutomatique : " << _timer->interval() << endl;
     //L'INTERVAL NE CHANGE PAS
-    _timer->start();
 
-    //QTimer::setInterval(int(5000));
-    //QTimer::singleShot(5000, this, SLOT(demanderAvancer()));
-    //QTimer::singleShot(getModele()->getDiaporamaCourant()->getVitesseDefilement()*1000, this, SLOT(demanderAvancer()));
+    _timer->start();
 
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
@@ -104,15 +87,12 @@ void Presentation::onTimeout()
     qDebug() << "Appel de onTimeout()";
     if (getModele()->getEtat() == Modele::automatique)
     {
-        _modeAutoDeclenche = true;
-        _timer->setInterval(getModele()->getDiaporamaCourant()->getVitesseDefilement()*1000);
-        demanderAvancerAuto();
-        _timer->start();
+        getModele()->avancer();
         getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
-        //getModele()->getDiaporamaCourant()->getVitesseDefilement()*1000
     }
     else
     {
+        _timer->stop();
         qDebug() << "Appel de onTimeout mais mode manuel";
     }
 }
