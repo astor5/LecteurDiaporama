@@ -7,8 +7,8 @@ vitessedefilement::vitessedefilement(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    QObject::connect(ui->bOk, SIGNAL(clicked()), this, SLOT(sl_boutonOk()));
-    QObject::connect(ui->bCancel, SIGNAL(clicked()), this, SLOT(sl_boutonCancel()));
+    QObject::connect(ui->bOk, SIGNAL(clicked()), this, SLOT(accept()));
+    QObject::connect(ui->bCancel, SIGNAL(clicked()), this, SLOT(reject()));
 
 }
 
@@ -19,22 +19,12 @@ vitessedefilement::~vitessedefilement()
 
 unsigned int vitessedefilement::getVitesseDefilementDialog()
 {
-    if (_cancelTriggered)
-    {
-        qDebug() << "Cancel triggered";
-        return _vitesse;
-    }
-    else if (!_cancelTriggered)
-    {
-        qDebug() << "Ok triggered";
-        return _vitesse;
-    }
-    //return _vitesse;
+    return ui->spinBox->value();
 }
 
 void vitessedefilement::setVitesseDefilementDialog(unsigned int vitesse)
 {
-    _vitesse = vitesse;
+    ui->spinBox->setValue(vitesse);
 }
 
 void vitessedefilement::sl_boutonOk()

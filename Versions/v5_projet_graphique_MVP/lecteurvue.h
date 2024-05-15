@@ -46,6 +46,7 @@ public slots:
     void sl_lancerDiaporama();
     void sl_arreterDiaporama();
     void sl_aPropos();
+    void sl_ouvrirChoixDiaporama();
     void sl_ouvrirVitesseDefilement();
 
 public:

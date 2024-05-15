@@ -3,6 +3,7 @@
 #include "ui_lecteurvue.h"
 #include "modele.h"
 #include "vitessedefilement.h"
+#include "choixdiaporama.h"
 #include <QMessageBox>
 #include <QString>
 
@@ -20,7 +21,7 @@ lecteurVue::lecteurVue(QWidget *parent)
 
     //conexion de boutons de la barre de menu
     QObject::connect(ui->actionQuitter, SIGNAL(triggered()), this, SLOT(sl_quitter()));
-    QObject::connect(ui->actionCharger_diaporama, SIGNAL(triggered()), this, SLOT(sl_chargerDiaporama()));
+    QObject::connect(ui->actionCharger_diaporama, SIGNAL(triggered()), this, SLOT(sl_ouvrirChoixDiaporama()));
     //QObject::connect(ui->actionCharger_diaporama, SIGNAL(triggered()), this, SLOT(sl_ouvrirVitesseDefilement()));
     QObject::connect(ui->actionEnlever_le_diaporama, SIGNAL(triggered()), this, SLOT(sl_enleverDiporama()));
     //QObject::connect(ui->actionVitesse_de_defilement, SIGNAL(triggered()), this, SLOT(sl_vitesseDefilement()));
@@ -92,10 +93,31 @@ void lecteurVue::sl_ouvrirVitesseDefilement()
     vitessedefilement maDlg(this);
 
     this->hide();
-    maDlg.exec();
-    getPresentation()->getDiapoActuel()->setVitesseDefilement(maDlg.getVitesseDefilementDialog());
+    int reponse = maDlg.exec();
+    cout << reponse;
+
+    if(reponse==1)
+    {
+        getPresentation()->getDiapoActuel()->setVitesseDefilement(maDlg.getVitesseDefilementDialog());
+    }
+    else if (reponse == 0)
+    {
+        cout << getPresentation()->getDiapoActuel()->getVitesseDefilement();
+        maDlg.setVitesseDefilementDialog(getPresentation()->getDiapoActuel()->getVitesseDefilement());
+    }
+
     maDlg.hide();
     cout << maDlg.getVitesseDefilementDialog() << endl;
+    this->show();
+}
+
+void lecteurVue::sl_ouvrirChoixDiaporama()
+{
+    choixdiaporama maDlg(this);
+
+    this->hide();
+    maDlg.exec();
+    maDlg.hide();
     this->show();
 }
 
