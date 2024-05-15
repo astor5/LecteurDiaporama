@@ -52,9 +52,6 @@ void lecteurVue::majPresentation(Diaporama * diapo, Modele::UnEtat etat)
     ui->lRangImage->setText(QString::fromStdString(diapo->getImageCourante().getImage().getCategorie()));
     ui->imageDiapo->setPixmap(QPixmap(QString::fromStdString(diapo->getImageCourante().getImage().getChemin())));
 
-    cout << getPresentation()->getDiapoActuel()->getNombreImages() << endl;
-    cout << getPresentation()->getDiapoActuel()->getPosImageCouranteInt() << endl;
-
     switch (etat) {
     case Modele::manuel:
         ui->bArreterDiaporama->setDisabled(true);
@@ -80,15 +77,6 @@ void lecteurVue::sl_precedent()
     getPresentation()->demanderReculer();
 }
 
-void lecteurVue::sl_pause()
-{
-    qDebug() << "defilement mis en pause";
-}
-
-void lecteurVue::sl_boucle()
-{
-}
-
 void lecteurVue::sl_quitter()
 {
     QApplication::quit();
@@ -96,7 +84,7 @@ void lecteurVue::sl_quitter()
 
 void lecteurVue::sl_chargerDiaporama()
 {
-
+    qDebug() << "Chargement du diaporama";
     getPresentation()->demanderCharger();
 }
 

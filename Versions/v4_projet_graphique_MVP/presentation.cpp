@@ -117,11 +117,7 @@ void Presentation::demandeModeAutomatique()
     {
         _timer = new QTimer(this);
         QObject::connect(_timer, &QTimer::timeout, this, &Presentation::onTimeout);
-
         _timer->setInterval(getModele()->getDiaporamaCourant()->getVitesseDefilement()*1000);
-        cout << "Interval dans demandeModeAutomatique : " << _timer->interval() << endl;
-        //L'INTERVAL NE CHANGE PAS
-
         _timer->start();
     }
     else
@@ -134,7 +130,6 @@ void Presentation::demandeModeAutomatique()
 
 void Presentation::onTimeout()
 {
-    qDebug() << "Appel de onTimeout()";
     if (getModele()->getEtat() == Modele::automatique)
     {
         getModele()->avancer();
@@ -143,7 +138,6 @@ void Presentation::onTimeout()
     else
     {
         _timer->stop();
-        qDebug() << "Appel de onTimeout mais mode manuel";
     }
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
