@@ -19,7 +19,17 @@ vitessedefilement::~vitessedefilement()
 
 unsigned int vitessedefilement::getVitesseDefilementDialog()
 {
-    return _vitesse;
+    if (_cancelTriggered)
+    {
+        qDebug() << "Cancel triggered";
+        return _vitesse;
+    }
+    else if (!_cancelTriggered)
+    {
+        qDebug() << "Ok triggered";
+        return _vitesse;
+    }
+    //return _vitesse;
 }
 
 void vitessedefilement::setVitesseDefilementDialog(unsigned int vitesse)
@@ -29,12 +39,14 @@ void vitessedefilement::setVitesseDefilementDialog(unsigned int vitesse)
 
 void vitessedefilement::sl_boutonOk()
 {
+    _cancelTriggered = false;
     setVitesseDefilementDialog(ui->spinBox->value());
     this->hide();
 }
 
 void vitessedefilement::sl_boutonCancel()
 {
-    setVitesseDefilementDialog(getVitesseDefilementDialog());
+    _cancelTriggered = true;
+    //setVitesseDefilementDialog(getVitesseDefilementDialog());
     this->hide();
 }

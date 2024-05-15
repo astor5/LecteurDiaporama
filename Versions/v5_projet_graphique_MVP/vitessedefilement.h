@@ -21,6 +21,7 @@ public:
 private:
     Ui::vitessedefilement *ui;
     unsigned int _vitesse;
+    bool _cancelTriggered;
 
 private slots:
     void sl_boutonOk();

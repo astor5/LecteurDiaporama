@@ -92,10 +92,9 @@ void lecteurVue::sl_ouvrirVitesseDefilement()
     vitessedefilement maDlg(this);
 
     this->hide();
-    maDlg.setVitesseDefilementDialog(maDlg.getVitesseDefilementDialog());
     maDlg.exec();
-    maDlg.hide();
     getPresentation()->getDiapoActuel()->setVitesseDefilement(maDlg.getVitesseDefilementDialog());
+    maDlg.hide();
     cout << maDlg.getVitesseDefilementDialog() << endl;
     this->show();
 }
