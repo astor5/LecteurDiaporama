@@ -57,6 +57,10 @@ void Presentation::demanderCharger()
 
 void Presentation::demanderLancementDiapo()
 {
+    if(Modele::automatique)
+    {
+        _timer->stop();
+    }
     getModele()->changementEtat();
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
@@ -78,7 +82,6 @@ void Presentation::demandeModeAutomatique()
     //L'INTERVAL NE CHANGE PAS
 
     _timer->start();
-
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
