@@ -13,7 +13,6 @@ lecteurVue::lecteurVue(QWidget *parent)
     //connexion des boutons
     QObject::connect(ui->bSuivant, SIGNAL(clicked()), this, SLOT(sl_suivant()));
     QObject::connect(ui->bPrecedent, SIGNAL(clicked()), this, SLOT(sl_precedent()));
-    QObject::connect(ui->bPause, SIGNAL(clicked()), this, SLOT(sl_pause()));
     QObject::connect(ui->bLancerDiaporama, SIGNAL(clicked()), this, SLOT(sl_lancerDiaporama()));
     QObject::connect(ui->bArreterDiaporama, SIGNAL(clicked()), this, SLOT(sl_arreterDiaporama()));
 
@@ -26,9 +25,7 @@ lecteurVue::lecteurVue(QWidget *parent)
 
     //navigation entre les bouton avec tab
     QWidget::setTabOrder(ui->bSuivant, ui->bPrecedent);
-    QWidget::setTabOrder(ui->bPrecedent, ui->bPause);
-    QWidget::setTabOrder(ui->bPause, ui->bSuivant);
-
+    QWidget::setTabOrder(ui->bPrecedent, ui->bSuivant);
 }
 
 lecteurVue::~lecteurVue()
