@@ -15,8 +15,7 @@ SOURCES += \
     main.cpp \
     lecteurvue.cpp \
     modele.cpp \
-    presentation.cpp \
-    typeDiaporama.cpp
+    presentation.cpp
 
 HEADERS += \
     ImageDansDiaporama.h \
@@ -24,8 +23,7 @@ HEADERS += \
     image.h \
     lecteurvue.h \
     modele.h \
-    presentation.h \
-    typeDiaporama.h
+    presentation.h
 
 FORMS += \
     lecteurvue.ui
