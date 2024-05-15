@@ -12,10 +12,8 @@ SOURCES += \
     ImageDansDiaporama.cpp \
     diaporama.cpp \
     image.cpp \
-    lecteur.cpp \
     main.cpp \
     lecteurvue.cpp \
-    main2.cpp \
     modele.cpp \
     presentation.cpp \
     typeDiaporama.cpp
@@ -24,7 +22,6 @@ HEADERS += \
     ImageDansDiaporama.h \
     diaporama.h \
     image.h \
-    lecteur.h \
     lecteurvue.h \
     modele.h \
     presentation.h \

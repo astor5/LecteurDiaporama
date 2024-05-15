@@ -17,9 +17,6 @@ lecteurVue::lecteurVue(QWidget *parent)
     QObject::connect(ui->bLancerDiaporama, SIGNAL(clicked()), this, SLOT(sl_lancerDiaporama()));
     QObject::connect(ui->bArreterDiaporama, SIGNAL(clicked()), this, SLOT(sl_arreterDiaporama()));
 
-    //connextion des radio-boutons
-    QObject::connect(ui->rbModeBoucle, SIGNAL(clicked()), this, SLOT(sl_boucle()));
-
     //conexion de boutons de la barre de menu
     QObject::connect(ui->actionQuitter, SIGNAL(triggered()), this, SLOT(sl_quitter()));
     QObject::connect(ui->actionCharger_diaporama, SIGNAL(triggered()), this, SLOT(sl_chargerDiaporama()));
@@ -61,24 +58,6 @@ void lecteurVue::majPresentation(Diaporama * diapo, Modele::UnEtat etat, Modele:
     cout << getPresentation()->getDiapoActuel()->getNombreImages() << endl;
     cout << getPresentation()->getDiapoActuel()->getPosImageCouranteInt() << endl;
 
-    if (mode == Modele::initial && (getPresentation()->getDiapoActuel()->getNombreImages()-1 == getPresentation()->getDiapoActuel()->getPosImageCouranteInt()))
-    {
-        ui->bSuivant->setDisabled(true);
-        getPresentation()->setExtremitesDiapoDroit(true);
-    }
-    else if (mode == Modele::initial && getPresentation()->getDiapoActuel()->getPosImageCouranteInt() == 0)
-    {
-        ui->bPrecedent->setDisabled(true);
-        getPresentation()->setExtremitesDiapoGauche(true);
-    }
-    else
-    {
-        ui->bSuivant->setDisabled(false);
-        ui->bPrecedent->setDisabled(false);
-        getPresentation()->setExtremitesDiapoDroit(false);
-        getPresentation()->setExtremitesDiapoGauche(false);
-    }
-
     switch (etat) {
     case Modele::manuel:
         ui->bArreterDiaporama->setDisabled(true);
@@ -111,8 +90,6 @@ void lecteurVue::sl_pause()
 
 void lecteurVue::sl_boucle()
 {
-    qDebug() << "mode de boucle mis à : " << ui->rbModeBoucle->isChecked();
-    getPresentation()->demandeChangementMode();
 }
 
 void lecteurVue::sl_quitter()

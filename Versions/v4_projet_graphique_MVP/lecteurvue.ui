@@ -28,7 +28,7 @@
        </widget>
       </item>
       <item>
-       <layout class="QVBoxLayout" name="layoutinfomations" stretch="0,0,0,0,0,0,0,0">
+       <layout class="QVBoxLayout" name="layoutinfomations" stretch="0,0,0,0,0,0,0">
         <property name="topMargin">
          <number>20</number>
         </property>
@@ -124,25 +124,6 @@
            </size>
           </property>
          </spacer>
-        </item>
-        <item>
-         <widget class="QRadioButton" name="rbModeBoucle">
-          <property name="focusPolicy">
-           <enum>Qt::NoFocus</enum>
-          </property>
-          <property name="autoFillBackground">
-           <bool>false</bool>
-          </property>
-          <property name="text">
-           <string>Boucle</string>
-          </property>
-          <property name="shortcut">
-           <string>L</string>
-          </property>
-          <property name="autoExclusive">
-           <bool>false</bool>
-          </property>
-         </widget>
         </item>
         <item>
          <widget class="QPushButton" name="bLancerDiaporama">

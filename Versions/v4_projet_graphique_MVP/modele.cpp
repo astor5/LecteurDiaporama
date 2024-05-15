@@ -24,42 +24,25 @@ void Modele::setDiaporamaCourant(int pos)
 
 
 void Modele::avancer() {
-    if (getMode() == Modele::boucle)
+    if (getDiaporamaCourant()->getPosImageCouranteInt() == getDiaporamaCourant()->getNombreImages() - 1)
     {
-        qDebug() << "Mode boucle";
-        if (getDiaporamaCourant()->getPosImageCouranteInt() == getDiaporamaCourant()->getNombreImages() - 1)
-        {
-            getDiaporamaCourant()->setPosImageCouranteInt(0);
+        getDiaporamaCourant()->setPosImageCouranteInt(0);
 
-        }
-        else
-        {
-            getDiaporamaCourant()->setPosImageCouranteInt(getDiaporamaCourant()->getPosImageCouranteInt() + 1);
-        }
     }
     else
     {
-        qDebug() << "Mode initial dans avancement";
         getDiaporamaCourant()->setPosImageCouranteInt(getDiaporamaCourant()->getPosImageCouranteInt() + 1);
     }
 }
 
 void Modele::reculer()
 {
-    if (getMode() == Modele::boucle)
+    if (getDiaporamaCourant()->getPosImageCouranteInt() == 0)
     {
-        if (getDiaporamaCourant()->getPosImageCouranteInt() == 0)
-        {
-            getDiaporamaCourant()->setPosImageCouranteInt(getDiaporamaCourant()->getNombreImages() - 1);
-        }
-        else
-        {
-            getDiaporamaCourant()->setPosImageCouranteInt(getDiaporamaCourant()->getPosImageCouranteInt() - 1);
-        }
+        getDiaporamaCourant()->setPosImageCouranteInt(getDiaporamaCourant()->getNombreImages() - 1);
     }
     else
     {
-        qDebug() << "Mode initial dans recul";
         getDiaporamaCourant()->setPosImageCouranteInt(getDiaporamaCourant()->getPosImageCouranteInt() - 1);
     }
 }
@@ -96,19 +79,6 @@ void Modele::changementEtat()
 
 void Modele::changementMode()
 {
-    switch (getMode()) {
-    case Modele::initial:
-        setMode(Modele::boucle);
-        qDebug() << "Passage en mode auto";
-        break;
-    case Modele::boucle:
-        setMode(Modele::initial);
-        qDebug() << "Passage en mode manuel";
-        break;
-    default:
-        setMode(Modele::initial);
-        break;
-    }
 }
 
 bool Modele::defilageAutoPossible()

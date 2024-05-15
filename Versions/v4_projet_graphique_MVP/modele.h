@@ -19,7 +19,7 @@ public:
     UnMode getMode();
     void setEtat(UnEtat);
     void setMode(UnMode);
-    Modele(UnEtat e=manuel, UnMode m=initial);
+    Modele(UnEtat e=manuel, UnMode m=boucle);
 
     //Getter
     unsigned short int getVitesseDefilement() const;

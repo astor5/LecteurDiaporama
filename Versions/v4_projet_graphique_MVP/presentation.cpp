@@ -57,28 +57,16 @@ Diaporama *Presentation::getDiapoActuel()
 
 void Presentation::demanderAvancer()
 {
-    if (!getExtremitesDiapoDroit())
-    {
-        getModele()->avancer();
-    }
-    else
-    {
-        getModele()->changementEtat();
-    }
+    getModele()->avancer();
+    getModele()->changementEtat();
     getModele()->touchePressee();
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getMode());
 }
 
 void Presentation::demanderReculer()
 {
-    if (!getExtremitesDiapoGauche())
-    {
-        getModele()->reculer();
-    }
-    else
-    {
-        getModele()->changementEtat();
-    }
+    getModele()->reculer();
+    getModele()->changementEtat();
     getModele()->touchePressee();
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getMode());
 }
@@ -100,7 +88,17 @@ void Presentation::demandeChangementMode()
 
 void Presentation::demanderLancementDiapo()
 {
-    getModele()->changementEtat();
+    if (getModele()->getEtat() == Modele::manuel)
+    {
+        getModele()->changementEtat();
+    }
+    else
+    {
+        _timer->stop();
+        qDebug() << "On affiche l'image 0";
+        qDebug() << "On a stoppé le timer";
+        getModele()->getDiaporamaCourant()->setPosImageCouranteInt(0);
+    }
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getMode());
 }
 
