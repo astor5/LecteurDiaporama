@@ -60,14 +60,12 @@ void lecteurVue::sl_suivant()
 {
 
     getPresentation()->demanderAvancer();
-    majPresentation(getPresentation()->getDiapoActuel());
 }
 
 void lecteurVue::sl_precedent()
 {
 
     getPresentation()->demanderReculer();
-    majPresentation(getPresentation()->getDiapoActuel());
 }
 
 void lecteurVue::sl_lancerDiaporama()

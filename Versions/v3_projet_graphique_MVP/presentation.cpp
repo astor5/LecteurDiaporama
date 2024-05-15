@@ -38,14 +38,17 @@ Diaporama *Presentation::getDiapoActuel()
 void Presentation::demanderAvancer()
 {
     getModele()->avancer();
+    getVue()->majPresentation(getModele()->getDiaporamaCourant());
 }
 
 void Presentation::demanderReculer()
 {
     getModele()->reculer();
+    getVue()->majPresentation(getModele()->getDiaporamaCourant());
 }
 
 void Presentation::demanderCharger()
 {
     getModele()->charger();
+    getVue()->majPresentation(getModele()->getDiaporamaCourant());
 }
