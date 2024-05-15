@@ -1,5 +1,5 @@
 #include "modele.h"
-#include "qdebug.h"
+#include "qDebug.h"
 #include "QTimer"
 
 

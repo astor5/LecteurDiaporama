@@ -9,6 +9,7 @@
 //#include "presentation.h"
 #include "ImageDansDiaporama.h"
 #include "modele.h"
+#include "vitessedefilement.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {class lecteurVue;
@@ -45,6 +46,7 @@ public slots:
     void sl_lancerDiaporama();
     void sl_arreterDiaporama();
     void sl_aPropos();
+    void sl_ouvrirVitesseDefilement();
 
 public:
 

@@ -54,7 +54,7 @@ vector<Image> Diaporama::getToutesImages() const
     return _Images;
 }
 
-unsigned int Diaporama::getVitesseDefilement() const
+unsigned int Diaporama::getVitesseDefilement()
 {
     return _vitesseDefilement;
 }

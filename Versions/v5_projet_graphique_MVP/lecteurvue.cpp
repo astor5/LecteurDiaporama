@@ -1,6 +1,8 @@
 #include "lecteurvue.h"
 #include "presentation.h"
 #include "ui_lecteurvue.h"
+#include "modele.h"
+#include "vitessedefilement.h"
 #include <QMessageBox>
 #include <QString>
 
@@ -19,13 +21,16 @@ lecteurVue::lecteurVue(QWidget *parent)
     //conexion de boutons de la barre de menu
     QObject::connect(ui->actionQuitter, SIGNAL(triggered()), this, SLOT(sl_quitter()));
     QObject::connect(ui->actionCharger_diaporama, SIGNAL(triggered()), this, SLOT(sl_chargerDiaporama()));
+    //QObject::connect(ui->actionCharger_diaporama, SIGNAL(triggered()), this, SLOT(sl_ouvrirVitesseDefilement()));
     QObject::connect(ui->actionEnlever_le_diaporama, SIGNAL(triggered()), this, SLOT(sl_enleverDiporama()));
+    //QObject::connect(ui->actionVitesse_de_defilement, SIGNAL(triggered()), this, SLOT(sl_vitesseDefilement()));
     QObject::connect(ui->actionVitesse_de_defilement, SIGNAL(triggered()), this, SLOT(sl_vitesseDefilement()));
     QObject::connect(ui->actionA_propos, SIGNAL(triggered()), this, SLOT(sl_aPropos()));
 
     //navigation entre les bouton avec tab
     QWidget::setTabOrder(ui->bSuivant, ui->bPrecedent);
     QWidget::setTabOrder(ui->bPrecedent, ui->bSuivant);
+
 }
 
 lecteurVue::~lecteurVue()
@@ -80,6 +85,19 @@ void lecteurVue::sl_precedent()
 void lecteurVue::sl_quitter()
 {
     QApplication::quit();
+}
+
+void lecteurVue::sl_ouvrirVitesseDefilement()
+{
+    vitessedefilement maDlg(this);
+
+    this->hide();
+    int reponse = maDlg.exec();
+
+    if (reponse == 0)
+    {
+        this->show();
+    }
 }
 
 void lecteurVue::sl_chargerDiaporama()

@@ -15,7 +15,8 @@ SOURCES += \
     main.cpp \
     lecteurvue.cpp \
     modele.cpp \
-    presentation.cpp
+    presentation.cpp \
+    vitessedefilement.cpp
 
 HEADERS += \
     ImageDansDiaporama.h \
@@ -23,10 +24,12 @@ HEADERS += \
     image.h \
     lecteurvue.h \
     modele.h \
-    presentation.h
+    presentation.h \
+    vitessedefilement.h
 
 FORMS += \
-    lecteurvue.ui
+    lecteurvue.ui \
+    vitessedefilement.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

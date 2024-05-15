@@ -33,7 +33,7 @@ public:
     ImageDansDiaporama getImageCourante() const;
     unsigned int getNombreImages() const;
     vector<Image> getToutesImages() const;
-    unsigned int getVitesseDefilement() const;
+    unsigned int getVitesseDefilement();
 
     vector<Diaporama> & getToutesDiapos();
     Diaporama & getDiapoCourant();
