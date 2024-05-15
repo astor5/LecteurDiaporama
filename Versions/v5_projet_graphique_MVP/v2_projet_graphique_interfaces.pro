@@ -10,6 +10,7 @@ CONFIG += c++17
 
 SOURCES += \
     ImageDansDiaporama.cpp \
+    choixdiaporama.cpp \
     diaporama.cpp \
     image.cpp \
     main.cpp \
@@ -20,6 +21,7 @@ SOURCES += \
 
 HEADERS += \
     ImageDansDiaporama.h \
+    choixdiaporama.h \
     diaporama.h \
     image.h \
     lecteurvue.h \
@@ -28,6 +30,7 @@ HEADERS += \
     vitessedefilement.h
 
 FORMS += \
+    choixdiaporama.ui \
     lecteurvue.ui \
     vitessedefilement.ui
 
