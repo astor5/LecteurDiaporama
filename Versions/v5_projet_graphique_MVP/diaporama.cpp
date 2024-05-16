@@ -175,9 +175,9 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
     diapoYann->ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,3,1);
     diapoYann->ajouterImage(imageDansDiapo);
-    imageDansDiapo = ImageDansDiaporama(pImages,1,2);
+    imageDansDiapo = ImageDansDiaporama(pImages,7,2);
     diapoYann->ajouterImage(imageDansDiapo);
-    imageDansDiapo = ImageDansDiaporama(pImages,2,3);
+    imageDansDiapo = ImageDansDiaporama(pImages,2,6);
     diapoYann->ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,4,4);
     diapoYann->ajouterImage(imageDansDiapo);
@@ -194,7 +194,7 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
     diapoManu->ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,1,3);
     diapoManu->ajouterImage(imageDansDiapo);
-    imageDansDiapo = ImageDansDiaporama(pImages,2,2);
+    imageDansDiapo = ImageDansDiaporama(pImages,2,7);
     diapoManu->ajouterImage(imageDansDiapo);
     imageDansDiapo = ImageDansDiaporama(pImages,3,1);
     diapoManu->ajouterImage(imageDansDiapo);

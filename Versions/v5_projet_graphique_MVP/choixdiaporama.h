@@ -16,9 +16,13 @@ public:
     ~choixdiaporama();
 
     void ajouterItem(QString);
+    int recupIndex();
 
 private:
     Ui::choixdiaporama *ui;
+
+private slots:
+    void sl_choixTitre();
 };
 
 #endif // CHOIXDIAPORAMA_H
