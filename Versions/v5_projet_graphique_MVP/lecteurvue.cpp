@@ -115,17 +115,14 @@ void lecteurVue::sl_ouvrirChoixDiaporama()
 
     this->hide();
 
-    for (int i = 1; i < getPresentation()->getModele()->getTabDiaporamas().size(); i ++)
+    for (unsigned int i = 1; i < getPresentation()->getModele()->getTabDiaporamas().size(); i ++)
     {
         maDlg.ajouterItem(QString::fromStdString(getPresentation()->getModele()->getTabDiaporamas()[i]->getTitre()));
     }
 
-    int reponse = maDlg.exec();
+    maDlg.exec();
 
-    getPresentation()->getModele()->setDiaporamaCourant(maDlg.recupIndex()+1);
-    majPresentation(getPresentation()->getDiapoActuel(), getPresentation()->getModele()->getEtat());
-
-    cout << "Reponse : " << reponse;
+    getPresentation()->demandeChangementDiaporama(maDlg);
 
     maDlg.hide();
     this->show();

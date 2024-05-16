@@ -4,6 +4,7 @@
 #include <QObject>
 #include "modele.h"
 #include "QTimer"
+#include "choixdiaporama.h"
 
 
 class lecteurVue;
@@ -34,6 +35,7 @@ public slots:
     void demandeModeAutomatique();
     void onTimeout();
     void demandeChangementMode();
+    void demandeChangementDiaporama(choixdiaporama&);
 
     //void declencherAction(char);
     //void saisieVerifChoixActionSurImageCourante(char&);

@@ -71,6 +71,12 @@ void Presentation::demandeChangementMode()
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
+void Presentation::demandeChangementDiaporama(choixdiaporama &unChoix)
+{
+    getModele()->setDiaporamaCourant(unChoix.recupIndex()+1);
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
+}
+
 void Presentation::demanderLancementDiapo()
 {
     if (getModele()->getEtat() == Modele::manuel)
