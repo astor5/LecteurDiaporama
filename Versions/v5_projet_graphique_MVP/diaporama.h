@@ -17,11 +17,12 @@ private:
     unsigned int m_posImage;
     vector<Image> _Images;
     unsigned int _vitesseDefilement;
+    unsigned int _positionDiapo;
 
 
 
 public:
-    Diaporama(string, unsigned int);
+    Diaporama(string, unsigned int, unsigned int);
     Diaporama(unsigned short int =0, unsigned int =0);
     Diaporama(const Diaporama&);
     ~Diaporama();

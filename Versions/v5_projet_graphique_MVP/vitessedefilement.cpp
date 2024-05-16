@@ -26,16 +26,3 @@ void vitessedefilement::setVitesseDefilementDialog(unsigned int vitesse)
 {
     ui->spinBox->setValue(vitesse);
 }
-
-void vitessedefilement::sl_boutonOk()
-{
-    _cancelTriggered = false;
-    setVitesseDefilementDialog(ui->spinBox->value());
-    this->hide();
-}
-
-void vitessedefilement::sl_boutonCancel()
-{
-    _cancelTriggered = true;
-    this->hide();
-}

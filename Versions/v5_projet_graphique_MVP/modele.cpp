@@ -7,7 +7,7 @@ Modele::Modele(UnEtat etat)
 {
     diapo = new Diaporama();
     diapo->chargerDiapos(diapo->charger(), _Diaporamas);
-    setDiaporamaCourant(3);
+    setDiaporamaCourant(0);
     setEtat(etat);
 }
 

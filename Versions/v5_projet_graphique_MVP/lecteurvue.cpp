@@ -58,16 +58,31 @@ void lecteurVue::majPresentation(Diaporama * diapo, Modele::UnEtat etat)
     ui->lRangImage->setText(QString::fromStdString(diapo->getImageCourante().getImage().getCategorie()));
     ui->imageDiapo->setPixmap(QPixmap(QString::fromStdString(diapo->getImageCourante().getImage().getChemin())));
 
-    switch (etat) {
-    case Modele::manuel:
+    if (getPresentation()->demandeNumeroDiaporama()== 0)
+    {
+        ui->bPrecedent->setDisabled(true);
+        ui->bSuivant->setDisabled(true);
         ui->bArreterDiaporama->setDisabled(true);
-        break;
-    case Modele::automatique:
-        ui->bArreterDiaporama->setDisabled(false);
-        break;
-    default:
-        ui->bArreterDiaporama->setDisabled(true);
-        break;
+        ui->bLancerDiaporama->setDisabled(true);
+    }
+    else
+    {
+        cout << getPresentation()->demandeNumeroDiaporama();
+        ui->bPrecedent->setDisabled(false);
+        ui->bSuivant->setDisabled(false);
+        ui->bLancerDiaporama->setDisabled(false);
+
+        switch (etat) {
+        case Modele::manuel:
+            ui->bArreterDiaporama->setDisabled(true);
+            break;
+        case Modele::automatique:
+            ui->bArreterDiaporama->setDisabled(false);
+            break;
+        default:
+            ui->bArreterDiaporama->setDisabled(true);
+            break;
+        }
     }
 }
 
@@ -130,18 +145,12 @@ void lecteurVue::sl_ouvrirChoixDiaporama()
 
 void lecteurVue::sl_chargerDiaporama()
 {
-    qDebug() << "Chargement du diaporama";
     getPresentation()->demanderCharger();
 }
 
 void lecteurVue::sl_enleverDiporama()
 {
-    qDebug() << "Enlever le diaporama";
-}
-
-void lecteurVue::sl_vitesseDefilement()
-{
-    qDebug() << "Je change la vitesse de défilement";
+    getPresentation()->demandeVider();
 }
 
 void lecteurVue::sl_lancerDiaporama()

@@ -97,6 +97,17 @@ void Presentation::demanderArretDiapo()
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
+int Presentation::demandeNumeroDiaporama()
+{
+    return getModele()->getDiaporamaCourant()->getNumDiapoCourant();
+}
+
+void Presentation::demandeVider()
+{
+    getModele()->setDiaporamaCourant(demandeNumeroDiaporama());
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
+}
+
 void Presentation::demandeModeAutomatique()
 {
     if (getModele()->getEtat() == Modele::automatique)

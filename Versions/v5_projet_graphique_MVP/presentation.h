@@ -36,6 +36,8 @@ public slots:
     void onTimeout();
     void demandeChangementMode();
     void demandeChangementDiaporama(choixdiaporama&);
+    void demandeVider();
+    int demandeNumeroDiaporama();
 
     //void declencherAction(char);
     //void saisieVerifChoixActionSurImageCourante(char&);
