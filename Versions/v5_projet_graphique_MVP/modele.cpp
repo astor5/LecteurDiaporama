@@ -11,9 +11,14 @@ Modele::Modele(UnEtat etat)
     setEtat(etat);
 }
 
-Diaporama * Modele::getDiaporamaCourant() const
+Diaporama * Modele::getDiaporamaCourant()
 {
-    return _Diaporamas[_diaporamaCourant];
+    return getTabDiaporamas()[_diaporamaCourant];
+}
+
+vector<Diaporama*> Modele::getTabDiaporamas()
+{
+    return _Diaporamas;
 }
 
 void Modele::setDiaporamaCourant(int pos)

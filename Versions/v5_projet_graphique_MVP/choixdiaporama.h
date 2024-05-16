@@ -15,6 +15,8 @@ public:
     explicit choixdiaporama(QWidget *parent = nullptr);
     ~choixdiaporama();
 
+    void ajouterItem(QString);
+
 private:
     Ui::choixdiaporama *ui;
 };

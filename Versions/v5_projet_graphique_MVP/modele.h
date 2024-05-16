@@ -19,7 +19,8 @@ public:
 
     //Getter
     unsigned short int getVitesseDefilement() const;
-    Diaporama * getDiaporamaCourant() const;
+    Diaporama * getDiaporamaCourant();
+    vector<Diaporama*> getTabDiaporamas();
 
 
     //Setter

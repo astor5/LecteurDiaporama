@@ -37,6 +37,5 @@ void vitessedefilement::sl_boutonOk()
 void vitessedefilement::sl_boutonCancel()
 {
     _cancelTriggered = true;
-    //setVitesseDefilementDialog(getVitesseDefilementDialog());
     this->hide();
 }

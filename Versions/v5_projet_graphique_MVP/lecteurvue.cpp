@@ -93,8 +93,8 @@ void lecteurVue::sl_ouvrirVitesseDefilement()
     vitessedefilement maDlg(this);
 
     this->hide();
+    maDlg.setVitesseDefilementDialog(getPresentation()->getDiapoActuel()->getVitesseDefilement());
     int reponse = maDlg.exec();
-    cout << reponse;
 
     if(reponse==1)
     {
@@ -102,12 +102,10 @@ void lecteurVue::sl_ouvrirVitesseDefilement()
     }
     else if (reponse == 0)
     {
-        cout << getPresentation()->getDiapoActuel()->getVitesseDefilement();
         maDlg.setVitesseDefilementDialog(getPresentation()->getDiapoActuel()->getVitesseDefilement());
     }
 
     maDlg.hide();
-    cout << maDlg.getVitesseDefilementDialog() << endl;
     this->show();
 }
 
@@ -117,6 +115,10 @@ void lecteurVue::sl_ouvrirChoixDiaporama()
 
     this->hide();
 
+    for (int i = i; i < getPresentation()->getDiapoActuel()->getNombreImages(); i ++)
+    {
+        maDlg.ajouterItem(QString::fromStdString(getPresentation()->getModele()->getTabDiaporamas()[i]->getTitre()));
+    }
 
     int reponse = maDlg.exec();
     cout << reponse;
