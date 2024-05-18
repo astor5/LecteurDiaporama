@@ -27,5 +27,5 @@ int choixdiaporama::recupIndex()
 
 void choixdiaporama::sl_choixTitre()
 {
-    qDebug() << recupIndex();
+    recupIndex();
 }

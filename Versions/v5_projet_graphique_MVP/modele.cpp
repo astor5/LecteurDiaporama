@@ -11,6 +11,11 @@ Modele::Modele(UnEtat etat)
     setEtat(etat);
 }
 
+unsigned short Modele::getVitesseDefilement() const
+{
+    return m_vitesseDefilement;
+}
+
 Diaporama * Modele::getDiaporamaCourant()
 {
     return getTabDiaporamas()[_diaporamaCourant];

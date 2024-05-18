@@ -138,3 +138,33 @@ void Presentation::onTimeout()
     }
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
+
+int Presentation::demandeVitesseDefilement()
+{
+    return getModele()->getVitesseDefilement();
+}
+
+void Presentation::demandeSetVitesseDefilement(int vitDefilement)
+{
+    getDiapoActuel()->setVitesseDefilement(vitDefilement);
+}
+
+int Presentation::demandeNombreDiapos()
+{
+    return getModele()->getTabDiaporamas().size();
+}
+
+std::string Presentation::demandeTitreDiaporama(int numDiapo)
+{
+    return getModele()->getTabDiaporamas()[numDiapo]->getTitre();
+}
+
+
+
+
+
+
+
+
+
+

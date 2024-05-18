@@ -67,7 +67,6 @@ void lecteurVue::majPresentation(Diaporama * diapo, Modele::UnEtat etat)
     }
     else
     {
-        cout << getPresentation()->demandeNumeroDiaporama();
         ui->bPrecedent->setDisabled(false);
         ui->bSuivant->setDisabled(false);
         ui->bLancerDiaporama->setDisabled(false);

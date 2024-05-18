@@ -38,6 +38,10 @@ public slots:
     void demandeChangementDiaporama(choixdiaporama&);
     void demandeVider();
     int demandeNumeroDiaporama();
+    int demandeVitesseDefilement();
+    void demandeSetVitesseDefilement(int);
+    int demandeNombreDiapos();
+    std::string demandeTitreDiaporama(int);
 
     //void declencherAction(char);
     //void saisieVerifChoixActionSurImageCourante(char&);
