@@ -107,16 +107,16 @@ void lecteurVue::sl_ouvrirVitesseDefilement()
     vitessedefilement maDlg(this);
 
     this->hide();
-    maDlg.setVitesseDefilementDialog(getPresentation()->getDiapoActuel()->getVitesseDefilement());
+    maDlg.setVitesseDefilementDialog(getPresentation()->demandeVitesseDefilement());
     int reponse = maDlg.exec();
 
     if(reponse==1)
     {
-        getPresentation()->getDiapoActuel()->setVitesseDefilement(maDlg.getVitesseDefilementDialog());
+        getPresentation()->demandeSetVitesseDefilement(maDlg.getVitesseDefilementDialog());
     }
     else if (reponse == 0)
     {
-        maDlg.setVitesseDefilementDialog(getPresentation()->getDiapoActuel()->getVitesseDefilement());
+        maDlg.setVitesseDefilementDialog(getPresentation()->demandeVitesseDefilement());
     }
 
     maDlg.hide();
@@ -131,7 +131,7 @@ void lecteurVue::sl_ouvrirChoixDiaporama()
 
     for (unsigned int i = 1; i < getPresentation()->getModele()->getTabDiaporamas().size(); i ++)
     {
-        maDlg.ajouterItem(QString::fromStdString(getPresentation()->getModele()->getTabDiaporamas()[i]->getTitre()));
+        maDlg.ajouterItem(QString::fromStdString(getPresentation()->demandeTitreDiaporama(i)));
     }
 
     maDlg.exec();

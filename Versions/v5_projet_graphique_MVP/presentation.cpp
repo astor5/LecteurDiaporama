@@ -104,6 +104,7 @@ int Presentation::demandeNumeroDiaporama()
 
 void Presentation::demandeVider()
 {
+    getModele()->changementEtat();
     getModele()->setDiaporamaCourant(0);
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
@@ -115,10 +116,18 @@ void Presentation::demandeModeAutomatique()
         _timer = new QTimer(this);
         QObject::connect(_timer, &QTimer::timeout, this, &Presentation::onTimeout);
         _timer->setInterval(getModele()->getDiaporamaCourant()->getVitesseDefilement()*1000);
-        _timer->start();
+        if (_timer->isActive()==false)
+        {
+            _timer->start();
+        }
+        else
+        {
+            _timer->stop();
+        }
     }
     else
     {
+        qDebug() << "Appel de timer : stop dans demandeModeAutomatique";
         _timer->stop();
     }
 
@@ -127,13 +136,16 @@ void Presentation::demandeModeAutomatique()
 
 void Presentation::onTimeout()
 {
+    qDebug() << "Appel de onTimeout";
     if (getModele()->getEtat() == Modele::automatique)
     {
+        qDebug() << "Appel de getModele->avancer";
         getModele()->avancer();
         getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
     }
     else
     {
+        qDebug() << "On arrete le timer";
         _timer->stop();
     }
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
