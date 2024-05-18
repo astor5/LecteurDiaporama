@@ -104,7 +104,7 @@ int Presentation::demandeNumeroDiaporama()
 
 void Presentation::demandeVider()
 {
-    getModele()->setDiaporamaCourant(demandeNumeroDiaporama());
+    getModele()->setDiaporamaCourant(0);
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 

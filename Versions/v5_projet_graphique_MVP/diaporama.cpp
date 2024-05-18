@@ -100,7 +100,7 @@ vector<Image> Diaporama::charger()
 {
     vector<Image> pImages;
 
-    Image imageACharger("", "objet", ":/images/Disney_tapis.gif");
+    Image imageACharger("", "", ":/images/Disney_tapis.gif");
     pImages.push_back(imageACharger);
 
     imageACharger = Image("Blanche Neige", "personnage", ":/images/Disney_4.gif");
@@ -132,7 +132,7 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
 
     ImageDansDiaporama imageDansDiapo;
 
-    Diaporama * diaporama = new Diaporama("Diaporama par defaut", 2, 0);
+    Diaporama * diaporama = new Diaporama("Aucun diaporama", 2, 0);
 
     imageDansDiapo = ImageDansDiaporama(pImages,0,0);
     diaporama->ajouterImage(imageDansDiapo);
