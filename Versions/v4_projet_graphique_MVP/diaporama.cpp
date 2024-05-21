@@ -136,7 +136,7 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
     diaposCharges.push_back(diaporama);
 
     // Diaporama de Pantxika
-    Diaporama * diapoPantxika = new Diaporama("Diaporama Pantxika", 3);
+    Diaporama * diapoPantxika = new Diaporama("Diaporama Pantxika", 2);
 
     // Les images du diaporama de Pantxika
     imageDansDiapo = ImageDansDiaporama(pImages,2,3);
@@ -152,7 +152,7 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
     diaposCharges.push_back(diapoPantxika);
 
     // Diaporama de Thierry
-    Diaporama * diapoThierry = new Diaporama("Diaporama de Thierry", 1);
+    Diaporama * diapoThierry = new Diaporama("Diaporama de Thierry", 2);
 
     // Les images du diaporama de Thierry
     imageDansDiapo = ImageDansDiaporama(pImages,4,1);
@@ -168,7 +168,7 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
     diaposCharges.push_back(diapoThierry);
 
     // Diaporama de Yann
-    Diaporama * diapoYann = new Diaporama("Diaporama Yann", 1);
+    Diaporama * diapoYann = new Diaporama("Diaporama Yann", 2);
 
     // Les images du diaporama de Yann
     imageDansDiapo = ImageDansDiaporama(pImages,5,5);
@@ -187,7 +187,7 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
     // ajout du diaporama dans le tableau de diaporamas
     diaposCharges.push_back(diapoYann);
     // Diaporama de Manu
-    Diaporama * diapoManu = new Diaporama("Diaporama Manu", 3);
+    Diaporama * diapoManu = new Diaporama("Diaporama Manu", 2);
 
     // Les images du diaporama de Manu
     imageDansDiapo = ImageDansDiaporama(pImages,4,4);

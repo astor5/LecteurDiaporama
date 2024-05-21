@@ -23,9 +23,11 @@ public:
     lecteurVue* getVue() const;
     void setModele(Modele *);
     void setVue(lecteurVue *);
+    void setTimerActif(bool);
 
     ImageDansDiaporama getImageActuelle();
     Diaporama * getDiapoActuel();
+    QTimer* getTimer();
 
     void setExtremitesDiapoDroit(bool);
     bool getExtremitesDiapoDroit();

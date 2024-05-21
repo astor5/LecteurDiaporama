@@ -24,6 +24,17 @@ void Presentation::setVue(lecteurVue * v)
     _laVue = v;
 }
 
+QTimer* Presentation::getTimer()
+{
+    return _timer;
+}
+
+void Presentation::setTimerActif(bool actif)
+{
+    if (actif) {_timer->start(); }
+    else {_timer->stop(); }
+}
+
 void Presentation::setExtremitesDiapoDroit(bool extremite)
 {
     _extremiteDiapoDroit = extremite;
@@ -99,7 +110,7 @@ void Presentation::demanderLancementDiapo()
     }
     else
     {
-        _timer->stop();
+        setTimerActif(false);
     }
     getModele()->getDiaporamaCourant()->setPosImageCouranteInt(0);
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
@@ -108,7 +119,7 @@ void Presentation::demanderLancementDiapo()
 void Presentation::demanderArretDiapo()
 {
     getModele()->changementEtat();
-    _timer->stop();
+    setTimerActif(false);
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
@@ -119,11 +130,11 @@ void Presentation::demandeModeAutomatique()
         _timer = new QTimer(this);
         QObject::connect(_timer, &QTimer::timeout, this, &Presentation::onTimeout);
         _timer->setInterval(getModele()->getDiaporamaCourant()->getVitesseDefilement()*1000);
-        _timer->start();
+        setTimerActif(true);
     }
     else
     {
-        _timer->stop();
+        setTimerActif(false);
     }
 
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
@@ -138,7 +149,7 @@ void Presentation::onTimeout()
     }
     else
     {
-        _timer->stop();
+        setTimerActif(false);
     }
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
