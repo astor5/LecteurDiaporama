@@ -108,6 +108,7 @@ void Presentation::demanderLancementDiapo()
 void Presentation::demanderArretDiapo()
 {
     getModele()->changementEtat();
+    _timer->stop();
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
 }
 
