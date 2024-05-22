@@ -137,7 +137,7 @@ void lecteurVue::sl_ouvrirChoixDiaporama()
 
     this->hide();
 
-    for (unsigned int i = 1; i < getPresentation()->getModele()->getTabDiaporamas().size(); i ++)
+    for (unsigned int i = 0; i < getPresentation()->getModele()->getTabDiaporamas().size(); i ++)
     {
         maDlg.ajouterItem(QString::fromStdString(getPresentation()->demandeTitreDiaporama(i)));
     }

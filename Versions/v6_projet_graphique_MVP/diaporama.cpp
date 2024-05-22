@@ -131,17 +131,17 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
 {
 
     ImageDansDiaporama imageDansDiapo;
-
+    /*
     Diaporama * diaporama = new Diaporama("Aucun diaporama", 2, 0);
 
     imageDansDiapo = ImageDansDiaporama(pImages,0,0);
     diaporama->ajouterImage(imageDansDiapo);
     diaporama->setPosImageCouranteInt(0);
     diaporama->triCroissantRang();
-    diaposCharges.push_back(diaporama);
+    diaposCharges.push_back(diaporama);*/
 
     // Diaporama de Pantxika
-    Diaporama * diapoPantxika = new Diaporama("Diaporama Pantxika", 2, 1);
+    Diaporama * diapoPantxika = new Diaporama("Diaporama Pantxika", 2, 0);
 
     // Les images du diaporama de Pantxika
     imageDansDiapo = ImageDansDiaporama(pImages,2,3);
@@ -157,7 +157,7 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
     diaposCharges.push_back(diapoPantxika);
 
     // Diaporama de Thierry
-    Diaporama * diapoThierry = new Diaporama("Diaporama de Thierry", 2, 2);
+    Diaporama * diapoThierry = new Diaporama("Diaporama de Thierry", 2, 1);
 
     // Les images du diaporama de Thierry
     imageDansDiapo = ImageDansDiaporama(pImages,4,1);
@@ -173,7 +173,7 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
     diaposCharges.push_back(diapoThierry);
 
     // Diaporama de Yann
-    Diaporama * diapoYann = new Diaporama("Diaporama Yann", 2, 3);
+    Diaporama * diapoYann = new Diaporama("Diaporama Yann", 2, 2);
 
     // Les images du diaporama de Yann
     imageDansDiapo = ImageDansDiaporama(pImages,5,5);
@@ -192,7 +192,7 @@ void Diaporama::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diapo
     // ajout du diaporama dans le tableau de diaporamas
     diaposCharges.push_back(diapoYann);
     // Diaporama de Manu
-    Diaporama * diapoManu = new Diaporama("Diaporama Manu", 2, 4);
+    Diaporama * diapoManu = new Diaporama("Diaporama Manu", 2, 3);
 
     // Les images du diaporama de Manu
     imageDansDiapo = ImageDansDiaporama(pImages,4,4);
