@@ -49,10 +49,10 @@ Presentation *lecteurVue::getPresentation() const
 void lecteurVue::setPresentation(Presentation * p)
 {
     _laPresentation = p;
-    majPresentation(getPresentation()->getDiapoActuel(), getPresentation()->getModele()->getEtat());
+    majPresentation(getPresentation()->getDiapoActuel(), getPresentation()->getModele()->getEtat(), getPresentation()->getModele()->getEtatLecteur());
 }
 
-void lecteurVue::majPresentation(Diaporama * diapo, Modele::UnEtat etat)
+void lecteurVue::majPresentation(Diaporama * diapo, Modele::UnEtat etat, Modele::EtatLecteur etatLec)
 {
     ui->lTitreDiaporama->setText(QString::fromStdString(diapo->getTitre()));
     ui->lTitreImage->setText(QString::fromStdString(diapo->getImageCourante().getTitre())); //getImageCourante est une fonction qui renvoie une imageDansDiaporama
@@ -60,12 +60,18 @@ void lecteurVue::majPresentation(Diaporama * diapo, Modele::UnEtat etat)
     ui->lRangImage->setText(QString::fromStdString(diapo->getImageCourante().getImage().getCategorie()));
     ui->imageDiapo->setPixmap(QPixmap(QString::fromStdString(diapo->getImageCourante().getImage().getChemin())));
 
-    if (getPresentation()->demandeNumeroDiaporama()== 0)
+    if (etatLec == Modele::initial)
     {
         ui->bPrecedent->setDisabled(true);
         ui->bSuivant->setDisabled(true);
         ui->bArreterDiaporama->setDisabled(true);
         ui->bLancerDiaporama->setDisabled(true);
+
+        ui->lTitreDiaporama->setText(QString::fromStdString("Titre du diaporama"));
+        ui->lTitreImage->setText(QString::fromStdString("Titre de l'image"));
+        ui->lCatrgorieImage->setText(QString::fromStdString("Catégorie de l'image"));
+        ui->lRangImage->setText(QString::fromStdString("Rang de l'image"));
+        ui->imageDiapo->setPixmap(QPixmap(QString::fromStdString(":/images/Disney_tapis.gif")));
     }
     else
     {

@@ -3,12 +3,13 @@
 #include "QTimer"
 
 
-Modele::Modele(UnEtat etat)
+Modele::Modele(UnEtat etat, EtatLecteur eLect)
 {
     diapo = new Diaporama();
     diapo->chargerDiapos(diapo->charger(), _Diaporamas);
     setDiaporamaCourant(0);
     setEtat(etat);
+    setEtatLecteur(eLect);
 }
 
 unsigned short Modele::getVitesseDefilement() const
@@ -100,7 +101,17 @@ Modele::UnEtat Modele::getEtat()
     return _etat;
 }
 
+Modele::EtatLecteur Modele::getEtatLecteur()
+{
+    return _etatLecteur;
+}
+
 void Modele::setEtat(UnEtat unEtat)
 {
     _etat = unEtat;
+}
+
+void Modele::setEtatLecteur(EtatLecteur unEtat)
+{
+    _etatLecteur = unEtat;
 }

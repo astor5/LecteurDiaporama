@@ -36,7 +36,7 @@ public:
     Presentation * getPresentation() const;
     void setPresentation(Presentation *);
 
-    void majPresentation(Diaporama *, Modele::UnEtat);
+    void majPresentation(Diaporama *, Modele::UnEtat, Modele::EtatLecteur);
 
 public slots:
     void sl_suivant();

@@ -54,7 +54,7 @@ void Presentation::demanderAvancer()
     }
     getModele()->changementEtat();
     getModele()->touchePressee();
-    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getEtatLecteur());
 }
 
 void Presentation::demanderReculer()
@@ -65,11 +65,12 @@ void Presentation::demanderReculer()
     }
     getModele()->changementEtat();
     getModele()->touchePressee();
-    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getEtatLecteur());
 }
 
 void Presentation::demanderCharger()
 {
+    getModele()->setEtatLecteur(Modele::charge);
     getModele()->charger();
 }
 
@@ -79,13 +80,15 @@ void Presentation::demandeChangementMode()
     {
         getModele()->setEtat(Modele::manuel);
     }
-    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getEtatLecteur());
 }
 
 void Presentation::demandeChangementDiaporama(choixdiaporama &unChoix)
 {
+    getModele()->setEtatLecteur(Modele::charge);
+    getModele()->setEtat(Modele::manuel);
     getModele()->setDiaporamaCourant(unChoix.recupIndex()+1);
-    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getEtatLecteur());
 }
 
 void Presentation::demanderLancementDiapo()
@@ -99,14 +102,14 @@ void Presentation::demanderLancementDiapo()
         setTimerActif(false);
     }
     getModele()->getDiaporamaCourant()->setPosImageCouranteInt(0);
-    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getEtatLecteur());
 }
 
 void Presentation::demanderArretDiapo()
 {
     getModele()->changementEtat();
     setTimerActif(false);
-    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getEtatLecteur());
 }
 
 int Presentation::demandeNumeroDiaporama()
@@ -117,8 +120,9 @@ int Presentation::demandeNumeroDiaporama()
 void Presentation::demandeVider()
 {
     getModele()->changementEtat();
-    getModele()->setDiaporamaCourant(0);
-    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
+    getModele()->setEtatLecteur(Modele::initial);
+    //getModele()->setDiaporamaCourant(0);
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getEtatLecteur());
 }
 
 void Presentation::demandeModeAutomatique()
@@ -135,7 +139,7 @@ void Presentation::demandeModeAutomatique()
         setTimerActif(false);
     }
 
-    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getEtatLecteur());
 }
 
 void Presentation::onTimeout()
@@ -143,9 +147,9 @@ void Presentation::onTimeout()
     if (getModele()->getEtat() == Modele::automatique)
     {
         getModele()->avancer();
-        getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
+        getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getEtatLecteur());
     }
-    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat());
+    getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getEtatLecteur());
 }
 
 int Presentation::demandeVitesseDefilement()
