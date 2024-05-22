@@ -54,12 +54,6 @@ void lecteurVue::setPresentation(Presentation * p)
 
 void lecteurVue::majPresentation(Diaporama * diapo, Modele::UnEtat etat, Modele::EtatLecteur etatLec)
 {
-    ui->lTitreDiaporama->setText(QString::fromStdString(diapo->getTitre()));
-    ui->lTitreImage->setText(QString::fromStdString(diapo->getImageCourante().getTitre())); //getImageCourante est une fonction qui renvoie une imageDansDiaporama
-    ui->lCatrgorieImage->setText(QString::number(diapo->getImageCourante().getRang()));
-    ui->lRangImage->setText(QString::fromStdString(diapo->getImageCourante().getImage().getCategorie()));
-    ui->imageDiapo->setPixmap(QPixmap(QString::fromStdString(diapo->getImageCourante().getImage().getChemin())));
-
     if (etatLec == Modele::initial)
     {
         ui->bPrecedent->setDisabled(true);
@@ -75,6 +69,12 @@ void lecteurVue::majPresentation(Diaporama * diapo, Modele::UnEtat etat, Modele:
     }
     else
     {
+        ui->lTitreDiaporama->setText(QString::fromStdString(diapo->getTitre()));
+        ui->lTitreImage->setText(QString::fromStdString(diapo->getImageCourante().getTitre())); //getImageCourante est une fonction qui renvoie une imageDansDiaporama
+        ui->lCatrgorieImage->setText(QString::number(diapo->getImageCourante().getRang()));
+        ui->lRangImage->setText(QString::fromStdString(diapo->getImageCourante().getImage().getCategorie()));
+        ui->imageDiapo->setPixmap(QPixmap(QString::fromStdString(diapo->getImageCourante().getImage().getChemin())));
+
         ui->bPrecedent->setDisabled(false);
         ui->bSuivant->setDisabled(false);
         ui->bLancerDiaporama->setDisabled(false);
