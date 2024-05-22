@@ -113,7 +113,7 @@ void lecteurVue::sl_aPropos()
 {
     QString titre = "A propos";
     QString message = "Version : 4 MVP\n\n"
-                      "Date de création : 03/05/2024\n\n"
+                      "Date de création : 14/05/2024\n\n"
                       "Auteurs : ARANDIA Iban, CHIPY Thibault, LATXAGUE Thibault";
 
     QMessageBox::information(nullptr, titre, message);
