@@ -10,6 +10,7 @@
 #include "ImageDansDiaporama.h"
 #include "modele.h"
 #include "vitessedefilement.h"
+#include "database.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {class lecteurVue;
@@ -26,6 +27,7 @@ private:
     Ui::lecteurVue *ui;
 
     Presentation * _laPresentation;
+    database * db;
 
 public:
     lecteurVue(QWidget *parent = nullptr);

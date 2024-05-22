@@ -1,4 +1,5 @@
 QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -11,6 +12,7 @@ CONFIG += c++17
 SOURCES += \
     ImageDansDiaporama.cpp \
     choixdiaporama.cpp \
+    database.cpp \
     diaporama.cpp \
     image.cpp \
     main.cpp \
@@ -22,6 +24,7 @@ SOURCES += \
 HEADERS += \
     ImageDansDiaporama.h \
     choixdiaporama.h \
+    database.h \
     diaporama.h \
     image.h \
     lecteurvue.h \
