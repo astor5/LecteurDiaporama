@@ -166,8 +166,8 @@ void lecteurVue::sl_arreterDiaporama()
 void lecteurVue::sl_aPropos()
 {
     QString titre = "A propos";
-    QString message = "Version : 3\n\n"
-                      "Date de création : 03/05/2024\n\n"
+    QString message = "Version : 5 MVP\n\n"
+                      "Date de création : 16/05/2024\n\n"
                       "Auteurs : ARANDIA Iban, CHIPY Thibault, LATXAGUE Thibault";
 
     QMessageBox::information(nullptr, titre, message);
