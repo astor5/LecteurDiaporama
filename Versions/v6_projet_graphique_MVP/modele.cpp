@@ -5,8 +5,8 @@
 
 Modele::Modele(UnEtat etat, EtatLecteur eLect)
 {
-    diapo = new Diaporama();
-    diapo->chargerDiapos(diapo->charger(), _Diaporamas);
+    //diapo = new Diaporama();
+    //diapo->chargerDiapos(diapo->charger(), _Diaporamas);
     setDiaporamaCourant(0);
     setEtat(etat);
     setEtatLecteur(eLect);
@@ -14,9 +14,8 @@ Modele::Modele(UnEtat etat, EtatLecteur eLect)
     db = new database();
     db->openDataBase();
 
-    qDebug() << "Avant de charger les diapos depuis la bd";
     db->chargerDiapos(_Diaporamas);
-    qDebug() << "Apres les diapos depuis la bd";
+    qDebug() << "Diapos chargés";
 }
 
 unsigned short Modele::getVitesseDefilement() const
