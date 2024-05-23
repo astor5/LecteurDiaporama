@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "diaporama.h"
+#include "database.h"
 #include <iostream>
 using namespace std;
 
@@ -31,6 +32,8 @@ public:
     Diaporama * getDiaporamaCourant();
     vector<Diaporama*> getTabDiaporamas();
 
+    void setTabDiaporamas(vector<Diaporama*>);
+
 
     //Setter
     void setVitesseDefilement(unsigned int);
@@ -57,6 +60,7 @@ private:
     int _diaporamaCourant;
     UnEtat _etat;
     EtatLecteur _etatLecteur;
+    database * db;
 };
 
 #endif // MODELE_H

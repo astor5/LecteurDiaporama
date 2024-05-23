@@ -2,6 +2,7 @@
 #include "lecteurvue.h"
 
 #include <QSqlQuery>
+#include "vector"
 
 database::database()
 {
@@ -36,3 +37,23 @@ void database::closeDataBase()
     mydb.close();
     qDebug() << "Connexion à la base de données fermée.";
 }
+
+void database::chargerDiapos(vector<Diaporama *> & mesDiapos)
+{
+    // requête SQL n°1
+    QSqlQuery query;
+    if (query.exec("SELECT * FROM Diaporamas;"))
+    {
+        // Remplir le QTableWidget avec les résultats de la requête
+        while (query.next())
+        {
+            Diaporama * diapoCharge = new Diaporama(query.value(1).toString().toStdString(), query.value(0).toInt(), query.value(2).toInt());
+            mesDiapos.push_back(diapoCharge);
+        }
+    }
+    else
+    {
+        qDebug() << "Erreur lors de l'exécution de la requête SQL:";
+    }
+}
+

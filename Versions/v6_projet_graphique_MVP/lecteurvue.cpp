@@ -31,9 +31,6 @@ lecteurVue::lecteurVue(QWidget *parent)
     //navigation entre les bouton avec tab
     QWidget::setTabOrder(ui->bSuivant, ui->bPrecedent);
     QWidget::setTabOrder(ui->bPrecedent, ui->bSuivant);
-
-    db = new database();
-    db->openDataBase();
 }
 
 lecteurVue::~lecteurVue()

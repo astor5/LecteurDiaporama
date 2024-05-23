@@ -27,7 +27,7 @@ private:
     Ui::lecteurVue *ui;
 
     Presentation * _laPresentation;
-    database * db;
+
 
 public:
     lecteurVue(QWidget *parent = nullptr);

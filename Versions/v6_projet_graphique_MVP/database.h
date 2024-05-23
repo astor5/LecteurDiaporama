@@ -2,6 +2,7 @@
 #define DATABASE_H
 
 #include <QSqlDatabase>
+#include "diaporama.h"
 
 
 #define DATABASE_NAME "s201"
@@ -13,6 +14,7 @@ public:
     database();
     bool openDataBase();
     void closeDataBase();
+    void chargerDiapos(vector<Diaporama *>&);
 
 private:
     QSqlDatabase mydb;

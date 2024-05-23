@@ -10,11 +10,23 @@ Modele::Modele(UnEtat etat, EtatLecteur eLect)
     setDiaporamaCourant(0);
     setEtat(etat);
     setEtatLecteur(eLect);
+
+    db = new database();
+    db->openDataBase();
+
+    qDebug() << "Avant de charger les diapos depuis la bd";
+    db->chargerDiapos(_Diaporamas);
+    qDebug() << "Apres les diapos depuis la bd";
 }
 
 unsigned short Modele::getVitesseDefilement() const
 {
     return m_vitesseDefilement;
+}
+
+void Modele::setTabDiaporamas(vector<Diaporama*> mesDiapos)
+{
+    _Diaporamas = mesDiapos;
 }
 
 Diaporama * Modele::getDiaporamaCourant()
