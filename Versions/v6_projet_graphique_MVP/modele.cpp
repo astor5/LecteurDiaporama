@@ -16,6 +16,8 @@ Modele::Modele(UnEtat etat, EtatLecteur eLect)
 
     db->chargerDiapos(_Diaporamas);
     qDebug() << "Diapos chargés";
+    db->chargerImages(1, getDiaporamaCourant()->getToutesImages());
+    qDebug() << "Images affichées";
 }
 
 unsigned short Modele::getVitesseDefilement() const

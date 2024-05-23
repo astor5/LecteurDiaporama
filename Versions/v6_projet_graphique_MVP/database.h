@@ -15,6 +15,7 @@ public:
     bool openDataBase();
     void closeDataBase();
     void chargerDiapos(vector<Diaporama *>&);
+    void chargerImages(int, vector<Image>);
 
 private:
     QSqlDatabase mydb;
