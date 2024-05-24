@@ -33,7 +33,7 @@ public:
     unsigned int getPosImageCouranteInt() const;
     ImageDansDiaporama getImageCourante() const;
     unsigned int getNombreImages() const;
-    vector<Image> getToutesImages() const;
+    vector<Image> getToutesImages();
     unsigned int getVitesseDefilement();
 
     vector<Diaporama> & getToutesDiapos();
@@ -47,6 +47,7 @@ public:
     void setTitre(const string &);
     void setLocalisationImages(const vector<ImageDansDiaporama> &);
     void setPosImageCouranteInt(const unsigned int&);
+    void setToutesImages(vector<Image>);
 
     void setToutesDiapos(const vector<Diaporama>&);
     void setNumDiapoCourant(unsigned int);

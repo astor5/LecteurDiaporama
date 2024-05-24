@@ -16,7 +16,9 @@ Modele::Modele(UnEtat etat, EtatLecteur eLect)
 
     db->chargerDiapos(_Diaporamas);
     qDebug() << "Diapos chargés";
-    db->chargerImages(1, getDiaporamaCourant()->getToutesImages());
+    setDiaporamaCourant(1);
+    getDiaporamaCourant()->setToutesImages(db->chargerImages(1));
+    qDebug() << QString::fromStdString(getDiaporamaCourant()->getToutesImages()[0].getTitre());
     qDebug() << "Images affichées";
 }
 

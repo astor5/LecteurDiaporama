@@ -51,7 +51,7 @@ unsigned int Diaporama::getNombreImages() const
     return getLocalisationImages().size();
 }
 
-vector<Image> Diaporama::getToutesImages() const
+vector<Image> Diaporama::getToutesImages()
 {
     return _Images;
 }
@@ -79,6 +79,11 @@ void Diaporama::setLocalisationImages(const std::vector<ImageDansDiaporama> &ima
 void Diaporama::setPosImageCouranteInt(const unsigned int& positionImgC)
 {
     m_posImage = positionImgC;
+}
+
+void Diaporama::setToutesImages(vector<Image> desImages)
+{
+    _Images = desImages;
 }
 
 void Diaporama::setVitesseDefilement(unsigned int vitesse)

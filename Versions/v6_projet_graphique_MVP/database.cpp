@@ -57,13 +57,14 @@ void database::chargerDiapos(vector<Diaporama *> & mesDiapos)
     }
 }
 
-void database::chargerImages(int id, vector<Image> pImages)
+vector<Image> database::chargerImages(int id)
 {
+    vector<Image> pImages;
     QSqlQuery query;
     ImageDansDiaporama imageDansDiapo;
     Image imageACharger("", "", ":/images/Disney_tapis.gif");
 
-    QString insertions="SELECT * FROM `Diapos` D JOIN DiaposDansDiaporama DDD ON DDD.idDiapo = D.idphoto JOIN Familles F ON F.idFamille = D.idFam JOIN Diaporamas DS ON DS.idDiaporama = DDD.idDiaporama WHERE DS.idDiaporama = :idDiapo;";
+    QString insertions="SELECT D.titrePhoto, F.nomFamille, D.uriPhoto FROM `Diapos` D JOIN DiaposDansDiaporama DDD ON DDD.idDiapo = D.idphoto JOIN Familles F ON F.idFamille = D.idFam JOIN Diaporamas DS ON DS.idDiaporama = DDD.idDiaporama WHERE DS.idDiaporama = :idDiapo;";
     query.prepare(insertions);
     query.bindValue(":idDiapo", id);
 
@@ -72,17 +73,38 @@ void database::chargerImages(int id, vector<Image> pImages)
         // Remplir le QTableWidget avec les résultats de la requête
         while (query.next())
         {
-            imageACharger = Image(query.value(1).toString().toStdString(), query.value(8).toString().toStdString(), query.value(3).toString().toStdString());
+            imageACharger = Image(query.value(0).toString().toStdString(), query.value(1).toString().toStdString(), query.value(2).toString().toStdString());
             pImages.push_back(imageACharger);
-            qDebug() << query.value(1).toString(), query.value(8).toString(), query.value(3).toString();
+            qDebug() << query.value(0).toString() << query.value(1).toString() << query.value(2).toString();
         }
         qDebug() << "Toutes les images sont chargées";
-
 
     }
     else
     {
         qDebug() << "Erreur lors de l'exécution de la requête SQL: chargerImages";
     }
+    qDebug() << QString::fromStdString(pImages[0].getTitre());
+
+    return pImages;
 }
 
+void database::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diaposCharges, int id)
+{
+
+    ImageDansDiaporama imageDansDiapo;
+
+
+    // Diaporama de Pantxika
+
+    Diaporama * diapoPantxika = new Diaporama("Diaporama Pantxika", 2, 0);
+
+    // Les images du diaporama de Pantxika
+    imageDansDiapo = ImageDansDiaporama(pImages,2,3);
+    diaposCharges[id]->ajouterImage(imageDansDiapo);
+    diaposCharges[id]->setPosImageCouranteInt(0);
+    diaposCharges[id]->triCroissantRang();
+
+    // ajout du diaporama dans le tableau de diaporamas
+    diaposCharges.push_back(diaposCharges[id]);
+}
