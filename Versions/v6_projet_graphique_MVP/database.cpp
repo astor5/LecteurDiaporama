@@ -57,26 +57,43 @@ void database::chargerDiapos(vector<Diaporama *> & mesDiapos)
     }
 }
 
-vector<Image> database::chargerImages(int id)
+void database::chargerImages(Diaporama * diaposCharges)
 {
     vector<Image> pImages;
     QSqlQuery query;
     ImageDansDiaporama imageDansDiapo;
     Image imageACharger("", "", ":/images/Disney_tapis.gif");
+    int compteur = 0;
 
-    QString insertions="SELECT D.titrePhoto, F.nomFamille, D.uriPhoto FROM `Diapos` D JOIN DiaposDansDiaporama DDD ON DDD.idDiapo = D.idphoto JOIN Familles F ON F.idFamille = D.idFam JOIN Diaporamas DS ON DS.idDiaporama = DDD.idDiaporama WHERE DS.idDiaporama = :idDiapo;";
+    QString insertions="SELECT D.titrePhoto, F.nomFamille, D.uriPhoto, DDD.rang FROM `Diapos` D JOIN DiaposDansDiaporama DDD ON DDD.idDiapo = D.idphoto JOIN Familles F ON F.idFamille = D.idFam JOIN Diaporamas DS ON DS.idDiaporama = DDD.idDiaporama WHERE DS.idDiaporama = :idDiapo;";
     query.prepare(insertions);
-    query.bindValue(":idDiapo", id);
+    query.bindValue(":idDiapo", diaposCharges->getNumDiapoCourant());
 
     if (query.exec())
     {
         // Remplir le QTableWidget avec les résultats de la requête
         while (query.next())
         {
+            // Titre, Object, Chemin
             imageACharger = Image(query.value(0).toString().toStdString(), query.value(1).toString().toStdString(), query.value(2).toString().toStdString());
             pImages.push_back(imageACharger);
+
+            qDebug() << QString::fromStdString(pImages[compteur].getTitre());
+            qDebug() << "Apres";
+
+            qDebug() << "Avant ImageDansDiaporama";
+            qDebug() << compteur;
+            qDebug() << query.value(3).toInt();
+            imageDansDiapo = ImageDansDiaporama(pImages,compteur,query.value(3).toInt());
+            qDebug() << "Avant ajouterimage";
+            diaposCharges->ajouterImage(imageDansDiapo);
+
+            compteur ++;
+
             qDebug() << query.value(0).toString() << query.value(1).toString() << query.value(2).toString();
         }
+        diaposCharges->setPosImageCouranteInt(0);
+        diaposCharges->triCroissantRang();
         qDebug() << "Toutes les images sont chargées";
 
     }
@@ -85,19 +102,12 @@ vector<Image> database::chargerImages(int id)
         qDebug() << "Erreur lors de l'exécution de la requête SQL: chargerImages";
     }
     qDebug() << QString::fromStdString(pImages[0].getTitre());
-
-    return pImages;
 }
 
 void database::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diaposCharges, int id)
 {
 
     ImageDansDiaporama imageDansDiapo;
-
-
-    // Diaporama de Pantxika
-
-    Diaporama * diapoPantxika = new Diaporama("Diaporama Pantxika", 2, 0);
 
     // Les images du diaporama de Pantxika
     imageDansDiapo = ImageDansDiaporama(pImages,2,3);

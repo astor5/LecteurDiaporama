@@ -15,7 +15,7 @@ public:
     bool openDataBase();
     void closeDataBase();
     void chargerDiapos(vector<Diaporama *>&);
-    vector<Image> chargerImages(int);
+    void chargerImages(Diaporama*);
     void chargerDiapos(vector<Image>, vector<Diaporama *> &, int);
 
 private:
