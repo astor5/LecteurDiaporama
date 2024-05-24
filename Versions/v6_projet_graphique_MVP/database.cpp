@@ -59,10 +59,12 @@ void database::chargerDiapos(vector<Diaporama *> & mesDiapos)
 
 void database::chargerImages(Diaporama * diaposCharges)
 {
+    qDebug() << "chargerImages appellee";
     vector<Image> pImages;
     QSqlQuery query;
     ImageDansDiaporama imageDansDiapo;
     Image imageACharger("", "", ":/images/Disney_tapis.gif");
+    qDebug() << "Apres const image";
     int compteur = 0;
 
     QString insertions="SELECT D.titrePhoto, F.nomFamille, D.uriPhoto, DDD.rang FROM `Diapos` D JOIN DiaposDansDiaporama DDD ON DDD.idDiapo = D.idphoto JOIN Familles F ON F.idFamille = D.idFam JOIN Diaporamas DS ON DS.idDiaporama = DDD.idDiaporama WHERE DS.idDiaporama = :idDiapo;";
@@ -75,8 +77,12 @@ void database::chargerImages(Diaporama * diaposCharges)
         while (query.next())
         {
             // Titre, Object, Chemin
-            imageACharger = Image(query.value(0).toString().toStdString(), query.value(1).toString().toStdString(), query.value(2).toString().toStdString());
-            pImages.push_back(imageACharger);
+            qDebug() << "Avant image a achargh";
+            Image *imageACharger = new Image(query.value(0).toString().toStdString(), query.value(1).toString().toStdString(), query.value(2).toString().toStdString());
+            qDebug() << "Apres";
+            pImages.push_back(*imageACharger);
+            delete imageACharger;
+
 
             qDebug() << QString::fromStdString(pImages[compteur].getTitre());
             qDebug() << "Apres";
