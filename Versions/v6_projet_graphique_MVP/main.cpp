@@ -14,7 +14,6 @@ int main(int argc, char *argv[])
     Presentation * p = new Presentation();
     lecteurVue w;
 
-
     p->setModele(m);
     p->setVue(&w);
 
