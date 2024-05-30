@@ -61,8 +61,7 @@ void database::chargerImages(Diaporama * diaposCharges)
 {
     vector<Image> pImages;
     QSqlQuery query;
-    ImageDansDiaporama imageDansDiapo;
-    Image imageACharger("", "", ":/images/Disney_tapis.gif");
+    Image imageACharger;
     int compteur = 0;
 
     QString insertions="SELECT D.titrePhoto, F.nomFamille, D.uriPhoto, DDD.rang FROM `Diapos` D JOIN DiaposDansDiaporama DDD ON DDD.idDiapo = D.idphoto JOIN Familles F ON F.idFamille = D.idFam JOIN Diaporamas DS ON DS.idDiaporama = DDD.idDiaporama WHERE DS.idDiaporama = :idDiapo;";
@@ -86,25 +85,20 @@ void database::chargerImages(Diaporama * diaposCharges)
         while (query.next())
         {
             // Titre, Object, Chemin
-            qDebug() << "Création image";
             imageACharger = Image(query.value(0).toString().toStdString(), query.value(1).toString().toStdString(), query.value(2).toString().toStdString());
-            qDebug() << "Apres appel à la requete";
+            qDebug() << query.value(0);
             pImages.push_back(imageACharger);
             tabRangs[compteur] = query.value(3).toInt();
-            //delete imageACharger;
-            qDebug() << query.isActive();
+            qDebug() << query.value(3).toInt();
             compteur ++;
         }
 
-        qDebug() << "dessous taille vector";
-        qDebug() << pImages.size();
-        qDebug() << "Taille du vect d'im";
-
         for (int i=0; i < pImages.size(); i++)
         {
-            qDebug() << "Dans le for : " << tabRangs[i];
-            imageDansDiapo = ImageDansDiaporama(pImages,i,tabRangs[i]);
+            ImageDansDiaporama imageDansDiapo = ImageDansDiaporama(pImages,i,tabRangs[i]);
             diaposCharges->ajouterImage(imageDansDiapo);
+            diaposCharges->setPosImageCouranteInt(i);
+            qDebug() << QString::fromStdString(diaposCharges->getImageCourante().getTitre());
         }
 
         diaposCharges->setPosImageCouranteInt(0);
@@ -117,6 +111,8 @@ void database::chargerImages(Diaporama * diaposCharges)
     {
         qDebug() << "Erreur lors de l'exécution de la requête SQL: chargerImages";
     }
+
+    qDebug() << diaposCharges->getToutesImages().size();
     qDebug() << "Fin de la fonction de chargement";
 }
 

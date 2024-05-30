@@ -7,7 +7,7 @@ Modele::Modele(UnEtat etat, EtatLecteur eLect)
 {
     //diapo = new Diaporama();
     //diapo->chargerDiapos(diapo->charger(), _Diaporamas);
-    setDiaporamaCourant(1);
+    setDiaporamaCourant(3);
     setEtat(etat);
     setEtatLecteur(eLect);
 
@@ -21,6 +21,7 @@ Modele::Modele(UnEtat etat, EtatLecteur eLect)
     qDebug() << "Avant le chargement des images";
     db->chargerImages(getDiaporamaCourant());
     qDebug() << "Avant la demande de titre mais apres chargement images";
+    qDebug() << getDiaporamaCourant()->getToutesImages().size();
     qDebug() << QString::fromStdString(getDiaporamaCourant()->getToutesImages()[0].getTitre());
     qDebug() << "Images affichées";
 }
