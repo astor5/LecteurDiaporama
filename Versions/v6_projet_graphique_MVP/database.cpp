@@ -68,26 +68,46 @@ void database::chargerImages(Diaporama * diaposCharges)
     QString insertions="SELECT D.titrePhoto, F.nomFamille, D.uriPhoto, DDD.rang FROM `Diapos` D JOIN DiaposDansDiaporama DDD ON DDD.idDiapo = D.idphoto JOIN Familles F ON F.idFamille = D.idFam JOIN Diaporamas DS ON DS.idDiaporama = DDD.idDiaporama WHERE DS.idDiaporama = :idDiapo;";
     query.prepare(insertions);
     query.bindValue(":idDiapo", diaposCharges->getNumDiapoCourant());
-    int tabRangs[query.size()];
+
+
 
     if (query.exec())
     {
+        int tabRangs[query.boundValues().size()];
+        qDebug() << query.boundValues().size();
         // Remplir le QTableWidget avec les résultats de la requête
-        while (query.next())
-        {
-            // Titre, Object, Chemin
-            Image *imageACharger = new Image(query.value(0).toString().toStdString(), query.value(1).toString().toStdString(), query.value(2).toString().toStdString());
-            pImages.push_back(*imageACharger);
-            delete imageACharger;
+        try {
+            while (query.next())
+            {
+                // Titre, Object, Chemin
+                qDebug() << "Création image";
+                imageACharger = Image(query.value(0).toString().toStdString(), query.value(1).toString().toStdString(), query.value(2).toString().toStdString());
+                qDebug() << "Apres appel à la requete";
+                pImages.push_back(imageACharger);
+                //delete imageACharger;
 
-            tabRangs[compteur] = query.value(3).toInt();
-            qDebug() << tabRangs[compteur];
+                tabRangs[compteur] = query.value(3).toInt();
+                qDebug() << tabRangs[compteur];
 
-            compteur ++;
+                compteur ++;
+                qDebug() << query.isActive();
+            }
         }
 
+        catch (const std::exception &e)
+        {
+            cout << e.what() << endl;
+        }
+        catch(...)
+        {
+            cout << "Erreur sus" << endl;
+        }
 
-        for (int i=0; i < pImages.size(); i++)
+        qDebug() << "dessous taille vector";
+        qDebug() << pImages.size();
+        qDebug() << "Taille du vect d'im";
+
+        for (int i=0; i <= pImages.size(); i++)
         {
             qDebug() << "Dans le for : " << tabRangs[i];
             imageDansDiapo = ImageDansDiaporama(pImages,i,tabRangs[i]);
@@ -96,6 +116,7 @@ void database::chargerImages(Diaporama * diaposCharges)
 
         diaposCharges->setPosImageCouranteInt(0);
         diaposCharges->triCroissantRang();
+
         qDebug() << "Toutes les images sont chargées";
 
     }
@@ -103,7 +124,7 @@ void database::chargerImages(Diaporama * diaposCharges)
     {
         qDebug() << "Erreur lors de l'exécution de la requête SQL: chargerImages";
     }
-    qDebug() << QString::fromStdString(pImages[0].getTitre());
+    qDebug() << "Fin de la fonction de chargement";
 }
 
 void database::chargerDiapos(vector<Image> pImages, vector<Diaporama *> & diaposCharges, int id)
