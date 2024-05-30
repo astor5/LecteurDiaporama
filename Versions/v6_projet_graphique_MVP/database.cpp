@@ -73,41 +73,34 @@ void database::chargerImages(Diaporama * diaposCharges)
 
     if (query.exec())
     {
-        int tabRangs[query.boundValues().size()];
-        qDebug() << query.boundValues().size();
+        while(query.next())
+        {
+            compteur ++;
+        }
+        qDebug() << "Taille de la querry" << compteur;
+        int tabRangs[compteur];
         // Remplir le QTableWidget avec les résultats de la requête
-        try {
-            while (query.next())
-            {
-                // Titre, Object, Chemin
-                qDebug() << "Création image";
-                imageACharger = Image(query.value(0).toString().toStdString(), query.value(1).toString().toStdString(), query.value(2).toString().toStdString());
-                qDebug() << "Apres appel à la requete";
-                pImages.push_back(imageACharger);
-                //delete imageACharger;
 
-                tabRangs[compteur] = query.value(3).toInt();
-                qDebug() << tabRangs[compteur];
-
-                compteur ++;
-                qDebug() << query.isActive();
-            }
-        }
-
-        catch (const std::exception &e)
+        query.exec();
+        compteur = 0;
+        while (query.next())
         {
-            cout << e.what() << endl;
-        }
-        catch(...)
-        {
-            cout << "Erreur sus" << endl;
+            // Titre, Object, Chemin
+            qDebug() << "Création image";
+            imageACharger = Image(query.value(0).toString().toStdString(), query.value(1).toString().toStdString(), query.value(2).toString().toStdString());
+            qDebug() << "Apres appel à la requete";
+            pImages.push_back(imageACharger);
+            tabRangs[compteur] = query.value(3).toInt();
+            //delete imageACharger;
+            qDebug() << query.isActive();
+            compteur ++;
         }
 
         qDebug() << "dessous taille vector";
         qDebug() << pImages.size();
         qDebug() << "Taille du vect d'im";
 
-        for (int i=0; i <= pImages.size(); i++)
+        for (int i=0; i < pImages.size(); i++)
         {
             qDebug() << "Dans le for : " << tabRangs[i];
             imageDansDiapo = ImageDansDiaporama(pImages,i,tabRangs[i]);
