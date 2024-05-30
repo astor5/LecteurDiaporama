@@ -59,17 +59,16 @@ void database::chargerDiapos(vector<Diaporama *> & mesDiapos)
 
 void database::chargerImages(Diaporama * diaposCharges)
 {
-    qDebug() << "chargerImages appellee";
     vector<Image> pImages;
     QSqlQuery query;
     ImageDansDiaporama imageDansDiapo;
     Image imageACharger("", "", ":/images/Disney_tapis.gif");
-    qDebug() << "Apres const image";
     int compteur = 0;
 
     QString insertions="SELECT D.titrePhoto, F.nomFamille, D.uriPhoto, DDD.rang FROM `Diapos` D JOIN DiaposDansDiaporama DDD ON DDD.idDiapo = D.idphoto JOIN Familles F ON F.idFamille = D.idFam JOIN Diaporamas DS ON DS.idDiaporama = DDD.idDiaporama WHERE DS.idDiaporama = :idDiapo;";
     query.prepare(insertions);
     query.bindValue(":idDiapo", diaposCharges->getNumDiapoCourant());
+    int tabRangs[query.size()];
 
     if (query.exec())
     {
@@ -77,27 +76,24 @@ void database::chargerImages(Diaporama * diaposCharges)
         while (query.next())
         {
             // Titre, Object, Chemin
-            qDebug() << "Avant image a achargh";
             Image *imageACharger = new Image(query.value(0).toString().toStdString(), query.value(1).toString().toStdString(), query.value(2).toString().toStdString());
-            qDebug() << "Apres";
             pImages.push_back(*imageACharger);
             delete imageACharger;
 
-
-            qDebug() << QString::fromStdString(pImages[compteur].getTitre());
-            qDebug() << "Apres";
-
-            qDebug() << "Avant ImageDansDiaporama";
-            qDebug() << compteur;
-            qDebug() << query.value(3).toInt();
-            imageDansDiapo = ImageDansDiaporama(pImages,compteur,query.value(3).toInt());
-            qDebug() << "Avant ajouterimage";
-            diaposCharges->ajouterImage(imageDansDiapo);
+            tabRangs[compteur] = query.value(3).toInt();
+            qDebug() << tabRangs[compteur];
 
             compteur ++;
-
-            qDebug() << query.value(0).toString() << query.value(1).toString() << query.value(2).toString();
         }
+
+
+        for (int i=0; i < pImages.size(); i++)
+        {
+            qDebug() << "Dans le for : " << tabRangs[i];
+            imageDansDiapo = ImageDansDiaporama(pImages,i,tabRangs[i]);
+            diaposCharges->ajouterImage(imageDansDiapo);
+        }
+
         diaposCharges->setPosImageCouranteInt(0);
         diaposCharges->triCroissantRang();
         qDebug() << "Toutes les images sont chargées";
