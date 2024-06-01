@@ -61,7 +61,8 @@ void database::chargerImages(Diaporama * diaposCharges)
 {
     vector<Image> pImages;
     QSqlQuery query;
-    Image imageACharger;
+    Image imageACharger("", "", ":/images/Disney_tapis.gif");
+    pImages.push_back(imageACharger);
     int compteur = 0;
 
     QString insertions="SELECT D.titrePhoto, F.nomFamille, D.uriPhoto, DDD.rang FROM `Diapos` D JOIN DiaposDansDiaporama DDD ON DDD.idDiapo = D.idphoto JOIN Familles F ON F.idFamille = D.idFam JOIN Diaporamas DS ON DS.idDiaporama = DDD.idDiaporama WHERE DS.idDiaporama = :idDiapo;";
