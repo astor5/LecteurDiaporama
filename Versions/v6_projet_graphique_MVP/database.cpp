@@ -74,7 +74,8 @@ void database::chargerDiapos(vector<Diaporama *> & mesDiapos)
                 while (query2.next())
                 {
                     // Titre, Object, Chemin
-                    imageACharger = Image(query2.value(0).toString().toStdString(), query2.value(1).toString().toStdString(), query2.value(2).toString().toStdString());
+                    imageACharger = Image(query2.value(0).toString().toStdString(), query2.value(1).toString().toStdString(), ":/images/" + query2.value(0).toString().toStdString());
+                    qDebug() << QString::fromStdString(imageACharger.getChemin());
                     qDebug() << query2.value(0);
                     pImages.push_back(imageACharger);
                     tabRangs[compteur] = query2.value(3).toInt();
