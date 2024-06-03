@@ -29,6 +29,9 @@ lecteurVue::lecteurVue(QWidget *parent)
     //navigation entre les bouton avec tab
     QWidget::setTabOrder(ui->bSuivant, ui->bPrecedent);
     QWidget::setTabOrder(ui->bPrecedent, ui->bSuivant);
+
+    setWindowTitle("Lecteur de Diaporama");
+    setWindowIcon(QIcon(":/images/VLC.png"));
 }
 
 lecteurVue::~lecteurVue()

@@ -58,5 +58,6 @@
         <file>Disney_tapis.gif</file>
         <file>Disney_tapis.png</file>
         <file>Disney_tapisOld.png</file>
+        <file>VLC.png</file>
     </qresource>
 </RCC>
