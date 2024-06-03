@@ -60,6 +60,8 @@ void database::chargerDiapos(vector<Diaporama *> & mesDiapos)
 
             Diaporama * diapoCharge = new Diaporama(titreDiapo, vitesseDiapo, numeroDiapo); //On le créé avec le titre et la vitesse de defilement
             mesDiapos.push_back(diapoCharge); //On envoie le diaporama dans le vecteur
+            diapoCharge->setVitesseDefilement(2);
+            changerVitesseDefilement(diapoCharge);
             query2.bindValue(":idDiapo", diapoCharge->getNumDiapoCourant());
 
             Image imageACharger("", "", ":/images/Disney_tapis.gif");
@@ -124,9 +126,5 @@ void database::changerVitesseDefilement(Diaporama* diapo)
     if (!query.exec())
     {
         qDebug() << "Erreur dans la modification de la vitesse de defilement";
-    }
-    else
-    {
-        qDebug() << "Requete exec " << diapo->getVitesseDefilement();
     }
 }

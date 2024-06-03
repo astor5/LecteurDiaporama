@@ -122,7 +122,6 @@ void Presentation::demandeVider()
 {
     getModele()->changementEtat();
     getModele()->setEtatLecteur(Modele::initial);
-    //getModele()->setDiaporamaCourant(0);
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getEtatLecteur());
 }
 
