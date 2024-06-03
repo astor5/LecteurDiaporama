@@ -30,8 +30,8 @@ lecteurVue::lecteurVue(QWidget *parent)
     QWidget::setTabOrder(ui->bSuivant, ui->bPrecedent);
     QWidget::setTabOrder(ui->bPrecedent, ui->bSuivant);
 
-    setWindowTitle("Lecteur de Diaporama");
-    setWindowIcon(QIcon(":/images/VLC.png"));
+    setWindowTitle("Lecteur de Diaporama"); //Ajout du titre à notre application
+    setWindowIcon(QIcon(":/images/VLC.png")); //Ajout de l'icone de notre application
 }
 
 lecteurVue::~lecteurVue()

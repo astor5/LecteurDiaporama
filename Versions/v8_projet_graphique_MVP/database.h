@@ -15,6 +15,7 @@ public:
     bool openDataBase();
     void closeDataBase();
     void chargerDiapos(vector<Diaporama *>&);
+    void changerVitesseDefilement(Diaporama*);
 
 private:
     QSqlDatabase mydb;

@@ -35,6 +35,11 @@ vector<Diaporama*> Modele::getTabDiaporamas()
     return _Diaporamas;
 }
 
+database *Modele::getDatabase()
+{
+    return db;
+}
+
 void Modele::setDiaporamaCourant(int pos)
 {
     _diaporamaCourant = pos;

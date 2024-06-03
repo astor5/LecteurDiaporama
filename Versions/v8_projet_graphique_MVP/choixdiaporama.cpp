@@ -8,6 +8,8 @@ choixdiaporama::choixdiaporama(QWidget *parent) :
     ui->setupUi(this);
 
     QObject::connect(ui->buttonBox, SIGNAL(accepted()), this, SLOT(sl_choixTitre()));
+
+    setWindowTitle("Changement du diaporama");
 }
 
 choixdiaporama::~choixdiaporama()

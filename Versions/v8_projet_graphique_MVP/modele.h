@@ -31,6 +31,7 @@ public:
     unsigned short int getVitesseDefilement() const;
     Diaporama * getDiaporamaCourant();
     vector<Diaporama*> getTabDiaporamas();
+    database * getDatabase();
 
     void setTabDiaporamas(vector<Diaporama*>);
 

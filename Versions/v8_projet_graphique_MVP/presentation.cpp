@@ -161,6 +161,7 @@ int Presentation::demandeVitesseDefilement()
 void Presentation::demandeSetVitesseDefilement(int vitDefilement)
 {
     getDiapoActuel()->setVitesseDefilement(vitDefilement);
+    getModele()->getDatabase()->changerVitesseDefilement(getModele()->getDiaporamaCourant());
 }
 
 int Presentation::demandeNombreDiapos()

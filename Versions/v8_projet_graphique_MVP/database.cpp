@@ -112,3 +112,21 @@ void database::chargerDiapos(vector<Diaporama *> & mesDiapos)
         qDebug() << "Erreur lors de l'exécution de la requête SQL:";
     }
 }
+
+void database::changerVitesseDefilement(Diaporama* diapo)
+{
+    QSqlQuery query;
+    QString insertion = "UPDATE Diaporamas SET vitesseDefilement = :vitesseDef WHERE idDiaporama = :idDiapo";
+    query.prepare(insertion);
+    query.bindValue(":vitesseDef", diapo->getVitesseDefilement());
+    query.bindValue(":idDiapo", diapo->getNumDiapoCourant());
+
+    if (!query.exec())
+    {
+        qDebug() << "Erreur dans la modification de la vitesse de defilement";
+    }
+    else
+    {
+        qDebug() << "Requete exec " << diapo->getVitesseDefilement();
+    }
+}

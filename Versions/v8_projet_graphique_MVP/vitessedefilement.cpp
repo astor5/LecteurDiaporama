@@ -10,6 +10,7 @@ vitessedefilement::vitessedefilement(QWidget *parent) :
     QObject::connect(ui->bOk, SIGNAL(clicked()), this, SLOT(accept()));
     QObject::connect(ui->bCancel, SIGNAL(clicked()), this, SLOT(reject()));
 
+    setWindowTitle("Changement de la vitesse de défilement");
 }
 
 vitessedefilement::~vitessedefilement()
