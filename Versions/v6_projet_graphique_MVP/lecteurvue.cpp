@@ -22,9 +22,7 @@ lecteurVue::lecteurVue(QWidget *parent)
     //conexion de boutons de la barre de menu
     QObject::connect(ui->actionQuitter, SIGNAL(triggered()), this, SLOT(sl_quitter()));
     QObject::connect(ui->actionCharger_diaporama, SIGNAL(triggered()), this, SLOT(sl_ouvrirChoixDiaporama()));
-    //QObject::connect(ui->actionCharger_diaporama, SIGNAL(triggered()), this, SLOT(sl_ouvrirVitesseDefilement()));
     QObject::connect(ui->actionEnlever_le_diaporama, SIGNAL(triggered()), this, SLOT(sl_enleverDiporama()));
-    //QObject::connect(ui->actionVitesse_de_defilement, SIGNAL(triggered()), this, SLOT(sl_vitesseDefilement()));
     QObject::connect(ui->actionVitesse_de_defilement, SIGNAL(triggered()), this, SLOT(sl_ouvrirVitesseDefilement()));
     QObject::connect(ui->actionA_propos, SIGNAL(triggered()), this, SLOT(sl_aPropos()));
 

@@ -5,8 +5,6 @@
 
 Modele::Modele(UnEtat etat, EtatLecteur eLect)
 {
-    //diapo = new Diaporama();
-    //diapo->chargerDiapos(diapo->charger(), _Diaporamas);
     setDiaporamaCourant(0);
     setEtat(etat);
     setEtatLecteur(eLect);
@@ -15,17 +13,6 @@ Modele::Modele(UnEtat etat, EtatLecteur eLect)
     db->openDataBase();
 
     db->chargerDiapos(_Diaporamas);
-    qDebug() << "Diapos chargés";
-    //setDiaporamaCourant(1);
-    qDebug() << getTabDiaporamas().size();
-    qDebug() << "Avant le chargement des images";
-    //db->chargerImages(getDiaporamaCourant());
-    qDebug() << "Avant la demande de titre mais apres chargement images";
-    qDebug() << QString::fromStdString(getDiaporamaCourant()->getImageCourante().getTitre());
-    qDebug() << "Apres demande de titre de la premiere image";
-    //qDebug() << QString::fromStdString(getDiaporamaCourant()->getTitre());
-    //qDebug() << QString::fromStdString(getDiaporamaCourant()->getToutesImages()[0].getTitre());
-    qDebug() << "Images affichées";
 }
 
 unsigned short Modele::getVitesseDefilement() const
