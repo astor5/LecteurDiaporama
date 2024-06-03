@@ -41,78 +41,75 @@ void database::closeDataBase()
 void database::chargerDiapos(vector<Diaporama *> & mesDiapos)
 {
     vector<Image> pImages;
-    QSqlQuery query;
-    QSqlQuery query2;
+    QSqlQuery query; //Requete 1
+    QSqlQuery query2; //Requete 2
     QString insertions="SELECT D.titrePhoto, F.nomFamille, D.uriPhoto, DDD.rang FROM `Diapos` D JOIN DiaposDansDiaporama DDD ON DDD.idDiapo = D.idphoto JOIN Familles F ON F.idFamille = D.idFam JOIN Diaporamas DS ON DS.idDiaporama = DDD.idDiaporama WHERE DS.idDiaporama = :idDiapo ORDER BY DDD.Rang;";
+    //Au dessus on récupere les images d'un diapo en particulier
     query2.prepare(insertions);
     int compteur = 0;
 
+    //On veut charger les diaporamas
     if (query.exec("SELECT * FROM Diaporamas;"))
     {
-        // Remplir le QTableWidget avec les résultats de la requête
+        // Tant qu'il y a des diaporamas
         while (query.next())
         {
-            Diaporama * diapoCharge = new Diaporama(query.value(1).toString().toStdString(), query.value(0).toInt(), query.value(2).toInt());
-            mesDiapos.push_back(diapoCharge);
+            Diaporama * diapoCharge = new Diaporama(query.value(1).toString().toStdString(), query.value(2).toInt(), query.value(0).toInt()); //On le créé avec le titre et la vitesse de defilement
+            mesDiapos.push_back(diapoCharge); //On envoie le diaporama dans le vecteur
             query2.bindValue(":idDiapo", diapoCharge->getNumDiapoCourant());
+            qDebug() << "Numero du diapo courant" << diapoCharge->getNumDiapoCourant();
 
             Image imageACharger("", "", ":/images/Disney_tapis.gif");
-            pImages.push_back(imageACharger);
+            pImages.push_back(imageACharger); //ON insere dans le vecteur une premiere image vide
 
+            //La requete pour les images
             if (query2.exec())
             {
                 while(query2.next())
                 {
                     compteur ++;
                 }
+
                 qDebug() << "Taille de la querry" << compteur;
                 int tabRangs[compteur];
-                // Remplir le QTableWidget avec les résultats de la requête
 
-                query2.exec();
+                query2.exec(); //On exec la requete
                 compteur = 0;
                 while (query2.next())
                 {
-                    // Titre, Object, Chemin
+                    // Cree une image avec Titre, Object, Chemin
                     imageACharger = Image(query2.value(0).toString().toStdString(), query2.value(1).toString().toStdString(), ":/images/" + query2.value(0).toString().toStdString());
-                    qDebug() << QString::fromStdString(imageACharger.getChemin());
-                    qDebug() << query2.value(0);
-                    pImages.push_back(imageACharger);
-                    tabRangs[compteur] = query2.value(3).toInt();
-                    qDebug() << query2.value(3).toInt();
-                    qDebug() << compteur << "compteur";
+                    pImages.push_back(imageACharger); //On l'envoie dans le vecteur
+                    tabRangs[compteur] = query2.value(3).toInt(); //On met dans un tableau le rang de l'image
                     compteur ++;
                 }
 
+                //Tant qu'il a des images dans le vecteur d'images
                 for (int i=0; i < pImages.size()-1; i++)
                 {
-                    ImageDansDiaporama imageDansDiapo = ImageDansDiaporama(pImages,i,tabRangs[i]);
-                    diapoCharge->ajouterImage(imageDansDiapo);
-                    diapoCharge->setPosImageCouranteInt(i);
-                    qDebug() << QString::fromStdString(diapoCharge->getImageCourante().getTitre());
-                    qDebug() << i << "valeur i";
+                    ImageDansDiaporama imageDansDiapo = ImageDansDiaporama(pImages,i,tabRangs[i]); //On créé une image dans un diporama
+                    diapoCharge->ajouterImage(imageDansDiapo); //On l'ajoute à notre diaporama
+                    //diapoCharge->setPosImageCouranteInt(i); //Normalement ça sert à rien
+                    //qDebug() << QString::fromStdString(diapoCharge->getImageCourante().getTitre());
                 }
-
-                diapoCharge->setPosImageCouranteInt(0);
-                diapoCharge->triCroissantRang();
-                pImages.clear();
-
-                qDebug() << "Toutes les images sont chargées";
-
+                compteur = 0; //On remet le compteur à 0
+                diapoCharge->setPosImageCouranteInt(0); //On met l'image courant à 0
+                diapoCharge->triCroissantRang(); //On trie le diaporama
+                pImages.clear(); //On vide le vecteur d'images
             }
             else
             {
                 qDebug() << "Erreur lors de l'exécution de la requête SQL: chargerImages";
             }
-
-            qDebug() << diapoCharge->getToutesImages().size();
-            qDebug() << "Fin de la fonction de chargement";
         }
+        //qDebug() << diapoCharge->getToutesImages().size();
     }
     else
     {
         qDebug() << "Erreur lors de l'exécution de la requête SQL:";
     }
+    qDebug() << "Fin de la fonction de chargement";
+    qDebug() << "Toutes les images sont chargées";
 }
 
 void database::chargerImages(vector<Diaporama *> & mesDiapos)
