@@ -94,6 +94,7 @@ void database::chargerDiapos(vector<Diaporama *> & mesDiapos)
 
                 diapoCharge->setPosImageCouranteInt(0);
                 diapoCharge->triCroissantRang();
+                pImages.clear();
 
                 qDebug() << "Toutes les images sont chargées";
 
