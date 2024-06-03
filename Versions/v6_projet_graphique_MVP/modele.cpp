@@ -19,9 +19,11 @@ Modele::Modele(UnEtat etat, EtatLecteur eLect)
     //setDiaporamaCourant(1);
     qDebug() << getTabDiaporamas().size();
     qDebug() << "Avant le chargement des images";
-    db->chargerImages(getDiaporamaCourant());
+    //db->chargerImages(getDiaporamaCourant());
     qDebug() << "Avant la demande de titre mais apres chargement images";
     qDebug() << getDiaporamaCourant()->getToutesImages().size();
+    qDebug() << "Apres size de toutes les images";
+    qDebug() << QString::fromStdString(getDiaporamaCourant()->getTitre());
     qDebug() << QString::fromStdString(getDiaporamaCourant()->getToutesImages()[0].getTitre());
     qDebug() << "Images affichées";
 }
