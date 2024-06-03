@@ -87,7 +87,8 @@ void Presentation::demandeChangementDiaporama(choixdiaporama &unChoix)
 {
     getModele()->setEtatLecteur(Modele::charge);
     getModele()->setEtat(Modele::manuel);
-    getModele()->setDiaporamaCourant(unChoix.recupIndex()+1);
+    getModele()->setDiaporamaCourant(unChoix.recupIndex()); //Enlevement du +1 apres recupIndex()
+    getModele()->getDiaporamaCourant()->setPosImageCouranteInt(0);
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getEtatLecteur());
 }
 
