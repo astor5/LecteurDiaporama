@@ -54,7 +54,11 @@ void database::chargerDiapos(vector<Diaporama *> & mesDiapos)
         // Tant qu'il y a des diaporamas
         while (query.next())
         {
-            Diaporama * diapoCharge = new Diaporama(query.value(1).toString().toStdString(), query.value(2).toInt(), query.value(0).toInt()); //On le créé avec le titre et la vitesse de defilement
+            string titreDiapo = query.value(1).toString().toStdString();
+            int vitesseDiapo = query.value(2).toInt();
+            int numeroDiapo = query.value(0).toInt();
+
+            Diaporama * diapoCharge = new Diaporama(titreDiapo, vitesseDiapo, numeroDiapo); //On le créé avec le titre et la vitesse de defilement
             mesDiapos.push_back(diapoCharge); //On envoie le diaporama dans le vecteur
             query2.bindValue(":idDiapo", diapoCharge->getNumDiapoCourant());
 
@@ -75,8 +79,12 @@ void database::chargerDiapos(vector<Diaporama *> & mesDiapos)
 
                 while (query2.next())
                 {
+                    string titreImage = query2.value(0).toString().toStdString();
+                    string objetImage = query2.value(1).toString().toStdString();
+                    string cheminImage = ":/images/" + query2.value(0).toString().toStdString();
+
                     // Cree une image avec Titre, Object, Chemin
-                    imageACharger = Image(query2.value(0).toString().toStdString(), query2.value(1).toString().toStdString(), ":/images/" + query2.value(0).toString().toStdString());
+                    imageACharger = Image(titreImage, objetImage, cheminImage);
                     pImages.push_back(imageACharger); //On l'envoie dans le vecteur
                     tabRangs[compteur] = query2.value(3).toInt(); //On met dans un tableau le rang de l'image
                     compteur ++;
