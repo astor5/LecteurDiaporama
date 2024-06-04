@@ -174,13 +174,15 @@ void lecteurVue::sl_arreterDiaporama()
 
 void lecteurVue::sl_aPropos()
 {
-    QString titre = "A propos";
-    QString message = "Version : 8 MVP\n\n"
-                      "Date de création : 01/06/2024\n\n"
-                      "Auteurs : ARANDIA Iban, CHIPY Thibault, LATXAGUE Thibault";
 
-    QMessageBox aPropos;
-    aPropos.setIconPixmap(QPixmap(":/images/info_icon.png"));
-    aPropos.information(nullptr, titre, message);
+
+    QMessageBox aPropos(QMessageBox::Information,"A propos","Version : 8 MVP\n\nDate de création : 01/06/2024\n\nAuteurs : ARANDIA Iban, CHIPY Thibault, LATXAGUE Thibault");
+
+    aPropos.setIconPixmap(QPixmap(":/images/cool.png"));
+
+    QPixmap pixmap = QPixmap(":/images/info_icon.png");
+    aPropos.setWindowIcon(QIcon(pixmap));
+    aPropos.exec();
+
 
 }

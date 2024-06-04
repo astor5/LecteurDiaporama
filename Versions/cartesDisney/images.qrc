@@ -60,5 +60,6 @@
         <file>Disney_tapisOld.png</file>
         <file>VLC.png</file>
         <file>info_icon.png</file>
+        <file>cool.png</file>
     </qresource>
 </RCC>
