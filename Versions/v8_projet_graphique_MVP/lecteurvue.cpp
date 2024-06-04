@@ -140,9 +140,12 @@ void lecteurVue::sl_ouvrirChoixDiaporama()
         maDlg.ajouterItem(QString::fromStdString(getPresentation()->demandeTitreDiaporama(i)));
     }
 
-    maDlg.exec();
+    int reponse = maDlg.exec();
 
-    getPresentation()->demandeChangementDiaporama(maDlg);
+    if (reponse == 1)
+    {
+        getPresentation()->demandeChangementDiaporama(maDlg);
+    }
 
     maDlg.hide();
     this->show();
@@ -172,9 +175,12 @@ void lecteurVue::sl_arreterDiaporama()
 void lecteurVue::sl_aPropos()
 {
     QString titre = "A propos";
-    QString message = "Version : 7 MVP\n\n"
+    QString message = "Version : 8 MVP\n\n"
                       "Date de création : 01/06/2024\n\n"
                       "Auteurs : ARANDIA Iban, CHIPY Thibault, LATXAGUE Thibault";
 
-    QMessageBox::information(nullptr, titre, message);
+    QMessageBox aPropos;
+    aPropos.setIconPixmap(QPixmap(":/images/info_icon.png"));
+    aPropos.information(nullptr, titre, message);
+
 }
