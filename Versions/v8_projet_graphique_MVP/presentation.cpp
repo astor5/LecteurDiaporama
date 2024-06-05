@@ -37,7 +37,7 @@ void Presentation::setTimerActif(bool actif)
 
 ImageDansDiaporama Presentation::getImageActuelle()
 {
-    return _leModele->getDiaporamaCourant()->getImageCourante();
+    return getModele()->getDiaporamaCourant()->getImageCourante();
 }
 
 Diaporama *Presentation::getDiapoActuel()
