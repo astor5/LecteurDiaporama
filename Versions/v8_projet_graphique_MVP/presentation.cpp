@@ -72,7 +72,9 @@ void Presentation::demanderReculer()
 
 void Presentation::demanderCharger()
 {
+    setTimerActif(false);
     getModele()->setEtatLecteur(Modele::charge);
+    getModele()->setEtat(Modele::manuel);
     getModele()->charger();
 }
 
