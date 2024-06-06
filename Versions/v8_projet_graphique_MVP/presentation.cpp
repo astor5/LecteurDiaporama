@@ -52,6 +52,7 @@ void Presentation::demanderAvancer()
     {
         getModele()->avancer();
     }
+    else {setTimerActif(false);}
     getModele()->changementEtat();
     getModele()->touchePressee();
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getEtatLecteur());
@@ -63,6 +64,7 @@ void Presentation::demanderReculer()
     {
         getModele()->reculer();
     }
+    else {setTimerActif(false);}
     getModele()->changementEtat();
     getModele()->touchePressee();
     getVue()->majPresentation(getDiapoActuel(), getModele()->getEtat(), getModele()->getEtatLecteur());
@@ -144,6 +146,7 @@ void Presentation::demandeModeAutomatique()
 
 void Presentation::onTimeout()
 {
+    qDebug() << "On timeout active";
     if (getModele()->getEtat() == Modele::automatique)
     {
         getModele()->avancer();
